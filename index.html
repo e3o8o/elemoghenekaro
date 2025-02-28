@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preterag</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
     <style>
+        :root {
+            --bg-color: linear-gradient(45deg, #004d40 0%, #00695c 100%);
+            --text-color: white;
+            --text-color-muted: rgba(255, 255, 255, 0.7);
+        }
+
+        body.light-mode {
+            --bg-color: white;
+            --text-color: #333;
+            --text-color-muted: #666;
+        }
+        
         body {
             font-family: 'Gothic A1', sans-serif;
-            background-color: white;
+            background: var(--bg-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,36 +31,66 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
         }
         
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
         }
         
         .logo {
-            margin-bottom: 40px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         
         .logo img {
             max-width: 250px;
             height: auto;
+            display: block;
         }
         
         .footer {
-            margin-top: 40px;
+            margin-top: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
         
         .surrealine-text {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--text-color-muted);
+            margin-bottom: 20px;
             font-family: 'Gothic A1', sans-serif;
             font-weight: 300;
+            line-height: 1.5;
         }
         
         .surrealine-link {
@@ -58,26 +101,42 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
         }
         
         .social-links a {
             color: #00f5a3;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 20px;
             transition: color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
         }
         
         .social-links a:hover {
             transform: scale(1.2);
-            color: #0d4b45;
+            color: var(--text-color);
+        }
+
+        .x-logo {
+            width: 20px;
+            height: 20px;
+            display: block;
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
     <div class="content">
         <div class="logo">
-            <img src="/api/placeholder/250/100" alt="Preterag Logo">
+            <img src="assets/images/preterag_fav_icon.png" alt="Preterag Logo">
         </div>
         
         <div class="footer">
@@ -86,13 +145,27 @@
             </div>
             
             <div class="social-links">
-                <a href="https://twitter.com/preterag" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/preterag" target="_blank" aria-label="X (formerly Twitter)">
+                    <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                </a>
                 <a href="https://instagram.com/preterag" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://github.com/preterag" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://mirror.xyz/preterag.eth" target="_blank" aria-label="Blog"><i class="fas fa-book"></i></a>
-                <a href="mailto:info@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:hello@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </div>
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+        });
+    </script>
 </body>
 </html> 
