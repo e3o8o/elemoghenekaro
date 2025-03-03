@@ -4,24 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="b1cf7d78bffa1ad63901d8c049969293"/>
-    <meta name="description" content="Preterag - A lab building Surrealine and contributing to Pipe Network. We're focused on creating innovative solutions in decentralized content delivery.">
-    <meta name="keywords" content="Preterag, Surrealine, Pipe Network, Web3, Decentralized CDN, Content Delivery">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="We are building Surrealine and contributing to Pipe Network. A lab focused on decentralized content delivery and innovative streaming solutions.">
+    <meta name="keywords" content="Preterag, Surrealine, Pipe Network, Decentralized Streaming, Content Delivery, Web3, Decentralized CDN, Streaming Platform">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Preterag">
+    <link rel="canonical" href="https://preterag.com/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://preterag.com/">
-    <meta property="og:title" content="Preterag - Building Surrealine">
-    <meta property="og:description" content="A lab building Surrealine and contributing to Pipe Network. We're focused on creating innovative solutions in decentralized content delivery.">
+    <meta property="og:site_name" content="Preterag">
+    <meta property="og:title" content="Preterag - Building Surrealine & Contributing to Pipe Network">
+    <meta property="og:description" content="We are building Surrealine and contributing to Pipe Network. A lab focused on decentralized content delivery and innovative streaming solutions.">
     <meta property="og:image" content="https://preterag.com/assets/images/preterag_fav_icon.png">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://preterag.com/">
-    <meta property="twitter:title" content="Preterag - Building Surrealine">
-    <meta property="twitter:description" content="A lab building Surrealine and contributing to Pipe Network. We're focused on creating innovative solutions in decentralized content delivery.">
+    <meta property="twitter:site" content="@preterag">
+    <meta property="twitter:creator" content="@preterag">
+    <meta property="twitter:title" content="Preterag - Building Surrealine & Contributing to Pipe Network">
+    <meta property="twitter:description" content="We are building Surrealine and contributing to Pipe Network. A lab focused on decentralized content delivery and innovative streaming solutions.">
     <meta property="twitter:image" content="https://preterag.com/assets/images/preterag_fav_icon.png">
     
-    <title>Preterag - A lab building Surrealine</title>
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#004d40">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Preterag">
+    
+    <title>Preterag - Building Surrealine & Contributing to Pipe Network</title>
+    
+    <!-- JSON-LD for Rich Snippets -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Preterag",
+        "url": "https://preterag.com",
+        "logo": "https://preterag.com/assets/images/preterag_fav_icon.png",
+        "description": "We are building Surrealine and contributing to Pipe Network. A lab focused on decentralized content delivery and innovative streaming solutions.",
+        "sameAs": [
+          "https://x.com/preterag",
+          "https://instagram.com/preterag",
+          "https://github.com/preterag",
+          "https://mirror.xyz/preterag.eth"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Preterag",
+        "url": "https://preterag.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://preterag.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Surrealine",
+        "applicationCategory": "Streaming Platform",
+        "operatingSystem": "Web",
+        "url": "https://surrealine.com",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Decentralized Content Delivery Network",
+        "description": "Contributing to Pipe Network for decentralized content delivery solutions",
+        "url": "https://github.com/preterag/pipecdn",
+        "author": {
+          "@type": "Organization",
+          "name": "Preterag"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Preterag",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://preterag.com/assets/images/preterag_fav_icon.png"
+          }
+        }
+      }
+    ]
+    </script>
+    
     <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
@@ -245,7 +324,7 @@
 
         .hidden-message {
             position: fixed;
-            top: -80px;
+            bottom: -80px;
             left: 0;
             width: 100%;
             padding: 25px;
@@ -259,10 +338,14 @@
             -webkit-backdrop-filter: blur(5px);
             z-index: 1000;
             opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         .hidden-message.visible {
-            transform: translateY(80px);
+            transform: translateY(-80px);
             opacity: 1;
         }
 
@@ -271,6 +354,20 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 26px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        @media (max-width: 480px) {
+            .hidden-message {
+                padding: 20px;
+                font-size: 20px;
+                gap: 8px;
+            }
+            
+            .hidden-message a {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
