@@ -7,7 +7,7 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Preterag is a research-led product development lab crafting pioneering innovative crypto applications.">
-    <meta name="keywords" content="Preterag, Surrealine, Pipe Network, Decentralized Streaming, Content Delivery, Web3, Decentralized CDN, Streaming Platform, Crypto Applications, Research Lab">
+    <meta name="keywords" content="Preterag, Web3, Crypto Applications, Research Lab">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="author" content="Preterag">
     <meta name="revisit-after" content="7 days">
@@ -67,38 +67,6 @@
           "target": "https://preterag.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Surrealine",
-        "applicationCategory": "Streaming Platform",
-        "operatingSystem": "Web",
-        "url": "https://surrealine.com",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "Decentralized Content Delivery Network",
-        "description": "Contributing to Pipe Network for decentralized content delivery solutions",
-        "url": "https://github.com/preterag/pipecdn",
-        "author": {
-          "@type": "Organization",
-          "name": "Preterag"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Preterag",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://preterag.com/assets/images/preterag_fav_icon.png"
-          }
-        }
       }
     ]
     </script>
@@ -106,18 +74,12 @@
     <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="assets/css/styles.css?v=1">
-    <link rel="stylesheet" href="assets/css/pages/home.css?v=1">
+    <link rel="stylesheet" href="assets/css/palette.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
     <style>
-        /* All colors now defined in palette.css */
-        .sub-nav a {
-            color: var(--accent-color);
-        }
-
-        .logo img {
-            width: 32px;
-            height: 32px;
-        }
+        /* Remove any inline styles that are now in our CSS files */
     </style>
 </head>
 <body>
@@ -126,9 +88,6 @@
     </a>
     
     <main class="content">
-        <div class="nav-links">
-            <a href="/writing">Writing</a>
-        </div>
         <div class="footer">
             <div class="social-links">
                 <a href="https://www.linkedin.com/company/preterag/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -145,6 +104,7 @@
         </div>
     </main>
     
+    <script src="assets/js/settings.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
 </body>

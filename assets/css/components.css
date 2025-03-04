@@ -1,0 +1,128 @@
+/* Logo */
+.logo {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 1000;
+    padding: 0;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 1000;
+    background: var(--card-bg);
+    border: none;
+    color: var(--accent-color);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-md);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--midnight-green);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    font-size: var(--font-size-lg);
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+    color: var(--accent-color);
+}
+
+/* X (Twitter) Logo */
+.x-logo {
+    width: 24px;
+    height: 24px;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    opacity: 0.9;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo {
+        top: calc(var(--spacing-md) + 20px);
+        left: calc(var(--spacing-md) + 20px);
+    }
+    
+    .social-links {
+        gap: var(--spacing-sm);
+    }
+    
+    .theme-toggle {
+        top: calc(var(--spacing-md) + 20px);
+        right: calc(var(--spacing-md) + 20px);
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        top: calc(var(--spacing-sm) + 20px);
+        left: calc(var(--spacing-sm) + 20px);
+    }
+    
+    .logo img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .social-links a {
+        font-size: var(--font-size-md);
+    }
+    
+    .x-logo {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .theme-toggle {
+        top: calc(var(--spacing-sm) + 20px);
+        right: calc(var(--spacing-sm) + 20px);
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-sm);
+    }
+} 
