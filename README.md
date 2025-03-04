@@ -8,7 +8,7 @@ A minimalist landing page featuring:
 - Responsive design
 - Dark/Light mode toggle
 - Social media links
-- Modern UI with smooth transitions
+- Modern UI with gradient backgrounds
 
 ## Development
 
@@ -43,4 +43,30 @@ python3 -m http.server 8000
 - X (Twitter): [@preterag](https://x.com/preterag)
 - Instagram: [@preterag](https://instagram.com/preterag)
 - GitHub: [@preterag](https://github.com/preterag)
-- Blog: [mirror.xyz/preterag.eth](https://mirror.xyz/preterag.eth) 
+- Blog: [mirror.xyz/preterag.eth](https://mirror.xyz/preterag.eth)
+
+## Styling Guide
+
+### Color System
+The website uses a Caribbean-themed color palette defined in `assets/css/palette.css`:
+- Base colors are managed through CSS variables
+- Background uses a radial gradient from midnight green to teal
+- HTML background has a semi-transparent spring green overlay
+- All navigation elements maintain transparency
+
+### Adding New Pages
+When creating new pages:
+1. Import the core stylesheets:
+   ```html
+   <link rel="stylesheet" href="/assets/css/palette.css">
+   <link rel="stylesheet" href="/assets/css/styles.css">
+   ```
+2. Use the standard container structure:
+   ```html
+   <nav class="nav-breadcrumb">
+     <!-- Navigation content -->
+   </nav>
+   <div class="container">
+     <!-- Page content -->
+   </div>
+   ``` 
