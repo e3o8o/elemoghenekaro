@@ -35,6 +35,11 @@
     100% { opacity: 0; }
 }
 
+@keyframes quickFade {
+    0% { background-color: var(--midnight-green); }
+    100% { background-color: var(--base-bg); }
+}
+
 @keyframes surrealineMessage {
     0% { opacity: 0; transform: translateX(-50%) translateY(100%); }
     10% { opacity: 1; transform: translateX(-50%) translateY(0); }
@@ -52,11 +57,9 @@ html, body {
 }
 
 html {
-    background-color: var(--spring-green); /* Spring green base background */
+    background: var(--base-bg);
     min-height: 100vh;
-    min-width: 100vw;
-    background-size: cover;
-    background-attachment: fixed;
+    animation: quickFade 0.1s ease-out;
 }
 
 html[data-theme="dark"] {
