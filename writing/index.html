@@ -17,48 +17,65 @@
     <link rel="stylesheet" href="writing.css">
 </head>
 <body>
-    <a href="/" class="logo">
-        <img src="../assets/images/preterag_fav_icon.png" alt="Preterag Logo">
-    </a>
+    <header class="site-header">
+        <a href="/" class="logo">
+            <img src="../assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+        </a>
+        <nav class="header-nav">
+            <a href="/building" class="nav-link">Building</a>
+            <a href="/contributing" class="nav-link">Contributing</a>
+            <a href="/writing" class="nav-link active">Writing</a>
+            <a href="/about" class="nav-link">About</a>
+        </nav>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
     
     <main class="content">
         <div class="container">
-            <section class="section">
-                <div class="section-header">
-                    <h2>Latest Posts</h2>
-                    <div class="view-toggle">
-                        <button class="view-toggle-btn active" data-view="grid">
-                            <i class="fas fa-th-large"></i>
-                        </button>
-                        <button class="view-toggle-btn" data-view="list">
-                            <i class="fas fa-list"></i>
-                        </button>
+            <section class="list-section">
+                <h2>Latest Posts</h2>
+                <div id="posts-container">
+                    <!-- Example post structure (will be populated dynamically) -->
+                    <div class="list-item">
+                        <h3>Post Title</h3>
+                        <p>Post excerpt or description goes here...</p>
+                        <div class="list-item-meta">
+                            <span><i class="far fa-calendar"></i> Jan 1, 2024</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                            <span><i class="far fa-user"></i> Author Name</span>
+                        </div>
+                        <a href="#" class="list-item-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="posts-grid grid-view" id="posts-container">
-                    <!-- Posts will be loaded dynamically -->
-                </div>
             </section>
-
-            <!-- Categories section removed -->
-        </div>
-        
-        <div class="footer">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/preterag/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/preterag" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://mirror.xyz/preterag.eth" target="_blank" aria-label="Blog"><i class="fas fa-book"></i></a>
-                <a href="https://x.com/preterag" target="_blank" aria-label="X (formerly Twitter)">
-                    <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/preterag" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:hello@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/preterag/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/preterag" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://mirror.xyz/preterag.eth" target="_blank" aria-label="Mirror.xyz">
+                <svg class="mirror-logo" viewBox="0 0 100 100" width="100%" height="100%">
+                    <path fill="currentColor" d="M20 80 L80 80 L80 30 A30 30 0 0 0 20 30 L20 80 Z"/>
+                </svg>
+            </a>
+            <a href="https://x.com/preterag" target="_blank" aria-label="X (formerly Twitter)">
+                <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+            </a>
+            <a href="https://instagram.com/preterag" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:hello@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
+    </footer>
     
     <script src="../assets/js/settings.js"></script>
     <script src="../assets/js/theme.js"></script>
