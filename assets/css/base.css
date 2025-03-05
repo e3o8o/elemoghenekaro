@@ -35,26 +35,68 @@
     100% { opacity: 0; }
 }
 
+@keyframes surrealineMessage {
+    0% { opacity: 0; transform: translateX(-50%) translateY(100%); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
 /* Ensure the entire viewport uses theme colors */
 html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
     min-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 html {
-    background: var(--midnight-green);  /* Fallback solid color */
+    background-color: var(--spring-green); /* Spring green base background */
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-[data-theme="dark"] {
-    background: radial-gradient(circle at top right, var(--teal), var(--midnight-green)),
-                radial-gradient(circle at bottom left, var(--teal), var(--midnight-green)) !important;
+html[data-theme="dark"] {
+    background: var(--bg-color); /* Use the radial gradient variable from palette.css */
+    background-attachment: fixed;
 }
 
-[data-theme="light"] {
-    background: radial-gradient(circle at top right, #FFFFFF, #FFFAF0),
-                radial-gradient(circle at bottom left, #FFFFFF, #FAF7F2) !important;
+html[data-theme="light"] {
+    background: var(--bg-color); /* Use the radial gradient variable from palette.css */
+    background-attachment: fixed;
+}
+
+/* Hidden Surrealine message */
+.surrealine-message {
+    position: fixed;
+    bottom: -100px; /* Initially hidden below the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--spring-green);
+    padding: 12px 25px;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(0, 245, 163, 0.7);
+    box-shadow: 0 0 15px rgba(0, 245, 163, 0.3);
+    border: 1px solid var(--spring-green);
+    transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.surrealine-message.visible {
+    bottom: 30px;
+    opacity: 1;
+}
+
+/* Remove the theme change animation trigger */
+html.theme-changing .surrealine-message {
+    animation: none;
 }
 
 /* Flash overlay for theme changes */
@@ -72,7 +114,7 @@ html::before {
 }
 
 html.theme-changing::before {
-    animation: flashOverlay 0.5s ease-out forwards;
+    animation: flashOverlay 0.25s ease-out forwards;
 }
 
 /* Base Styles */
