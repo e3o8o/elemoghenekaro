@@ -13,13 +13,16 @@ python3 -m http.server 4000
 ## Directory Structure
 
 - `assets/` - Core assets (CSS, JS, images)
+  - `css/` - Modular stylesheet system
+  - `js/` - JavaScript utilities
+  - `images/` - Site assets
 - `about/` - About section pages
 - `building/` - Building section content
 - `contributing/` - Contributing guidelines
 - `writing/` - Writing and blog content
 - `docs/` - Project documentation
 
-## Styling
+## Styling System
 
 ### CSS Organization
 - `palette.css` - Color variables and themes
@@ -27,11 +30,41 @@ python3 -m http.server 4000
 - `components.css` - Reusable components
 - `layout.css` - Layout and structure
 
-### Color System
-The site uses a Caribbean-themed palette:
-- Colors are managed via CSS variables
-- Dark/Light theme support
-- Consistent accent colors for interactive elements
+### Navigation System
+The site uses a consistent header navigation across all pages:
+```html
+<header class="site-header">
+    <a href="/" class="logo">
+        <img src="/assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+    </a>
+    <nav class="header-nav">
+        <a href="/building" class="nav-link">Building</a>
+        <a href="/contributing" class="nav-link">Contributing</a>
+        <a href="/writing" class="nav-link">Writing</a>
+        <a href="/about" class="nav-link">About</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+</header>
+```
+
+### Responsive Design
+- Mobile-first approach
+- Breakpoints:
+  - Mobile: ≤ 480px
+  - Tablet: ≤ 768px
+  - Desktop: > 768px
+- Adaptive navigation:
+  - Full navigation on desktop
+  - Simplified navigation on mobile
+  - Consistent header height across breakpoints
+
+### Theme System
+- Light/Dark mode support
+- Theme persistence using localStorage
+- System preference detection
+- Smooth theme transitions
 
 ## Adding New Pages
 
@@ -49,15 +82,21 @@ The site uses a Caribbean-themed palette:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags and stylesheets -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title - Preterag</title>
+    <!-- Stylesheets -->
 </head>
 <body>
-    <a href="/" class="logo">
-        <img src="/assets/images/preterag_fav_icon.png" alt="Preterag Logo">
-    </a>
+    <header class="site-header">
+        <!-- Standard navigation -->
+    </header>
     <main class="content">
-        <!-- Page content -->
+        <!-- Page content using list-style layout -->
     </main>
+    <footer class="site-footer">
+        <!-- Standard footer -->
+    </footer>
 </body>
 </html>
 ```
@@ -68,16 +107,25 @@ The site uses a Caribbean-themed palette:
    - Use semantic HTML
    - Include proper ARIA labels
    - Maintain good color contrast
+   - Ensure keyboard navigation
 
 2. **Performance**
    - Optimize images
    - Minimize external dependencies
    - Use system fonts when possible
+   - Implement smooth transitions
 
 3. **Maintenance**
    - Keep CSS organized by component
    - Follow existing naming conventions
    - Document any complex functionality
+   - Use consistent spacing and indentation
+
+4. **Mobile Optimization**
+   - Test on various devices
+   - Ensure touch targets are adequate
+   - Optimize for different screen sizes
+   - Consider network performance
 
 ## Coding Standards
 
@@ -85,25 +133,19 @@ The site uses a Caribbean-themed palette:
 - Use HTML5 doctype
 - Use semantic HTML elements
 - Validate HTML using [W3C Validator](https://validator.w3.org/)
+- Maintain consistent indentation
 
 ### CSS
 - Follow BEM (Block, Element, Modifier) naming conventions
 - Organize CSS by component
-- Use variables for colors and consistent spacing
+- Use variables for colors and spacing
+- Implement mobile-first media queries
 
 ### JavaScript
 - Use ES6+ features
 - Keep functions small and focused
 - Comment complex logic
-- Avoid jQuery when vanilla JavaScript can be used
-
-## File Organization
-
-- Place new pages at the root level in their own directories
-- Add CSS for specific pages in the page's directory
-- Place shared styles in `assets/css/`
-- Place shared scripts in `assets/js/`
-- Add images to `assets/images/`
+- Implement error handling
 
 ## Git Workflow
 
@@ -119,9 +161,12 @@ The site uses a Caribbean-themed palette:
 - Ensure mobile responsiveness
 - Check performance using Lighthouse
 - Validate HTML and CSS
+- Test theme switching functionality
+- Verify navigation consistency
 
 ## Documentation
 
 - Update documentation when making significant changes
 - Document complex components
-- Keep the README up to date 
+- Keep the README up to date
+- Include code examples where helpful 

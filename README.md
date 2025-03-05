@@ -4,11 +4,13 @@ The official website for Preterag, showcasing our journey in building [Surrealin
 
 ## Overview
 
-A modern, minimalist landing page with:
-- Clean, responsive design
-- Dark/Light mode support
-- Social media integration
+A modern, minimalist landing page featuring:
+- Clean, responsive design with consistent navigation
+- Simplified list-style layout for content sections
+- Dark/Light mode support with persistent theme selection
+- Social media integration with Mirror.xyz blog
 - Modern UI with Caribbean-themed color palette
+- Mobile-optimized interface with adaptive navigation
 
 ## Tech Stack
 
@@ -16,6 +18,7 @@ A modern, minimalist landing page with:
 - No frameworks or build tools required
 - Font Awesome for icons
 - Gothic A1 font family
+- Responsive CSS Grid and Flexbox layouts
 
 ## Quick Start
 
@@ -33,7 +36,11 @@ python3 -m http.server 4000
 ```
 preterag-site/
 ├── assets/
-│   ├── css/         # Stylesheets
+│   ├── css/         # Modular stylesheets
+│   │   ├── palette.css    # Color themes
+│   │   ├── base.css      # Base styles
+│   │   ├── components.css # UI components
+│   │   └── layout.css    # Layout system
 │   ├── js/          # JavaScript files
 │   └── images/      # Image assets
 ├── about/           # About section
@@ -42,6 +49,14 @@ preterag-site/
 ├── docs/           # Documentation
 └── writing/        # Writing section
 ```
+
+## Features
+
+- **Consistent Navigation**: Unified header across all pages
+- **Responsive Design**: Optimized for all screen sizes
+- **Theme Persistence**: Remembers user's theme preference
+- **Mobile-First**: Simplified mobile navigation
+- **Content Organization**: Clear list-style layout for better readability
 
 ## Documentation
 

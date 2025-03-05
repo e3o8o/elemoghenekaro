@@ -7,31 +7,27 @@ The Preterag site is organized as a static website with a clean, modular structu
 ```
 preterag-site/
 ├── assets/              # Core assets
-│   ├── css/            # Stylesheets
-│   │   ├── palette.css # Color system
+│   ├── css/            # Modular stylesheets
+│   │   ├── palette.css # Theme system
 │   │   ├── base.css    # Base styles
 │   │   ├── components.css # UI components
-│   │   └── layout.css  # Layout styles
+│   │   └── layout.css  # Layout & responsive system
 │   ├── js/             # JavaScript files
-│   │   ├── settings.js # Site settings
-│   │   └── theme.js    # Theme handling
+│   │   ├── theme.js    # Theme handling
+│   │   └── navigation.js # Navigation behavior
 │   └── images/         # Image assets
 ├── about/              # About section
-│   ├── index.html
-│   ├── team/
-│   └── careers/
+│   └── index.html     # About page with list layout
 ├── building/           # Building section
-│   └── index.html
+│   └── index.html     # Building page with list layout
 ├── contributing/       # Contributing section
-│   └── index.html
+│   └── index.html     # Contributing page with list layout
 ├── writing/           # Writing section
-│   ├── index.html
-│   ├── writing.css
-│   └── writing.js
+│   └── index.html     # Writing page with list layout
 ├── docs/              # Documentation
-│   ├── DEVELOPMENT.md
-│   ├── PROJECT_STRUCTURE.md
-│   └── DEPLOYMENT.md
+│   ├── DEVELOPMENT.md # Development guidelines
+│   ├── PROJECT_STRUCTURE.md # This file
+│   └── DEPLOYMENT.md  # Deployment procedures
 └── index.html         # Main entry point
 ```
 
@@ -39,24 +35,56 @@ preterag-site/
 
 ### 1. Entry Point
 - `index.html` - Main landing page
-- Contains navigation and social links
-- Responsive design with mobile support
+- Consistent header navigation
+- Responsive design with mobile optimization
+- Theme toggle with persistence
 
 ### 2. Assets
-- **CSS**: Modular stylesheet organization
-- **JavaScript**: Minimal, focused scripts
-- **Images**: Site logos and icons
+#### CSS Structure
+- **palette.css**: Theme system and color variables
+- **base.css**: Reset and base styles
+- **components.css**: Reusable UI components
+- **layout.css**: Responsive grid and layout system
+
+#### JavaScript
+- **theme.js**: Theme management and persistence
+- **navigation.js**: Mobile navigation behavior
+
+#### Images
+- Site logos and icons
+- Optimized for various screen sizes
 
 ### 3. Content Sections
-- **About**: Company information
-- **Building**: Product development
-- **Contributing**: Open source projects
-- **Writing**: Blog and articles
+All sections follow a consistent structure:
+- Unified header navigation
+- List-style content layout
+- Responsive design patterns
+- Mobile-optimized interface
+
+#### About Section
+- Company information
+- Team overview
+- Mission and values
+
+#### Building Section
+- Product development
+- Surrealine updates
+- Technical insights
+
+#### Contributing Section
+- Open source projects
+- Community guidelines
+- Development standards
+
+#### Writing Section
+- Blog posts
+- Technical articles
+- Project updates
 
 ### 4. Documentation
-- Development guidelines
-- Project structure
-- Deployment procedures
+- **DEVELOPMENT.md**: Development guidelines and standards
+- **PROJECT_STRUCTURE.md**: Codebase organization (this file)
+- **DEPLOYMENT.md**: Deployment procedures and checklist
 
 ## Navigation Structure
 
@@ -65,49 +93,58 @@ Home
 ├── Building
 │   └── Surrealine (external)
 ├── Contributing
-│   └── Pipe-PoP (external)
+│   └── Open Source
 ├── Writing
+│   └── Blog Posts
 └── About
-    ├── Team
-    └── Careers
+    └── Team
 ```
 
-## Directory Structure
+## Responsive Design Structure
 
-- **assets/** - Contains all static assets for the website
-  - **css/** - Stylesheet files
-  - **js/** - JavaScript files
-  - **images/** - Image files
+### Desktop (> 768px)
+- Full navigation menu
+- Expanded content layout
+- Hover interactions
 
-- **about/** - About page content
-- **building/** - Building page content
-- **contributing/** - Contributing page content
-- **writing/** - Writing section content
+### Tablet (≤ 768px)
+- Adjusted navigation spacing
+- Responsive grid layout
+- Touch-optimized interactions
 
-- **docs/** - Project documentation
-  - **PROJECT_STRUCTURE.md** - This file
-  - **DEVELOPMENT.md** - Development guidelines
-  - **DEPLOYMENT.md** - Deployment instructions
+### Mobile (≤ 480px)
+- Simplified navigation
+- Single-column layout
+- Optimized touch targets
 
-- **grav-cms/** - Grav CMS files (for backend content management)
+## Theme System
 
-## Main Files
-
-- **index.html** - Main entry point for the website
-- **README.md** - Project overview and quick start guide
-- **.gitignore** - Specifies files that should not be tracked by Git
-- **CNAME** - Custom domain configuration for GitHub Pages
-- **.nojekyll** - Disables Jekyll processing on GitHub Pages
+- Light/Dark mode toggle
+- System preference detection
+- Theme persistence
+- Smooth transitions
 
 ## Dependencies
 
-The website uses minimal external dependencies:
+The website maintains minimal external dependencies:
 - FontAwesome for icons
-- Google Fonts for typography
+- Google Fonts (Gothic A1)
+- No JavaScript frameworks
+- No CSS frameworks
 
 ## Development Workflow
 
-1. Make changes to HTML, CSS, or JavaScript files
-2. Test locally
-3. Commit changes
-4. Push to the main branch for deployment 
+1. Create feature branch
+2. Implement changes following style guide
+3. Test across all breakpoints
+4. Create pull request
+5. Review and merge to main
+6. Deploy to production
+
+## Performance Considerations
+
+- Optimized asset loading
+- Minimal JavaScript usage
+- Efficient CSS organization
+- Mobile-first approach
+- Responsive images 
