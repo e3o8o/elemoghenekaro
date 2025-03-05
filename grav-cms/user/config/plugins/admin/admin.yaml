@@ -1,0 +1,4 @@
+enabled: true
+route: /admin
+cache_enabled: false
+theme: grav
