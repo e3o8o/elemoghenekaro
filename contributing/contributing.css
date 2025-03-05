@@ -1,0 +1,106 @@
+/* Contributing Page Styles */
+.section {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+}
+
+.section h2 {
+    margin-top: 0;
+    color: var(--spring-green);
+}
+
+.project-content {
+    margin-top: var(--spacing-lg);
+}
+
+.project-content p {
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+/* GitHub Stats */
+.github-stats {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-lg);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.stat i {
+    font-size: var(--font-size-xl);
+    color: var(--spring-green);
+}
+
+.stat-count {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-muted);
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--spring-green);
+    color: var(--midnight-green);
+    border-radius: var(--radius-md);
+    transition: opacity 0.3s ease;
+    font-weight: 400;
+}
+
+.project-link.secondary {
+    background: transparent;
+    color: var(--spring-green);
+    border: 1px solid var(--spring-green);
+}
+
+.project-link:hover {
+    opacity: 0.9;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .section {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-xl) 0;
+    }
+    
+    .github-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+} 

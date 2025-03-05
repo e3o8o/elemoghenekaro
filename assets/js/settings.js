@@ -14,7 +14,7 @@ const globalSettings = {
         
         // Apply theme-specific changes
         if (key === 'theme') {
-            document.documentElement.setAttribute('data-theme', value);
+            setTheme(value);
         }
     },
     
@@ -26,4 +26,31 @@ const globalSettings = {
 };
 
 // Initialize theme on page load
-document.documentElement.setAttribute('data-theme', globalSettings.getSetting('theme')); 
+document.documentElement.setAttribute('data-theme', globalSettings.getSetting('theme'));
+
+function setTheme(theme) {
+    console.debug(`[Theme Debug] Setting theme to: ${theme}`);
+    console.debug(`[Theme Debug] Previous theme was: ${document.documentElement.getAttribute('data-theme')}`);
+    
+    // First, remove any existing animation
+    document.documentElement.classList.remove('theme-changing');
+    
+    // Force a reflow
+    void document.documentElement.offsetWidth;
+    
+    // Apply new theme
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // Add animation class
+    requestAnimationFrame(() => {
+        document.documentElement.classList.add('theme-changing');
+        
+        // Remove class after animation completes
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-changing');
+        }, 600); // slightly longer than animation duration
+    });
+    
+    console.debug('[Theme Debug] Theme change complete, animation should trigger');
+} 

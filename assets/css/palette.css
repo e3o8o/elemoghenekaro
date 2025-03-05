@@ -30,7 +30,8 @@
 
 /* Light Mode Colors */
 [data-theme="light"] {
-    --bg-color: #FFFAF0;  /* Changed to Floral White - a subtle cream color */
+    --bg-color: radial-gradient(circle at top right, #FFFFFF, #FFFAF0),
+                radial-gradient(circle at bottom left, #FFFFFF, #FAF7F2);
     --base-bg: #FAF7F2;   /* Slightly darker cream for base */
     --text-color: var(--caribbean-current);
     --text-color-muted: rgba(0, 56, 56, 0.7);

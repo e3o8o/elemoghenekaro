@@ -29,32 +29,62 @@
     --radius-full: 9999px;
 }
 
-/* Base Styles */
-body {
-    font-family: 'Gothic A1', sans-serif;
-    background: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
+@keyframes flashOverlay {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
 }
 
-@keyframes quickFade {
-    0% { background-color: var(--midnight-green); }
-    100% { background-color: var(--base-bg); }
+/* Ensure the entire viewport uses theme colors */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 html {
-    background: var(--base-bg);
-    min-height: 100vh;
-    animation: quickFade 0.1s ease-out;
+    background: var(--midnight-green);  /* Fallback solid color */
+}
+
+[data-theme="dark"] {
+    background: radial-gradient(circle at top right, var(--teal), var(--midnight-green)),
+                radial-gradient(circle at bottom left, var(--teal), var(--midnight-green)) !important;
+}
+
+[data-theme="light"] {
+    background: radial-gradient(circle at top right, #FFFFFF, #FFFAF0),
+                radial-gradient(circle at bottom left, #FFFFFF, #FAF7F2) !important;
+}
+
+/* Flash overlay for theme changes */
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0;
+    background-color: #05FE9E;  /* Brighter spring green */
+}
+
+html.theme-changing::before {
+    animation: flashOverlay 0.5s ease-out forwards;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Gothic A1', sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 /* Typography */
 h1 {
-    font-size: var(--font-size-3xl);
+    font-size: 30px;
     font-weight: 300;
     margin-bottom: var(--spacing-md);
     letter-spacing: 1px;
@@ -62,14 +92,14 @@ h1 {
 }
 
 h2 {
-    font-size: var(--font-size-xl);
+    font-size: 20px;
     font-weight: 400;
     margin: var(--spacing-xl) 0 var(--spacing-md);
     color: var(--accent-color);
 }
 
 p {
-    font-size: var(--font-size-md);
+    font-size: 20px;
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
 }
