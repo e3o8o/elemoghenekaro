@@ -1,2 +1,0 @@
-1741133168
-O:39:"Grav\Common\Flex\Types\Users\UserObject":4:{s:4:"type";s:13:"user-accounts";s:3:"key";s:4:"karo";s:8:"elements";a:7:{s:5:"state";s:7:"enabled";s:5:"email";s:24:"elemoghenekaro@gmail.com";s:8:"fullname";s:5:"Elem ";s:5:"title";s:10:"Oghenekaro";s:6:"access";a:2:{s:5:"admin";a:2:{s:5:"login";b:1;s:5:"super";b:1;}s:4:"site";a:1:{s:5:"login";b:1;}}s:15:"hashed_password";s:60:"$2y$12$nS6xRinjkAz2v/cSzDApv.snW2R6Rv7DUKPMZZeg5XHJUXnDLo6bi";s:8:"username";s:4:"karo";}s:7:"storage";a:2:{s:11:"storage_key";s:4:"karo";s:17:"storage_timestamp";i:1741132568;}}

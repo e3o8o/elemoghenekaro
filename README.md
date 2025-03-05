@@ -4,37 +4,50 @@ The official website for Preterag, showcasing our journey in building [Surrealin
 
 ## Overview
 
-A minimalist landing page featuring:
-- Responsive design
-- Dark/Light mode toggle
-- Social media links
-- Modern UI with gradient backgrounds
+A modern, minimalist landing page with:
+- Clean, responsive design
+- Dark/Light mode support
+- Social media integration
+- Modern UI with Caribbean-themed color palette
 
-## Development
+## Tech Stack
 
-The site is built with:
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Font Awesome icons
+- Pure HTML5, CSS3, and JavaScript
+- No frameworks or build tools required
+- Font Awesome for icons
 - Gothic A1 font family
 
-## Local Development
+## Quick Start
 
-To run the site locally:
-
-1. Clone the repository:
+1. Clone and serve:
 ```bash
 git clone https://github.com/preterag/preterag-site.git
 cd preterag-site
+python3 -m http.server 4000
 ```
 
-2. Start a local server (using Python):
-```bash
-python3 -m http.server 8000
+2. Visit `http://localhost:4000`
+
+## Project Structure
+
+```
+preterag-site/
+├── assets/
+│   ├── css/         # Stylesheets
+│   ├── js/          # JavaScript files
+│   └── images/      # Image assets
+├── about/           # About section
+├── building/        # Building section
+├── contributing/    # Contributing section
+├── docs/           # Documentation
+└── writing/        # Writing section
 ```
 
-3. Visit `http://localhost:8000` in your browser
+## Documentation
+
+- [Development Guide](docs/DEVELOPMENT.md)
+- [Project Structure](docs/PROJECT_STRUCTURE.md)
+- [Deployment Guide](docs/DEPLOYMENT.md)
 
 ## Contact
 
@@ -45,28 +58,6 @@ python3 -m http.server 8000
 - GitHub: [@preterag](https://github.com/preterag)
 - Blog: [mirror.xyz/preterag.eth](https://mirror.xyz/preterag.eth)
 
-## Styling Guide
+## License
 
-### Color System
-The website uses a Caribbean-themed color palette defined in `assets/css/palette.css`:
-- Base colors are managed through CSS variables
-- Background uses a radial gradient from midnight green to teal
-- HTML background has a semi-transparent spring green overlay
-- All navigation elements maintain transparency
-
-### Adding New Pages
-When creating new pages:
-1. Import the core stylesheets:
-   ```html
-   <link rel="stylesheet" href="/assets/css/palette.css">
-   <link rel="stylesheet" href="/assets/css/styles.css">
-   ```
-2. Use the standard container structure:
-   ```html
-   <nav class="nav-breadcrumb">
-     <!-- Navigation content -->
-   </nav>
-   <div class="container">
-     <!-- Page content -->
-   </div>
-   ``` 
+MIT License - See [LICENSE](LICENSE) for details 

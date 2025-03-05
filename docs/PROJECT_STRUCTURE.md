@@ -1,6 +1,76 @@
-# Preterag Site Project Structure
+# Project Structure
 
-This document provides an overview of the project structure for the Preterag website.
+## Overview
+
+The Preterag site is organized as a static website with a clean, modular structure:
+
+```
+preterag-site/
+├── assets/              # Core assets
+│   ├── css/            # Stylesheets
+│   │   ├── palette.css # Color system
+│   │   ├── base.css    # Base styles
+│   │   ├── components.css # UI components
+│   │   └── layout.css  # Layout styles
+│   ├── js/             # JavaScript files
+│   │   ├── settings.js # Site settings
+│   │   └── theme.js    # Theme handling
+│   └── images/         # Image assets
+├── about/              # About section
+│   ├── index.html
+│   ├── team/
+│   └── careers/
+├── building/           # Building section
+│   └── index.html
+├── contributing/       # Contributing section
+│   └── index.html
+├── writing/           # Writing section
+│   ├── index.html
+│   ├── writing.css
+│   └── writing.js
+├── docs/              # Documentation
+│   ├── DEVELOPMENT.md
+│   ├── PROJECT_STRUCTURE.md
+│   └── DEPLOYMENT.md
+└── index.html         # Main entry point
+```
+
+## Key Components
+
+### 1. Entry Point
+- `index.html` - Main landing page
+- Contains navigation and social links
+- Responsive design with mobile support
+
+### 2. Assets
+- **CSS**: Modular stylesheet organization
+- **JavaScript**: Minimal, focused scripts
+- **Images**: Site logos and icons
+
+### 3. Content Sections
+- **About**: Company information
+- **Building**: Product development
+- **Contributing**: Open source projects
+- **Writing**: Blog and articles
+
+### 4. Documentation
+- Development guidelines
+- Project structure
+- Deployment procedures
+
+## Navigation Structure
+
+```
+Home
+├── Building
+│   └── Surrealine (external)
+├── Contributing
+│   └── Pipe-PoP (external)
+├── Writing
+└── About
+    ├── Team
+    └── Careers
+```
 
 ## Directory Structure
 

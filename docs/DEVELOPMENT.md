@@ -1,26 +1,83 @@
-# Development Guidelines
+# Development Guide
 
-This document outlines the development guidelines for the Preterag website.
+## Setup
 
-## Setting Up the Development Environment
+No build tools or dependencies required. Simply clone and serve:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/preterag/preterag-site.git
-   cd preterag-site
-   ```
+```bash
+git clone https://github.com/preterag/preterag-site.git
+cd preterag-site
+python3 -m http.server 4000
+```
 
-2. No build steps are required as this is a static site. You can simply open the `index.html` file in a browser to view the site locally.
+## Directory Structure
 
-3. Alternatively, you can use a local development server:
-   ```bash
-   # Using Python
-   python -m http.server
-   
-   # Using Node.js with npm
-   npm install -g http-server
-   http-server
-   ```
+- `assets/` - Core assets (CSS, JS, images)
+- `about/` - About section pages
+- `building/` - Building section content
+- `contributing/` - Contributing guidelines
+- `writing/` - Writing and blog content
+- `docs/` - Project documentation
+
+## Styling
+
+### CSS Organization
+- `palette.css` - Color variables and themes
+- `base.css` - Base styles and resets
+- `components.css` - Reusable components
+- `layout.css` - Layout and structure
+
+### Color System
+The site uses a Caribbean-themed palette:
+- Colors are managed via CSS variables
+- Dark/Light theme support
+- Consistent accent colors for interactive elements
+
+## Adding New Pages
+
+1. Create a new HTML file in the appropriate directory
+2. Include required stylesheets:
+```html
+<link rel="stylesheet" href="/assets/css/palette.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+```
+
+3. Use the standard page structure:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and stylesheets -->
+</head>
+<body>
+    <a href="/" class="logo">
+        <img src="/assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+    </a>
+    <main class="content">
+        <!-- Page content -->
+    </main>
+</body>
+</html>
+```
+
+## Best Practices
+
+1. **Accessibility**
+   - Use semantic HTML
+   - Include proper ARIA labels
+   - Maintain good color contrast
+
+2. **Performance**
+   - Optimize images
+   - Minimize external dependencies
+   - Use system fonts when possible
+
+3. **Maintenance**
+   - Keep CSS organized by component
+   - Follow existing naming conventions
+   - Document any complex functionality
 
 ## Coding Standards
 

@@ -1,53 +1,80 @@
 # Deployment Guide
 
-This document outlines the deployment process for the Preterag website.
+## Overview
 
-## GitHub Pages Deployment
+The Preterag site is deployed as a static site on GitHub Pages with a custom domain (preterag.com).
 
-The Preterag website is deployed using GitHub Pages. The main branch is automatically deployed to the production site when changes are pushed.
+## Deployment Steps
 
-### Deployment Process
+1. **Prepare for Deployment**
+   ```bash
+   # Ensure all files are committed
+   git status
+   git add .
+   git commit -m "Your commit message"
+   ```
 
-1. Ensure all changes are pushed to the main branch
-2. GitHub Actions will automatically build and deploy the site
-3. The site is available at [https://preterag.com](https://preterag.com)
+2. **Deploy to GitHub Pages**
+   ```bash
+   # Push to main branch
+   git push origin main
+   ```
 
-### Custom Domain Configuration
+   GitHub Actions will automatically deploy the site.
 
-The site uses a custom domain configured with:
+## Domain Configuration
 
-1. A `CNAME` file in the repository root containing the domain name
-2. DNS configuration on the domain registrar pointing to GitHub Pages
+1. **DNS Settings**
+   - Type: `A` Record
+   - Name: `@`
+   - Value: GitHub Pages IP addresses
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
 
-### Troubleshooting Deployment
+2. **CNAME Record**
+   - Type: `CNAME`
+   - Name: `www`
+   - Value: `preterag.github.io`
 
-If issues occur during deployment:
+## SSL/HTTPS
 
-1. Check the GitHub Actions tab for build errors
-2. Verify that the `CNAME` file is still present in the repository
-3. Check that GitHub Pages is enabled in the repository settings
-4. Ensure the custom domain is properly configured
+HTTPS is automatically enabled through GitHub Pages with Let's Encrypt certificates.
 
-## Manual Deployment
+## Post-Deployment Checks
 
-In case a manual deployment is needed:
+1. **Verify Site Access**
+   - Check https://preterag.com
+   - Check https://www.preterag.com
+   - Verify SSL certificate
 
-1. Clone the repository
-2. Make necessary changes
-3. Push changes to the main branch
-4. GitHub Pages will automatically deploy the changes
+2. **Test Functionality**
+   - Navigation links
+   - External links
+   - Theme toggle
+   - Mobile responsiveness
 
-## Content Updates
+3. **Performance Check**
+   - Run Lighthouse audit
+   - Check page load times
+   - Verify asset loading
 
-For content updates:
+## Troubleshooting
 
-1. Edit the relevant HTML files
-2. Update CSS as needed
-3. Push changes to the main branch
-4. Allow 5-10 minutes for changes to propagate
+1. **404 Errors**
+   - Verify file paths are correct
+   - Check CNAME file exists
+   - Ensure GitHub Pages is enabled
 
-## Performance Considerations
+2. **SSL Issues**
+   - Check DNS propagation
+   - Verify CNAME configuration
+   - Wait for Let's Encrypt renewal
 
-- Optimize images before deployment
-- Minify CSS and JavaScript if manually deploying
-- Verify Core Web Vitals using Google PageSpeed Insights 
+3. **Asset Loading**
+   - Check file paths use correct case
+   - Verify assets are committed
+   - Check browser console for errors 
