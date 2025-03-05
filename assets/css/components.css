@@ -16,14 +16,14 @@
 /* Theme Toggle */
 .theme-toggle {
     position: fixed;
-    top: 40px;
-    right: 40px;
+    top: calc(var(--spacing-md) + 20px);
+    right: calc(var(--spacing-md) + 20px);
     z-index: 1000;
     background: transparent;
     border: none;
     color: var(--accent-color);
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@
 .main-nav {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
     width: 100%;
     max-width: 600px;
     align-items: center;
@@ -92,6 +92,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+}
+
+/* Navigation groups */
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
 .nav-item {
@@ -109,10 +117,46 @@
     margin: 0 auto;
 }
 
+/* Disabled navigation items */
+.nav-item.disabled {
+    cursor: default;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.nav-item.disabled span {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* Ensure spans have the same styling as links */
+.nav-item span {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* Remove the top margin from nav items since we're using groups now */
+.nav-item:not(:first-child):not(.sub-item) {
+    margin-top: 0;
+}
+
+/* Create tighter grouping for subitems */
 .nav-item.sub-item {
     font-size: 20px;
     color: var(--spring-green);
-    margin: 0 auto;
+    margin: -8px auto 0;
+    padding-top: 0;
+}
+
+/* Remove the margin-bottom from the last subitem in a group */
+.nav-item.sub-item:last-of-type {
+    margin-bottom: 0;
 }
 
 .nav-item.external-link a {
@@ -124,12 +168,13 @@
     text-underline-offset: 4px;
 }
 
-.nav-item:hover {
+.nav-item:hover:not(.disabled) {
     opacity: 0.8;
     color: var(--accent-color);
 }
 
-.nav-item.sub-item:hover {
+.nav-item.sub-item:hover:not(.disabled) {
+    opacity: 0.8;
     color: var(--spring-green);
 }
 
@@ -162,9 +207,13 @@
     }
 
     .main-nav {
-        gap: var(--spacing-sm);
+        gap: var(--spacing-md);
         margin-bottom: var(--spacing-lg);
         max-width: 400px;
+    }
+
+    .nav-group {
+        width: 100%;
     }
 
     .nav-item {
@@ -173,6 +222,11 @@
     
     .nav-item.sub-item {
         font-size: 20px;
+        margin: -8px auto 0;
+    }
+    
+    .nav-item.sub-item:last-of-type {
+        margin-bottom: 0;
     }
 }
 
@@ -205,10 +259,14 @@
     }
 
     .main-nav {
-        gap: var(--spacing-xs);
+        gap: var(--spacing-sm);
         margin-bottom: var(--spacing-md);
         max-width: 300px;
         padding: 0 var(--spacing-md);
+    }
+
+    .nav-group {
+        width: 100%;
     }
 
     .nav-item {
@@ -217,6 +275,11 @@
     
     .nav-item.sub-item {
         font-size: 20px;
+        margin: -8px auto 0;
+    }
+    
+    .nav-item.sub-item:last-of-type {
+        margin-bottom: 0;
     }
 }
 

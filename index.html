@@ -81,7 +81,8 @@
     <style>
         /* Custom styles for homepage if needed */
         body {
-            background: transparent;
+            /* Remove the transparent background that's overriding our theme colors */
+            /* background: transparent; */
             min-height: 100vh;
         }
     </style>
@@ -93,14 +94,29 @@
     
     <main class="content">
         <nav class="main-nav">
-            <div class="nav-item"><a href="/building">Building</a></div>
-            <div class="nav-item sub-item external-link"><a href="https://www.surrealine.com" target="_blank">Surrealine</a></div>
-            <div class="nav-item"><a href="/contributing">Contributing</a></div>
-            <div class="nav-item sub-item external-link"><a href="https://github.com/preterag/pipe-pop" target="_blank">Pipe-PoP</a></div>
-            <div class="nav-item"><a href="/writing">Writing</a></div>
-            <div class="nav-item"><a href="/about">About</a></div>
-            <div class="nav-item sub-item"><a href="/about#team">Team</a></div>
-            <div class="nav-item sub-item"><a href="/about#careers">Careers</a></div>
+            <!-- Building Group -->
+            <div class="nav-group">
+                <div class="nav-item disabled"><span>Building</span></div>
+                <div class="nav-item sub-item external-link"><a href="https://www.surrealine.com" target="_blank">Surrealine</a></div>
+            </div>
+            
+            <!-- Contributing Group -->
+            <div class="nav-group">
+                <div class="nav-item disabled"><span>Contributing</span></div>
+                <div class="nav-item sub-item external-link"><a href="https://github.com/preterag/pipe-pop" target="_blank">Pipe-PoP</a></div>
+            </div>
+            
+            <!-- Writing (standalone) -->
+            <div class="nav-group">
+                <div class="nav-item disabled"><span>Writing</span></div>
+            </div>
+            
+            <!-- About Group -->
+            <div class="nav-group">
+                <div class="nav-item disabled"><span>About</span></div>
+                <div class="nav-item sub-item disabled"><span>Team</span></div>
+                <div class="nav-item sub-item disabled"><span>Careers</span></div>
+            </div>
         </nav>
         <div class="footer">
             <div class="social-links">

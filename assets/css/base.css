@@ -37,7 +37,7 @@
 
 @keyframes quickFade {
     0% { background-color: var(--midnight-green); }
-    100% { background-color: var(--base-bg); }
+    100% { background-color: var(--html-bg); }
 }
 
 @keyframes surrealineMessage {
@@ -57,20 +57,14 @@ html, body {
 }
 
 html {
-    background: var(--base-bg);
+    background: var(--html-bg); /* Always spring-green regardless of theme */
     min-height: 100vh;
     animation: quickFade 0.1s ease-out;
 }
 
-html[data-theme="dark"] {
-    background: var(--bg-color); /* Use the radial gradient variable from palette.css */
-    background-attachment: fixed;
-}
-
-html[data-theme="light"] {
-    background: var(--bg-color); /* Use the radial gradient variable from palette.css */
-    background-attachment: fixed;
-}
+/* Remove the incorrect body[data-theme] selectors since they won't match anything */
+/* Apply the gradient background only to the body */
+/* The theme colors will be inherited from :root and [data-theme="light"] in palette.css */
 
 /* Hidden Surrealine message */
 .surrealine-message {
@@ -125,6 +119,25 @@ body {
     font-family: 'Gothic A1', sans-serif;
     color: var(--text-color);
     overflow-x: hidden;
+    background: var(--bg-color);
+    background-attachment: fixed;
+    min-height: 100vh; /* Ensure the body fills the viewport */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Establish stacking context */
+    z-index: 1; /* Ensure body content is above the HTML background */
+}
+
+/* Ensure body background changes with theme */
+html[data-theme="dark"] body {
+    background: var(--bg-color);
+    background-attachment: fixed;
+}
+
+html[data-theme="light"] body {
+    background: var(--bg-color);
+    background-attachment: fixed;
 }
 
 /* Typography */
