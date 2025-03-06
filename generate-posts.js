@@ -17,13 +17,20 @@ const posts = fs.readdirSync(POSTS_DIR)
         // Convert markdown to HTML
         const htmlContent = marked.parse(markdownContent);
         
+        // Extract first paragraph for excerpt if not provided in frontmatter
+        let excerpt = data.excerpt;
+        if (!excerpt) {
+            const firstParagraph = markdownContent.split('\n\n')[0];
+            excerpt = firstParagraph.replace(/^#\s+/, ''); // Remove heading if it's the first line
+        }
+        
         // Create post object
         return {
             id: filename.replace('.md', ''),
             title: data.title,
             date: data.date,
             tags: data.tags || [],
-            excerpt: data.excerpt || markdownContent.split('\n')[0],
+            excerpt: excerpt,
             url: filename.replace('.md', '.html'),
             content: htmlContent,
             banner: data.banner || {
