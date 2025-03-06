@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>External Post Helper</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .form-group { 
+      margin-bottom: 15px; 
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    label { 
+      display: block; 
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    input, textarea { 
+      width: 100%; 
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button { 
+      padding: 10px 15px; 
+      background: #0066cc; 
+      color: white; 
+      border: none; 
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0052a3;
+    }
+    #result { 
+      margin-top: 20px; 
+      padding: 15px; 
+      background: white; 
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .hidden { 
+      display: none; 
+    }
+    pre {
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    #copyBtn {
+      margin-top: 10px;
+      background: #28a745;
+    }
+    #copyBtn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>External Post Metadata Helper</h1>
+  <div class="form-group">
+    <label for="url">External Post URL:</label>
+    <input type="url" id="url" placeholder="https://medium.com/your-post">
+  </div>
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title">
+  </div>
+  <div class="form-group">
+    <label for="date">Date (e.g., "March 8, 2024"):</label>
+    <input type="text" id="date">
+  </div>
+  <div class="form-group">
+    <label for="excerpt">Excerpt:</label>
+    <textarea id="excerpt" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="source">Source (e.g., "Medium", "Messari"):</label>
+    <input type="text" id="source">
+  </div>
+  <button id="generateBtn">Generate JSON</button>
+  
+  <div id="result" class="hidden">
+    <h3>JSON Output:</h3>
+    <pre id="jsonOutput"></pre>
+    <button id="copyBtn">Copy to Clipboard</button>
+  </div>
+
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', function() {
+      const url = document.getElementById('url').value;
+      const title = document.getElementById('title').value;
+      const date = document.getElementById('date').value;
+      const excerpt = document.getElementById('excerpt').value;
+      const source = document.getElementById('source').value;
+      
+      if (!url || !title || !date || !excerpt || !source) {
+        alert('Please fill in all fields');
+        return;
+      }
+      
+      const jsonObj = {
+        title,
+        date,
+        excerpt,
+        externalUrl: url,
+        source
+      };
+      
+      const jsonOutput = JSON.stringify(jsonObj, null, 2);
+      document.getElementById('jsonOutput').textContent = jsonOutput;
+      document.getElementById('result').classList.remove('hidden');
+    });
+    
+    document.getElementById('copyBtn').addEventListener('click', function() {
+      const jsonText = document.getElementById('jsonOutput').textContent;
+      navigator.clipboard.writeText(jsonText)
+        .then(() => alert('Copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    });
+
+    // Add date helper
+    const dateInput = document.getElementById('date');
+    dateInput.addEventListener('focus', function() {
+      if (!this.value) {
+        const now = new Date();
+        this.value = now.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

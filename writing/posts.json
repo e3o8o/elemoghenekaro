@@ -1,27 +1,5 @@
 [
   {
-    "title": "No Banner Test Post",
-    "date": "2024-03-08T00:00:00.000Z",
-    "authors": [
-      "Elem Oghenekaro"
-    ],
-    "excerpt": "No Banner Test Post\nThis is a second test post to verify that the &quot;no banner&quot; option works correctly. This post should be displayed without any banner image at the top....",
-    "url": "2024-03-08-no-banner-test.html",
-    "content": "<h1>No Banner Test Post</h1>\n<p>This is a second test post to verify that the &quot;no banner&quot; option works correctly. This post should be displayed without any banner image at the top.</p>\n<h2>Testing the Fix</h2>\n<p>After making changes to both:</p>\n<ol>\n<li>generate-posts.js</li>\n<li>writing/build.js</li>\n</ol>\n<p>We should now be able to create posts without banners by setting <code>banner: false</code> in the frontmatter.</p>\n<h2>Next Steps</h2>\n<p>Once this test is successful, we&#39;ll commit these changes and update the documentation to include this option. </p>\n",
-    "banner": false
-  },
-  {
-    "title": "Test Post with No Banner",
-    "date": "2024-03-07T00:00:00.000Z",
-    "authors": [
-      "Elem Oghenekaro"
-    ],
-    "excerpt": "Test Post with No Banner\nThis is a test post to verify that the &quot;no banner&quot; option works correctly. This post should be displayed without any banner image at the top....",
-    "url": "2024-03-07-test-no-banner.html",
-    "content": "<h1>Test Post with No Banner</h1>\n<p>This is a test post to verify that the &quot;no banner&quot; option works correctly. This post should be displayed without any banner image at the top.</p>\n<h2>Purpose of this Test</h2>\n<p>This post helps verify that:</p>\n<ol>\n<li>The <code>banner: false</code> setting is correctly handled by the build script</li>\n<li>The generated HTML doesn&#39;t include any banner image</li>\n<li>The layout still looks good without a banner</li>\n</ol>\n<p>After confirming this works correctly, we can update the documentation and template to include this option. </p>\n",
-    "banner": false
-  },
-  {
     "title": "Building with Purpose: Our Development Philosophy",
     "date": "2024-03-06T00:00:00.000Z",
     "authors": [
