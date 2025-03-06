@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        console.log('Setting base href...');
         // Dynamically set base href based on domain
         if (window.location.hostname === 'preterag.github.io') {
             document.write('<base href="/preterag_website/">');
         } else {
             document.write('<base href="/">');
         }
-        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="Preterag - Articles and Research">
+    <meta name="description" content="About Preterag - Our Team and Career Opportunities">
     
-    <title>Writing - Preterag</title>
+    <title>About - Preterag</title>
     
     <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -24,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="writing/writing.css">
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
     <header class="site-header">
@@ -34,8 +32,8 @@
         <nav class="header-nav">
             <a href="building/" class="nav-link">Building</a>
             <a href="contributing/" class="nav-link">Contributing</a>
-            <a href="writing/" class="nav-link active">Writing</a>
-            <a href="about/" class="nav-link">About</a>
+            <a href="writing/" class="nav-link">Writing</a>
+            <a href="about/" class="nav-link active">About</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -47,20 +45,23 @@
     <main class="content">
         <div class="container">
             <section class="list-section">
-                <h2>Our Blog</h2>
-                <div id="posts-container">
-                    <!-- Example post structure (will be populated dynamically) -->
-                    <div class="list-item">
-                        <h3>Post Title</h3>
-                        <p>Post excerpt or description goes here...</p>
-                        <div class="list-item-meta">
-                            <span><i class="far fa-calendar"></i> Jan 1, 2024</span>
-                            <span><i class="far fa-clock"></i> 5 min read</span>
-                            <span><i class="far fa-user"></i> Author Name</span>
-                        </div>
-                        <a href="#" class="list-item-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
+                <h2>Team</h2>
+                <div class="list-item">
+                    <h3>Our Team</h3>
+                    <p>Meet the passionate individuals behind Preterag who are working to revolutionize digital content delivery and streaming technology.</p>
+                    <div class="list-item-meta">
+                        <span><i class="fas fa-users"></i> Growing Team</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h2>Careers</h2>
+                <div class="list-item">
+                    <h3>Join Our Team</h3>
+                    <p>We're always looking for talented individuals who are passionate about technology and innovation. Check back soon for open positions.</p>
+                    <div class="list-item-meta">
+                        <span><i class="fas fa-briefcase"></i> Opportunities Coming Soon</span>
                     </div>
                 </div>
             </section>
@@ -87,15 +88,7 @@
         <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
     </footer>
     
-    <script>
-        // Debug script loading
-        console.log('Scripts starting to load...');
-    </script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script src="writing/writing.js"></script>
-    <script>
-        console.log('All scripts loaded');
-    </script>
 </body>
 </html> 

@@ -10,7 +10,10 @@ Visit us at [e3o8o.github.io/elemoghenekaro](https://e3o8o.github.io/elemoghenek
 
 ```
 elemoghenekaro/
+├── about/           # About section
 ├── assets/         # Static assets (CSS, JS, images)
+├── building/       # Building section
+├── contributing/   # Contributing section
 ├── docs/          # Documentation
 └── writing/        # Blog posts and articles
     ├── _posts/     # Markdown source files for posts

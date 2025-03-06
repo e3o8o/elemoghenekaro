@@ -1,5 +1,5 @@
 /* Color Palette
- * Based on the Moss Green theme
+ * Based on the Natural theme
  * 
  * Dark moss green: #62670E (rgb(98, 103, 14))
  * Drab dark brown: #313306 (rgb(49, 51, 6))
@@ -8,33 +8,31 @@
 
 :root {
     /* Primary Colors */
-    --dark-moss-green: #62670E;
-    --drab-dark-brown: #313306;
+    --dark-moss: #62670E;
+    --drab-brown: #313306;
     --apple-green: #A6AF1B;
-    --beige: #F5F5DC;
-    --honeydew: #F0FFF0;
 
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--dark-moss-green), var(--drab-dark-brown)),
-                radial-gradient(circle at bottom left, var(--dark-moss-green), var(--drab-dark-brown));
-    --base-bg: var(--drab-dark-brown);
-    --html-bg: var(--drab-dark-brown);
+    --bg-color: radial-gradient(circle at top right, var(--dark-moss), var(--drab-brown)),
+                radial-gradient(circle at bottom left, var(--dark-moss), var(--drab-brown));
+    --base-bg: var(--drab-brown);
+    --html-bg: var(--drab-brown);
     --text-color: #ffffff;
     --text-color-muted: rgba(255, 255, 255, 0.7);
     --accent-color: var(--apple-green);
-    --accent-hover: var(--dark-moss-green);
+    --accent-hover: #8B9316;
     --card-bg: rgba(49, 51, 6, 0.4);
 }
 
 /* Light Mode Colors */
 [data-theme="light"] {
-    --bg-color: radial-gradient(circle at top right, var(--beige), var(--honeydew)),
-                radial-gradient(circle at bottom left, var(--beige), var(--honeydew));
-    --base-bg: var(--honeydew);
-    --html-bg: var(--honeydew);
-    --text-color: var(--drab-dark-brown);
-    --text-color-muted: rgba(49, 51, 6, 0.7);
-    --accent-color: var(--dark-moss-green);
+    --bg-color: radial-gradient(circle at top right, #F4F5E6, #FFFFFF),
+                radial-gradient(circle at bottom left, #F4F5E6, #FFFFFF);
+    --base-bg: #F4F5E6;
+    --html-bg: #F4F5E6;
+    --text-color: var(--drab-brown);
+    --text-color-muted: rgba(49, 51, 6, 0.8);
+    --accent-color: var(--dark-moss);
     --accent-hover: var(--apple-green);
     --card-bg: rgba(166, 175, 27, 0.1);
 }
