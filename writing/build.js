@@ -6,34 +6,12 @@ const marked = require('marked');
 const POSTS_DIR = path.join(__dirname, '_posts');
 const OUTPUT_FILE = path.join(__dirname, 'posts.json');
 
-// Default banner settings
-const DEFAULT_BANNER = {
-    path: 'assets/images/banner-no-logo.png',
-    alt: 'Preterag Banner'
-};
-
-// Special post banners
-const SPECIAL_BANNERS = {
-    'Welcome to Preterag': {
-        path: 'assets/images/preterag_banner.jpeg',
-        alt: 'Preterag Welcome Banner'
-    }
-};
-
 // Create posts directory if it doesn't exist
 if (!fs.existsSync(POSTS_DIR)) {
     fs.mkdirSync(POSTS_DIR, { recursive: true });
 }
 
 function getBannerSettings(post) {
-    // Check for special banners first
-    if (SPECIAL_BANNERS[post.title]) {
-        return {
-            path: SPECIAL_BANNERS[post.title].path,
-            alt: SPECIAL_BANNERS[post.title].alt
-        };
-    }
-
     // If post has custom banner settings
     if (post.banner) {
         // If banner is an object with path
