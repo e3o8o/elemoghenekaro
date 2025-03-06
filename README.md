@@ -1,19 +1,16 @@
-# Preterag Website
+# Elem Oghenekaro Website
 
-The official website for Preterag, built with modern web technologies and hosted on GitHub Pages.
+The official website for Elem Oghenekaro, built with modern web technologies and hosted on GitHub Pages.
 
 ## 🌐 Live Site
 
-Visit us at [preterag.github.io/preterag_website](https://preterag.github.io/preterag_website)
+Visit us at [e3o8o.github.io/elemoghenekaro](https://e3o8o.github.io/elemoghenekaro)
 
 ## 🏗️ Project Structure
 
 ```
-preterag_website/
-├── about/           # About section
+elemoghenekaro/
 ├── assets/         # Static assets (CSS, JS, images)
-├── building/       # Building section
-├── contributing/   # Contributing section
 ├── docs/          # Documentation
 └── writing/        # Blog posts and articles
     ├── _posts/     # Markdown source files for posts
@@ -32,8 +29,8 @@ preterag_website/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/preterag/preterag_website.git
-   cd preterag_website
+   git clone https://github.com/e3o8o/elemoghenekaro.git
+   cd elemoghenekaro
    ```
 
 2. Install dependencies:
@@ -101,4 +98,4 @@ preterag_website/
 
 ## 📄 License
 
-© 2025 Preterag OÜ. All rights reserved. 
+© 2025 Elem Oghenekaro. All rights reserved. 

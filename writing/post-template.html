@@ -6,18 +6,19 @@
     <script>
         console.log('Setting base href...');
         // Dynamically set base href based on domain
-        if (window.location.hostname === 'preterag.github.io') {
-            document.write('<base href="/preterag_website/">');
+        if (window.location.hostname === 'e3o8o.github.io') {
+            document.write('<base href="/elemoghenekaro/">');
         } else {
             document.write('<base href="/">');
         }
         console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="{{title}} - Preterag">
+    <meta name="description" content="{{title}} - Elem Oghenekaro">
+    <meta name="robots" content="index, follow">
     
-    <title>{{title}} - Preterag</title>
+    <title>{{title}} - Elem Oghenekaro</title>
     
-    <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
+    <link rel="icon" type="image/png" href="assets/images/karo_logo_fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
     <link rel="stylesheet" href="assets/css/palette.css">
@@ -146,13 +147,10 @@
 <body>
     <header class="site-header">
         <a href="." class="logo">
-            <img src="assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+            <img src="assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
         </a>
         <nav class="header-nav">
-            <a href="building/" class="nav-link">Building</a>
-            <a href="contributing/" class="nav-link">Contributing</a>
             <a href="writing/" class="nav-link active">Writing</a>
-            <a href="about/" class="nav-link">About</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -181,7 +179,7 @@
                 {{/banner}}
                 {{^banner}}
                 <!-- Default banner - remove this section if no banner is desired -->
-                <img src="assets/images/banner-no-logo.png" alt="Preterag Banner" class="post-banner">
+                <img src="assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
                 {{/banner}}
                 <div class="post-content">
                     {{content}}
@@ -197,22 +195,13 @@
 
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.linkedin.com/company/preterag/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/preterag" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://mirror.xyz/preterag.eth" target="_blank" aria-label="Mirror.xyz">
-                <svg class="mirror-logo" viewBox="0 0 100 100" width="100%" height="100%">
-                    <path fill="currentColor" d="M20 80 L80 80 L80 30 A30 30 0 0 0 20 30 L20 80 Z"/>
-                </svg>
-            </a>
-            <a href="https://x.com/preterag" target="_blank" aria-label="X (formerly Twitter)">
-                <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                </svg>
-            </a>
-            <a href="https://instagram.com/preterag" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:hello@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/e3o8o/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/e3o8o" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/e3o8o" target="_blank" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/e3o8o" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:elemoghenekaro@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
-        <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
+        <div class="copyright">© 2025 Elem Oghenekaro. All rights reserved.</div>
     </footer>
     
     <script src="assets/js/settings.js"></script>

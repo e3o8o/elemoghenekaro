@@ -1,31 +1,29 @@
 /* Color Palette
- * Based on the Caribbean theme
+ * Based on the Moss Green theme
  * 
- * Caribbean Current: #006868 (rgb(0, 104, 104))
- * Teal: #007B7B (rgb(0, 123, 123))
- * Midnight Green: #003636 (rgb(0, 54, 54))
- * Spring Green: #05FE9E (rgb(5, 254, 158))
+ * Dark moss green: #62670E (rgb(98, 103, 14))
+ * Drab dark brown: #313306 (rgb(49, 51, 6))
+ * Apple green: #A6AF1B (rgb(166, 175, 27))
  */
 
 :root {
     /* Primary Colors */
-    --caribbean-current: #003838;
-    --teal: #004B4B;
-    --midnight-green: #001A1A;
-    --spring-green: #00F5A3;
+    --dark-moss-green: #62670E;
+    --drab-dark-brown: #313306;
+    --apple-green: #A6AF1B;
     --beige: #F5F5DC;
     --honeydew: #F0FFF0;
 
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--teal), var(--midnight-green)),
-                radial-gradient(circle at bottom left, var(--teal), var(--midnight-green));
-    --base-bg: var(--midnight-green);
-    --html-bg: var(--midnight-green);
+    --bg-color: radial-gradient(circle at top right, var(--dark-moss-green), var(--drab-dark-brown)),
+                radial-gradient(circle at bottom left, var(--dark-moss-green), var(--drab-dark-brown));
+    --base-bg: var(--drab-dark-brown);
+    --html-bg: var(--drab-dark-brown);
     --text-color: #ffffff;
     --text-color-muted: rgba(255, 255, 255, 0.7);
-    --accent-color: var(--spring-green);
-    --accent-hover: #00E090;
-    --card-bg: rgba(0, 26, 26, 0.4);
+    --accent-color: var(--apple-green);
+    --accent-hover: var(--dark-moss-green);
+    --card-bg: rgba(49, 51, 6, 0.4);
 }
 
 /* Light Mode Colors */
@@ -34,11 +32,11 @@
                 radial-gradient(circle at bottom left, var(--beige), var(--honeydew));
     --base-bg: var(--honeydew);
     --html-bg: var(--honeydew);
-    --text-color: var(--caribbean-current);
-    --text-color-muted: rgba(0, 56, 56, 0.7);
-    --accent-color: var(--caribbean-current);
-    --accent-hover: var(--teal);
-    --card-bg: rgba(0, 245, 163, 0.1);
+    --text-color: var(--drab-dark-brown);
+    --text-color-muted: rgba(49, 51, 6, 0.7);
+    --accent-color: var(--dark-moss-green);
+    --accent-hover: var(--apple-green);
+    --card-bg: rgba(166, 175, 27, 0.1);
 }
 
 /* Remove all transitions to prevent flashes */

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const baseHref = baseElement?.getAttribute('href') || '/';
             console.log('Base href:', baseHref);
             
-            const isGitHubPages = window.location.hostname === 'preterag.github.io';
+            const isGitHubPages = window.location.hostname === 'e3o8o.github.io';
             console.log('Is GitHub Pages:', isGitHubPages);
             
             // Construct paths based on environment
