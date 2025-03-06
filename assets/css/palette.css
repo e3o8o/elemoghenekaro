@@ -26,10 +26,10 @@
 
 /* Light Mode Colors */
 [data-theme="light"] {
-    --bg-color: radial-gradient(circle at top right, #F4F5E6, #FFFFFF),
-                radial-gradient(circle at bottom left, #F4F5E6, #FFFFFF);
-    --base-bg: #F4F5E6;
-    --html-bg: #F4F5E6;
+    --bg-color: radial-gradient(circle at top right, #F0FFF0, #FFFACD),
+                radial-gradient(circle at bottom left, #F0FFF0, #FFFACD);
+    --base-bg: #F0FFF0;
+    --html-bg: #F0FFF0;
     --text-color: var(--drab-brown);
     --text-color-muted: rgba(49, 51, 6, 0.8);
     --accent-color: var(--dark-moss);
