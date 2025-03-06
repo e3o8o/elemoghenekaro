@@ -34,6 +34,17 @@ if (fs.existsSync(templateHtmlPath)) {
     }
 }
 
+/**
+ * Determines the banner settings for a post
+ * 
+ * The system supports several banner options:
+ * 1. Default (dark) banner: Used when no banner is specified
+ * 2. Light banner: Used when banner.path is set to assets/images/banner_light.png
+ * 3. Custom banner: Used when a custom path is provided
+ * 
+ * @param {Object} post - The post object containing banner information
+ * @returns {Object} Banner settings with path and alt text
+ */
 function getBannerSettings(post) {
     // If post has custom banner settings
     if (post.banner) {
@@ -61,11 +72,21 @@ function getBannerSettings(post) {
     return DEFAULT_BANNER;
 }
 
+/**
+ * Generates JSON data for all posts and creates HTML files
+ * 
+ * This function:
+ * 1. Reads all markdown files from the _posts directory
+ * 2. Parses the frontmatter and content
+ * 3. Generates a posts.json file with all post data
+ * 4. Creates individual HTML files for each post using the post-template.html
+ */
 function generatePostsJson() {
     const posts = [];
     
-    // Read all markdown files
-    const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md') && file !== TEMPLATE_POST);
+    // Read all markdown files, exclude template post
+    const files = fs.readdirSync(POSTS_DIR)
+        .filter(file => file.endsWith('.md') && file !== TEMPLATE_POST);
     
     files.forEach(file => {
         const filePath = path.join(POSTS_DIR, file);
