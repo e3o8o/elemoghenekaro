@@ -12,3 +12,17 @@ build/
 # System files
 .DS_Store
 Thumbs.db
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Ruby
+Gemfile.lock
+
+# System
+*.log
