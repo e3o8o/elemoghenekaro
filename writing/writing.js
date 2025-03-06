@@ -1,46 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const postsContainer = document.querySelector('.posts-grid');
-    const viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
+    const postsContainer = document.getElementById('posts-container');
     
-    // Load saved view preference from localStorage
-    const savedView = localStorage.getItem('postsView') || 'grid';
-    setView(savedView);
-    
-    // Add click handlers to toggle buttons
-    viewToggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const view = btn.dataset.view;
-            setView(view);
-            
-            // Save preference to localStorage
-            localStorage.setItem('postsView', view);
-        });
-    });
-    
-    // Fetch posts from Grav
+    // Fetch posts
     fetchPosts();
-    
-    function setView(view) {
-        // Update container classes
-        postsContainer.classList.remove('grid-view', 'list-view');
-        postsContainer.classList.add(`${view}-view`);
-        
-        // Update button states
-        viewToggleBtns.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.view === view);
-        });
-    }
     
     async function fetchPosts() {
         try {
-            const response = await fetch('/posts.json');
+            const response = await fetch('posts.json');
             if (!response.ok) {
                 throw new Error('Failed to fetch posts');
             }
             const posts = await response.json();
             
             if (!posts || posts.length === 0) {
-                document.getElementById('posts-container').innerHTML = `
+                postsContainer.innerHTML = `
                     <div class="no-posts-message">
                         <i class="fas fa-pen-fancy"></i>
                         <h3>No Posts Yet</h3>
@@ -51,31 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             const postsHTML = posts.map(post => `
-                <article class="post-card">
-                    <div class="post-meta">
-                        <time class="post-date">${formatDate(post.date)}</time>
+                <div class="list-item">
+                    <h3>${post.title}</h3>
+                    <p>${post.excerpt}</p>
+                    <div class="list-item-meta">
+                        <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+                        <span><i class="far fa-clock"></i> ${post.read_time} min read</span>
+                        <span><i class="far fa-user"></i> ${post.author}</span>
                     </div>
-                    <a href="${post.slug}" class="post-title-link">
-                        <h3 class="post-title">${post.title}</h3>
+                    <a href="${post.slug}" class="list-item-link">
+                        Read More <i class="fas fa-arrow-right"></i>
                     </a>
-                    <p class="post-excerpt">${post.excerpt}</p>
-                    <div class="post-footer">
-                        <span class="post-author">
-                            <i class="fas fa-user"></i>
-                            ${post.author}
-                        </span>
-                        <span class="post-read-time">
-                            <i class="fas fa-clock"></i>
-                            ${post.read_time} min read
-                        </span>
-                    </div>
-                </article>
+                </div>
             `).join('');
             
-            document.getElementById('posts-container').innerHTML = postsHTML;
+            postsContainer.innerHTML = postsHTML;
         } catch (error) {
             console.error('Error fetching posts:', error);
-            document.getElementById('posts-container').innerHTML = `
+            postsContainer.innerHTML = `
                 <div class="no-posts-message">
                     <i class="fas fa-pen-fancy"></i>
                     <h3>No Posts Yet</h3>
@@ -92,4 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
             day: 'numeric'
         });
     }
-}); 
+});
