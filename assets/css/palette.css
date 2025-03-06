@@ -1,27 +1,24 @@
 /* Color Palette
- * Based on the Natural theme
- * 
- * Dark moss green: #62670E (rgb(98, 103, 14))
- * Drab dark brown: #313306 (rgb(49, 51, 6))
- * Apple green: #A6AF1B (rgb(166, 175, 27))
+ * Modern Dark Theme with Green Accents
  */
 
 :root {
     /* Primary Colors */
-    --dark-moss: #62670E;
-    --drab-brown: #313306;
-    --apple-green: #A6AF1B;
-
+    --dark-charcoal: #1A1B1E;
+    --slate-gray: #2D2E32;
+    --spring-green: #A6AF1B;
+    --mint-green: #B8C229;
+    
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--dark-moss), var(--drab-brown)),
-                radial-gradient(circle at bottom left, var(--dark-moss), var(--drab-brown));
-    --base-bg: var(--drab-brown);
-    --html-bg: var(--drab-brown);
-    --text-color: #ffffff;
-    --text-color-muted: rgba(255, 255, 255, 0.7);
-    --accent-color: var(--apple-green);
-    --accent-hover: #8B9316;
-    --card-bg: rgba(49, 51, 6, 0.4);
+    --bg-color: radial-gradient(circle at top right, var(--slate-gray), var(--dark-charcoal)),
+                radial-gradient(circle at bottom left, var(--slate-gray), var(--dark-charcoal));
+    --base-bg: var(--dark-charcoal);
+    --html-bg: var(--dark-charcoal);
+    --text-color: #E8E9EA;
+    --text-color-muted: rgba(232, 233, 234, 0.7);
+    --accent-color: var(--spring-green);
+    --accent-hover: var(--mint-green);
+    --card-bg: rgba(45, 46, 50, 0.4);
 }
 
 /* Light Mode Colors */
@@ -30,10 +27,10 @@
                 radial-gradient(circle at bottom left, #F0FFF0, #FFFACD);
     --base-bg: #F0FFF0;
     --html-bg: #F0FFF0;
-    --text-color: var(--drab-brown);
-    --text-color-muted: rgba(49, 51, 6, 0.8);
-    --accent-color: var(--dark-moss);
-    --accent-hover: var(--apple-green);
+    --text-color: var(--dark-charcoal);
+    --text-color-muted: rgba(26, 27, 30, 0.8);
+    --accent-color: var(--spring-green);
+    --accent-hover: var(--mint-green);
     --card-bg: rgba(166, 175, 27, 0.1);
 }
 
