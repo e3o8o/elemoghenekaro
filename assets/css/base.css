@@ -30,8 +30,7 @@
 }
 
 @keyframes flashOverlay {
-    0% { opacity: 1; }
-    50% { opacity: 0.8; }
+    0% { opacity: 0.4; }
     100% { opacity: 0; }
 }
 
@@ -108,10 +107,11 @@ html::before {
     z-index: 10000;
     opacity: 0;
     background-color: #05FE9E;  /* Brighter spring green */
+    transition: opacity 0.1s ease-out;
 }
 
 html.theme-changing::before {
-    animation: flashOverlay 0.25s ease-out forwards;
+    animation: flashOverlay 0.1s ease-out forwards;
 }
 
 /* Base Styles */
