@@ -26,34 +26,34 @@ if (!fs.existsSync(POSTS_DIR)) {
 }
 
 function getBannerSettings(post) {
-    // If banner is explicitly set to false, return null (no banner)
-    if (post.banner === false) {
-        return null;
-    }
-
-    // If post has custom banner settings, use those
-    if (post.banner && typeof post.banner === 'object') {
-        return {
-            path: post.banner.path || DEFAULT_BANNER.path,
-            alt: post.banner.alt || DEFAULT_BANNER.alt
-        };
-    }
-
-    // If post has string banner path, use it with default alt
-    if (post.banner && typeof post.banner === 'string') {
-        return {
-            path: post.banner,
-            alt: DEFAULT_BANNER.alt
-        };
-    }
-
-    // Check for special banners
+    // Check for special banners first
     if (SPECIAL_BANNERS[post.title]) {
-        return SPECIAL_BANNERS[post.title];
+        return {
+            path: SPECIAL_BANNERS[post.title].path,
+            alt: SPECIAL_BANNERS[post.title].alt
+        };
     }
 
-    // Use default banner
-    return DEFAULT_BANNER;
+    // If post has custom banner settings
+    if (post.banner) {
+        // If banner is an object with path
+        if (typeof post.banner === 'object' && post.banner.path) {
+            return {
+                path: post.banner.path,
+                alt: post.banner.alt || 'Post Banner'
+            };
+        }
+        // If banner is a string (path)
+        if (typeof post.banner === 'string') {
+            return {
+                path: post.banner,
+                alt: 'Post Banner'
+            };
+        }
+    }
+
+    // If no banner is specified, return null
+    return null;
 }
 
 function generatePostsJson() {

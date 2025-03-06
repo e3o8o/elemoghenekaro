@@ -179,6 +179,10 @@
                 {{#banner}}
                 <img src="{{banner}}" alt="{{banner_alt}}" class="post-banner">
                 {{/banner}}
+                {{^banner}}
+                <!-- Default banner - remove this section if no banner is desired -->
+                <img src="assets/images/banner-no-logo.png" alt="Preterag Banner" class="post-banner">
+                {{/banner}}
                 <div class="post-content">
                     {{content}}
                 </div>
