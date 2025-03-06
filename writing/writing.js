@@ -16,14 +16,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('Is GitHub Pages:', isGitHubPages);
             
             // Construct paths based on environment
-            let postsJsonPath;
-            if (isGitHubPages) {
-                // For GitHub Pages, use the base href
-                postsJsonPath = `${baseHref}writing/posts.json`;
-            } else {
-                // For local development, use relative path
-                postsJsonPath = './posts.json';
-            }
+            const postsJsonPath = isGitHubPages 
+                ? `${baseHref}writing/posts.json`
+                : 'posts.json';
             console.log('Posts JSON path:', postsJsonPath);
             
             const response = await fetch(postsJsonPath);
@@ -42,14 +37,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             const postsHTML = posts.map(post => {
-                let fullUrl;
-                if (isGitHubPages) {
-                    // For GitHub Pages, combine base href with post URL directly in writing directory
-                    fullUrl = `${baseHref}writing/${post.url}`;
-                } else {
-                    // For local development, use relative path
-                    fullUrl = `./${post.url}`;
-                }
+                // For GitHub Pages, combine base href with post URL
+                const fullUrl = isGitHubPages
+                    ? `${baseHref}writing/${post.url}`
+                    : post.url;
                 console.log('Post URL:', fullUrl);
                 
                 return `
