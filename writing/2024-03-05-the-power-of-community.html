@@ -13,9 +13,9 @@
         }
         console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="The Power of Community - Preterag">
+    <meta name="description" content="The Power of Community in Open Source - Preterag">
     
-    <title>The Power of Community - Preterag</title>
+    <title>The Power of Community in Open Source - Preterag</title>
     
     <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -176,7 +176,11 @@
                         </span>
                     </div>
                 </header>
+                
+                {{^banner}}
+                <!-- Default banner - remove this section if no banner is desired -->
                 <img src="assets/images/banner-no-logo.png" alt="Preterag Banner" class="post-banner">
+                {{/banner}}
                 <div class="post-content">
                     <h1>The Power of Community in Open Source</h1>
 <p>Open source software has revolutionized how we build and share technology. At Preterag, we&#39;re deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration.</p>
