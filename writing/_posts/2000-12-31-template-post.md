@@ -5,12 +5,13 @@ date: 2000-12-31  # Format: YYYY-MM-DD (update this when creating a new post)
 authors: ["Author Name"]  # Can be single author or multiple: ["Author 1", "Author 2"]
 
 # Optional fields
-# Banner options (choose one):
-# Option 1: Default banner - leave the banner field out completely
-#          This will use assets/images/banner-no-logo.png
+# Banner options (choose one and uncomment):
 #
-# Option 2: No banner - explicitly set banner to false
-banner: false
+# Option 1: Default banner
+# Just remove the banner field completely to use default banner (banner-no-logo.png)
+#
+# Option 2: No banner
+# banner: false
 #
 # Option 3: Custom banner (simple path)
 # banner: assets/images/your-banner.jpg
