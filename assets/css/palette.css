@@ -4,6 +4,8 @@
  * Dark moss green: #62670E (rgb(98, 103, 14))
  * Drab dark brown: #313306 (rgb(49, 51, 6))
  * Apple green: #A6AF1B (rgb(166, 175, 27))
+ * Light yellow: #F4F5E6
+ * Parchment: #FFFDF6
  */
 
 :root {
@@ -11,6 +13,8 @@
     --dark-moss: #62670E;
     --drab-brown: #313306;
     --apple-green: #A6AF1B;
+    --light-yellow: #F4F5E6;
+    --parchment: #FFFDF6;
 
     /* Functional Colors */
     --bg-color: radial-gradient(circle at top right, var(--dark-moss), var(--drab-brown)),
@@ -26,10 +30,10 @@
 
 /* Light Mode Colors */
 [data-theme="light"] {
-    --bg-color: radial-gradient(circle at top right, #F4F5E6, #FFFFFF),
-                radial-gradient(circle at bottom left, #F4F5E6, #FFFFFF);
-    --base-bg: #F4F5E6;
-    --html-bg: #F4F5E6;
+    --bg-color: radial-gradient(circle at top right, var(--light-yellow), var(--parchment)),
+                radial-gradient(circle at bottom left, var(--light-yellow), var(--parchment));
+    --base-bg: var(--light-yellow);
+    --html-bg: var(--light-yellow);
     --text-color: var(--drab-brown);
     --text-color-muted: rgba(49, 51, 6, 0.8);
     --accent-color: var(--dark-moss);
