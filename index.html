@@ -4,70 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        console.log('Setting base href...');
         // Dynamically set base href based on domain
         if (window.location.hostname === 'e3o8o.github.io') {
             document.write('<base href="/elemoghenekaro/">');
         } else {
             document.write('<base href="/">');
         }
+        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
-    <meta name="p:domain_verify" content="b1cf7d78bffa1ad63901d8c049969293"/>
+    <meta name="description" content="Elem Oghenekaro - Articles and Thoughts">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Elem Oghenekaro is a software engineer and tech enthusiast crafting innovative applications.">
-    <meta name="keywords" content="Elem Oghenekaro, Web Development, Software Engineering, Tech">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="author" content="Elem Oghenekaro">
-    <meta name="revisit-after" content="7 days">
-    <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://e3o8o.github.io/elemoghenekaro/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://e3o8o.github.io/elemoghenekaro/">
-    <meta property="og:site_name" content="Elem Oghenekaro">
-    <meta property="og:title" content="Elem Oghenekaro - Software Engineer">
-    <meta property="og:description" content="Elem Oghenekaro is a software engineer and tech enthusiast crafting innovative applications.">
-    <meta property="og:image" content="https://e3o8o.github.io/elemoghenekaro/assets/images/karo_logo.png">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://e3o8o.github.io/elemoghenekaro/">
-    <meta property="twitter:site" content="@e3o8o">
-    <meta property="twitter:creator" content="@e3o8o">
-    <meta property="twitter:title" content="Elem Oghenekaro - Software Engineer">
-    <meta property="twitter:description" content="Elem Oghenekaro is a software engineer and tech enthusiast crafting innovative applications.">
-    <meta property="twitter:image" content="https://e3o8o.github.io/elemoghenekaro/assets/images/karo_logo.png">
-    
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#006868">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Elem Oghenekaro">
-    
-    <title>Elem Oghenekaro - Software Engineer</title>
-    
-    <!-- JSON-LD for Rich Snippets -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Elem Oghenekaro",
-        "url": "https://e3o8o.github.io/elemoghenekaro",
-        "logo": "https://e3o8o.github.io/elemoghenekaro/assets/images/karo_logo.png",
-        "description": "Elem Oghenekaro is a software engineer and tech enthusiast crafting innovative applications.",
-        "sameAs": [
-            "https://x.com/e3o8o",
-            "https://instagram.com/e3o8o",
-            "https://github.com/e3o8o",
-            "https://linkedin.com/in/e3o8o"
-        ]
-    }
-    </script>
+    <title>Elem Oghenekaro - Articles and Thoughts</title>
     
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -76,14 +24,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-    <style>
-        /* Custom styles for homepage if needed */
-        body {
-            /* Remove the transparent background that's overriding our theme colors */
-            /* background: transparent; */
-            min-height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" href="writing/writing.css">
 </head>
 <body>
     <header class="site-header">
@@ -91,7 +32,7 @@
             <img src="assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
         </a>
         <nav class="header-nav">
-            <a href="writing/" class="nav-link">Writing</a>
+            <a href="." class="nav-link active">Writing</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -101,7 +42,14 @@
     </header>
     
     <main class="content">
-        <!-- Empty main content for now -->
+        <div class="container">
+            <section class="list-section">
+                <h2>Blog Posts</h2>
+                <div id="posts-container">
+                    <!-- Posts will be populated dynamically -->
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -115,8 +63,8 @@
         <div class="copyright">© 2025 Elem Oghenekaro. All rights reserved.</div>
     </footer>
     
-    <!-- Scripts -->
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="writing/writing.js"></script>
 </body>
 </html> 
