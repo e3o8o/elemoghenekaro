@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const posts = await response.json();
             console.log('Loaded posts:', posts);
             
-            if (!posts || posts.length === 0) {
+            if (!Array.isArray(posts)) {
+                throw new Error('Posts data is not an array');
+            }
+            
+            if (posts.length === 0) {
                 showNoPostsMessage();
                 return;
             }
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p>${post.excerpt || ''}</p>
                         <div class="list-item-meta">
                             <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
-                            <span><i class="far fa-user"></i> ${formatAuthors(post.authors)}</span>
+                            ${post.tags ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
                         </div>
                         <a href="${fullUrl}" class="list-item-link">
                             Read More <i class="fas fa-arrow-right"></i>
