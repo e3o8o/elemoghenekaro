@@ -6,9 +6,54 @@ const marked = require('marked');
 const POSTS_DIR = path.join(__dirname, '_posts');
 const OUTPUT_FILE = path.join(__dirname, 'posts.json');
 
+// Default banner settings
+const DEFAULT_BANNER = {
+    path: 'assets/images/banner-no-logo.png',
+    alt: 'Preterag Banner'
+};
+
+// Special post banners
+const SPECIAL_BANNERS = {
+    'Welcome to Preterag': {
+        path: 'assets/images/preterag_banner.jpeg',
+        alt: 'Preterag Welcome Banner'
+    }
+};
+
 // Create posts directory if it doesn't exist
 if (!fs.existsSync(POSTS_DIR)) {
     fs.mkdirSync(POSTS_DIR, { recursive: true });
+}
+
+function getBannerSettings(post) {
+    // If banner is explicitly set to false, return null (no banner)
+    if (post.banner === false) {
+        return null;
+    }
+
+    // If post has custom banner settings, use those
+    if (post.banner && typeof post.banner === 'object') {
+        return {
+            path: post.banner.path || DEFAULT_BANNER.path,
+            alt: post.banner.alt || DEFAULT_BANNER.alt
+        };
+    }
+
+    // If post has string banner path, use it with default alt
+    if (post.banner && typeof post.banner === 'string') {
+        return {
+            path: post.banner,
+            alt: DEFAULT_BANNER.alt
+        };
+    }
+
+    // Check for special banners
+    if (SPECIAL_BANNERS[post.title]) {
+        return SPECIAL_BANNERS[post.title];
+    }
+
+    // Use default banner
+    return DEFAULT_BANNER;
 }
 
 function generatePostsJson() {
@@ -39,6 +84,9 @@ function generatePostsJson() {
         
         // Handle both single author and multiple authors
         const authors = data.authors || [data.author];
+
+        // Get banner settings
+        const banner = getBannerSettings(data);
         
         posts.push({
             title: data.title,
@@ -46,7 +94,8 @@ function generatePostsJson() {
             authors: authors,
             excerpt: excerpt,
             url: url,
-            content: html
+            content: html,
+            banner: banner
         });
     });
     
@@ -65,11 +114,17 @@ function generatePostsJson() {
         // Replace all instances of {{title}}
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
         
-        // Set banner image based on post title
-        const bannerImage = post.title === "Welcome to Preterag" 
-            ? "assets/images/preterag_banner.jpeg"
-            : "assets/images/banner-no-logo.png";
-        postHtml = postHtml.replace('{{banner}}', bannerImage);
+        // Handle banner
+        if (post.banner) {
+            postHtml = postHtml
+                .replace('{{#banner}}', '')
+                .replace('{{/banner}}', '')
+                .replace('{{banner}}', post.banner.path)
+                .replace('{{banner_alt}}', post.banner.alt);
+        } else {
+            // Remove banner section if no banner
+            postHtml = postHtml.replace(/{{#banner}}[\s\S]*?{{\/banner}}/m, '');
+        }
         
         postHtml = postHtml
             .replace('{{date}}', new Date(post.date).toLocaleDateString('en-US', {
