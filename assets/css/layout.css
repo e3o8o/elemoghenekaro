@@ -23,6 +23,10 @@ body {
     z-index: 1000;
     background: transparent;
     height: 60px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
 }
 
 .site-header .logo {
