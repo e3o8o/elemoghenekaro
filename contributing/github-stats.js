@@ -8,27 +8,71 @@ const starsElement = document.getElementById('pipe-pop-stars');
 const forksElement = document.getElementById('pipe-pop-forks');
 const contributorsElement = document.getElementById('pipe-pop-contributors');
 
+// Fetch with timeout and rate limit handling
+async function fetchWithTimeout(url, options = {}) {
+    const timeout = 5000; // 5 second timeout
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal
+        });
+
+        clearTimeout(id);
+
+        // Handle rate limiting
+        if (response.status === 403 && response.headers.get('X-RateLimit-Remaining') === '0') {
+            const resetTime = new Date(response.headers.get('X-RateLimit-Reset') * 1000);
+            console.warn(`Rate limited until ${resetTime.toLocaleString()}`);
+            return null;
+        }
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return response;
+    } catch (error) {
+        clearTimeout(id);
+        if (error.name === 'AbortError') {
+            throw new Error('Request timed out');
+        }
+        throw error;
+    }
+}
+
 // Fetch repository stats
 async function fetchRepoStats() {
     try {
         // Fetch basic repo info
-        const repoResponse = await fetch(`${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}`);
+        const repoResponse = await fetchWithTimeout(`${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}`);
+        if (!repoResponse) return;
+        
         const repoData = await repoResponse.json();
         
-        // Update stars and forks
-        if (starsElement) starsElement.textContent = repoData.stargazers_count;
-        if (forksElement) forksElement.textContent = repoData.forks_count;
+        // Animate stars and forks
+        if (starsElement) animateNumber(starsElement, repoData.stargazers_count);
+        if (forksElement) animateNumber(forksElement, repoData.forks_count);
         
         // Fetch contributors
-        const contributorsResponse = await fetch(`${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contributors`);
+        const contributorsResponse = await fetchWithTimeout(`${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contributors`);
+        if (!contributorsResponse) return;
+        
         const contributorsData = await contributorsResponse.json();
         
-        // Update contributors count
+        // Animate contributors count
         if (contributorsElement) {
-            contributorsElement.textContent = contributorsData.length;
+            animateNumber(contributorsElement, contributorsData.length);
         }
     } catch (error) {
         console.error('Error fetching GitHub stats:', error);
+        // Show error state in UI
+        const elements = [starsElement, forksElement, contributorsElement];
+        elements.forEach(el => {
+            if (el) el.textContent = '–';
+        });
     }
 }
 
@@ -58,6 +102,29 @@ function animateNumber(element, finalNumber) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchRepoStats();
     
-    // Refresh stats every 5 minutes
-    setInterval(fetchRepoStats, 5 * 60 * 1000);
+    // Refresh stats every 5 minutes if the tab is visible
+    let interval;
+    
+    function startInterval() {
+        interval = setInterval(fetchRepoStats, 5 * 60 * 1000);
+    }
+    
+    function stopInterval() {
+        if (interval) {
+            clearInterval(interval);
+            interval = null;
+        }
+    }
+    
+    // Only refresh when the tab is visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopInterval();
+        } else {
+            fetchRepoStats(); // Refresh immediately when becoming visible
+            startInterval();
+        }
+    });
+    
+    startInterval();
 }); 
