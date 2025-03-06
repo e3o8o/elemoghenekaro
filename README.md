@@ -8,7 +8,7 @@ A modern, minimalist landing page featuring:
 - Clean, responsive design with consistent navigation
 - Simplified list-style layout for content sections
 - Dark/Light mode support with persistent theme selection
-- Social media integration with Mirror.xyz blog
+- Blog system with Markdown support
 - Modern UI with Caribbean-themed color palette
 - Mobile-optimized interface with adaptive navigation
 
@@ -31,6 +31,22 @@ python3 -m http.server 4000
 
 2. Visit `http://localhost:4000`
 
+## Adding Blog Posts
+
+1. Create a new Markdown file in `writing/_posts/` with format: `YYYY-MM-DD-title.md`
+2. Add front matter:
+```md
+---
+title: Your Post Title
+description: Brief description of your post
+authors: ["Author Name", "Second Author"]  # Multiple authors supported
+banner: /path/to/banner-image.jpg         # Optional banner image
+---
+
+Your post content in Markdown
+```
+3. Build posts: `cd writing && npm run build`
+
 ## Project Structure
 
 ```
@@ -43,25 +59,30 @@ preterag-site/
 │   │   └── layout.css    # Layout system
 │   ├── js/          # JavaScript files
 │   └── images/      # Image assets
+├── writing/         # Blog system
+│   ├── _posts/      # Markdown posts
+│   ├── posts/       # Generated HTML
+│   └── build.js     # Post builder
 ├── about/           # About section
 ├── building/        # Building section
 ├── contributing/    # Contributing section
-├── docs/           # Documentation
-└── writing/        # Writing section
+└── docs/           # Documentation
 ```
 
 ## Features
 
-- **Consistent Navigation**: Unified header across all pages
+- **Blog System**: Write posts in Markdown with front matter support
+- **Multi-Author Support**: Add multiple authors to posts
+- **Banner Images**: Optional banner images for posts
+- **Theme System**: Dark/Light mode with instant switching
 - **Responsive Design**: Optimized for all screen sizes
-- **Theme Persistence**: Remembers user's theme preference
-- **Mobile-First**: Simplified mobile navigation
 - **Content Organization**: Clear list-style layout for better readability
 
 ## Documentation
 
 - [Development Guide](docs/DEVELOPMENT.md)
 - [Project Structure](docs/PROJECT_STRUCTURE.md)
+- [Design System](docs/DESIGN_SYSTEM.md)
 - [Deployment Guide](docs/DEPLOYMENT.md)
 
 ## Contact

@@ -2,11 +2,20 @@
 
 ## Setup
 
-No build tools or dependencies required. Simply clone and serve:
-
+1. Clone the repository:
 ```bash
 git clone https://github.com/preterag/preterag-site.git
 cd preterag-site
+```
+
+2. Install dependencies:
+```bash
+npm install
+cd writing && npm install
+```
+
+3. Start local server:
+```bash
 python3 -m http.server 4000
 ```
 
@@ -66,40 +75,103 @@ The site uses a consistent header navigation across all pages:
 - System preference detection
 - Smooth theme transitions
 
-## Adding New Pages
+## Blog System
 
-1. Create a new HTML file in the appropriate directory
-2. Include required stylesheets:
-```html
-<link rel="stylesheet" href="/assets/css/palette.css">
-<link rel="stylesheet" href="/assets/css/base.css">
-<link rel="stylesheet" href="/assets/css/components.css">
-<link rel="stylesheet" href="/assets/css/layout.css">
+The blog system uses Markdown files with front matter for content management.
+
+### Writing Posts
+
+1. Create a new file in `writing/_posts/` following the format:
+```
+YYYY-MM-DD-post-title.md
 ```
 
-3. Use the standard page structure:
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title - Preterag</title>
-    <!-- Stylesheets -->
-</head>
-<body>
-    <header class="site-header">
-        <!-- Standard navigation -->
-    </header>
-    <main class="content">
-        <!-- Page content using list-style layout -->
-    </main>
-    <footer class="site-footer">
-        <!-- Standard footer -->
-    </footer>
-</body>
-</html>
+2. Add front matter at the top of your post:
+```md
+---
+title: Your Post Title
+description: A brief description of your post
+authors: ["Author Name", "Second Author"]  # Multiple authors supported
+banner: /path/to/banner-image.jpg         # Optional banner image
+---
 ```
+
+3. Write your post content in Markdown below the front matter.
+
+### Building Posts
+
+1. Navigate to the writing directory:
+```bash
+cd writing
+```
+
+2. Run the build script:
+```bash
+npm run build
+```
+
+This will:
+- Parse all Markdown files in `_posts/`
+- Generate HTML files in `posts/`
+- Update `posts.json` for the post listing
+
+### Post Guidelines
+
+- Use descriptive titles and URLs
+- Include a meaningful description
+- Add all authors who contributed
+- Keep banner images under 2MB
+- Use relative paths for internal links
+
+## Theme System
+
+The site uses a Caribbean-inspired color palette with dark/light modes:
+
+- Dark mode: Teal to Midnight Green gradient
+- Light mode: Beige to Honeydew gradient
+
+Colors are defined in `assets/css/palette.css`.
+
+## Development Workflow
+
+1. Create feature branch from development:
+```bash
+git checkout -b feature/your-feature development
+```
+
+2. Make changes and test locally
+
+3. Commit changes:
+```bash
+git add .
+git commit -m "Description of changes"
+```
+
+4. Push to GitHub:
+```bash
+git push origin feature/your-feature
+```
+
+5. Create pull request to development branch
+
+## Code Style
+
+- Use semantic HTML5 elements
+- Follow BEM methodology for CSS
+- Keep JavaScript modular and minimal
+- Comment complex logic
+- Test across browsers
+
+## Testing
+
+Test all changes in multiple browsers and devices:
+- Desktop: Chrome, Firefox, Safari
+- Mobile: iOS Safari, Android Chrome
+- Different screen sizes and orientations
+
+## Deployment
+
+See [Deployment Guide](DEPLOYMENT.md) for details on deploying changes.
 
 ## Best Practices
 
@@ -154,15 +226,6 @@ The site uses a consistent header navigation across all pages:
 3. Push your branch and create a pull request
 4. Request code reviews
 5. Merge to main branch after approval
-
-## Testing
-
-- Test all changes across multiple browsers
-- Ensure mobile responsiveness
-- Check performance using Lighthouse
-- Validate HTML and CSS
-- Test theme switching functionality
-- Verify navigation consistency
 
 ## Documentation
 
