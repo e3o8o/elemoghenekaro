@@ -111,7 +111,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--spring-green);
+            color: var(--accent-color);
             text-decoration: none;
             margin-top: 24px;
             font-size: 14px;
@@ -150,10 +150,7 @@
             <img src="assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
         </a>
         <nav class="header-nav">
-            <a href="building/" class="nav-link">Building</a>
-            <a href="contributing/" class="nav-link">Contributing</a>
-            <a href="writing/" class="nav-link active">Writing</a>
-            <a href="about/" class="nav-link">About</a>
+            <a href="." class="nav-link">Writing</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -169,12 +166,7 @@
                     <h1 class="post-title">{{title}}</h1>
                     <div class="post-meta">
                         <span><i class="far fa-calendar"></i> {{date}}</span>
-                        <span class="authors">
-                            <i class="far fa-user"></i>
-                            {{#authors}}
-                            <a href="about/index.html#team">{{.}}</a>
-                            {{/authors}}
-                        </span>
+                        <span><i class="fas fa-tags"></i> {{tags}}</span>
                     </div>
                 </header>
                 {{#banner}}
@@ -188,7 +180,7 @@
                     {{content}}
                 </div>
                 <footer class="post-footer">
-                    <a href="writing/" class="back-link">
+                    <a href="." class="back-link">
                         <i class="fas fa-arrow-left"></i> Back to Posts
                     </a>
                 </footer>
