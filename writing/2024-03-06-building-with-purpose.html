@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        console.log('Setting base href...');
+        // Dynamically set base href based on domain
+        if (window.location.hostname === 'preterag.github.io') {
+            document.write('<base href="/preterag_website/">');
+        } else {
+            document.write('<base href="/">');
+        }
+        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
+    </script>
     <meta name="description" content="Building with Purpose: Our Development Philosophy - Preterag">
     
     <title>Building with Purpose: Our Development Philosophy - Preterag</title>
     
-    <link rel="icon" type="image/png" href="../../assets/images/preterag_fav_icon.png">
+    <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="../../assets/css/palette.css">
-    <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/components.css">
-    <link rel="stylesheet" href="../../assets/css/layout.css">
-    <link rel="stylesheet" href="../writing.css">
+    <link rel="stylesheet" href="assets/css/palette.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="writing/writing.css">
     <style>
         .post-header {
             margin-bottom: 48px;
@@ -135,14 +145,14 @@
 </head>
 <body>
     <header class="site-header">
-        <a href="/" class="logo">
-            <img src="../../assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+        <a href="." class="logo">
+            <img src="assets/images/preterag_fav_icon.png" alt="Preterag Logo">
         </a>
         <nav class="header-nav">
-            <a href="/building" class="nav-link">Building</a>
-            <a href="/contributing" class="nav-link">Contributing</a>
-            <a href="/writing" class="nav-link active">Writing</a>
-            <a href="/about" class="nav-link">About</a>
+            <a href="building/" class="nav-link">Building</a>
+            <a href="contributing/" class="nav-link">Contributing</a>
+            <a href="writing/" class="nav-link active">Writing</a>
+            <a href="about/" class="nav-link">About</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -166,7 +176,7 @@
                         </span>
                     </div>
                 </header>
-                <img src="../../assets/images/banner-no-logo.png" alt="Preterag Banner" class="post-banner">
+                <img src="assets/images/banner-no-logo.png" alt="Preterag Banner" class="post-banner">
                 <div class="post-content">
                     <h1>Building with Purpose: Our Development Philosophy</h1>
 <p>At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference.</p>
@@ -201,7 +211,7 @@
 
                 </div>
                 <footer class="post-footer">
-                    <a href="/writing" class="back-link">
+                    <a href="writing/" class="back-link">
                         <i class="fas fa-arrow-left"></i> Back to Posts
                     </a>
                 </footer>
@@ -229,7 +239,7 @@
         <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
     </footer>
     
-    <script src="../../assets/js/settings.js"></script>
-    <script src="../../assets/js/theme.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html> 
