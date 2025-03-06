@@ -2,6 +2,9 @@
 title: "Welcome to Preterag"
 date: 2024-03-06
 authors: ["Elem Oghenekaro", "John Smith", "Jane Doe"]
+banner:
+  path: assets/images/preterag_banner.jpeg
+  alt: Preterag Welcome Banner
 ---
 
 # Welcome to Preterag
