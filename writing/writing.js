@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     async function loadPosts() {
         try {
-            const response = await fetch('./posts.json');
+            const response = await fetch('writing/posts.json');
             
             if (!response.ok) {
                 throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
