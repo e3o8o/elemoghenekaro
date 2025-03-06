@@ -32,9 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span><i class="far fa-clock"></i> ${post.read_time} min read</span>
                         <span><i class="far fa-user"></i> ${post.author}</span>
                     </div>
-                    <a href="${post.slug}" class="list-item-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="${post.slug}" class="list-item-link">Read More →</a>
                 </div>
             `).join('');
             

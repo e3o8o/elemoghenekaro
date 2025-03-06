@@ -276,39 +276,34 @@
 .list-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     margin-bottom: var(--spacing-2xl);
     padding: 0;
     background: transparent;
-    transition: transform 0.3s ease;
-}
-
-.list-item:hover {
-    transform: translateY(-2px);
 }
 
 .list-item h3 {
     color: var(--text-color);
-    margin: 0 0 var(--spacing-sm);
-    font-size: var(--font-size-xl);
-    font-weight: 500;
+    margin: 0 0 var(--spacing-xs);
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 .list-item p {
     color: var(--text-color-muted);
-    margin: 0 0 var(--spacing-md);
-    line-height: 1.6;
-    max-width: 600px;
+    margin: 0 0 var(--spacing-sm);
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .list-item-meta {
     display: flex;
     gap: var(--spacing-md);
     color: var(--text-color-muted);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-md);
-    justify-content: center;
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+    justify-content: flex-start;
 }
 
 .list-item-meta span {
@@ -323,8 +318,8 @@
     gap: var(--spacing-xs);
     color: var(--spring-green);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
 }
 
 .list-item-link:hover {
@@ -336,25 +331,24 @@
 }
 
 .list-item-link i {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 /* No Posts Message */
 .no-posts-message {
-    text-align: center;
-    padding: 4rem 2rem;
-    margin: 2rem 0;
+    text-align: left;
+    padding: 2rem 0;
 }
 
 .no-posts-message i {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--spring-green);
     margin-bottom: 1rem;
     display: block;
 }
 
 .no-posts-message h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
 }
@@ -370,7 +364,7 @@
     }
 
     .list-item h3 {
-        font-size: var(--font-size-lg);
+        font-size: 1.125rem;
     }
 
     .list-item-meta {
@@ -379,7 +373,7 @@
     }
 
     .list-item p {
-        font-size: var(--font-size-sm);
+        font-size: 0.875rem;
     }
 }
 
@@ -393,5 +387,5 @@
     color: var(--spring-green);
     text-align: center;
     margin-bottom: var(--spacing-2xl);
-    font-size: var(--font-size-2xl);
+    font-size: 1.5rem;
 } 
