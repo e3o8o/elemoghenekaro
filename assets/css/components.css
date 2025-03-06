@@ -265,20 +265,29 @@
         gap: var(--spacing-sm);
         margin-bottom: var(--spacing-md);
         max-width: 300px;
-        padding: 0 var(--spacing-md);
+        padding: 0;
+        text-align: center;
+        left: 50%;
+        top: calc(50% + 50px);
+        transform: translate(-50%, -50%);
     }
 
     .nav-group {
         width: 100%;
+        align-items: center;
     }
 
     .nav-item {
         font-size: 30px;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
     }
     
     .nav-item.sub-item {
         font-size: 20px;
         margin: -8px auto 0;
+        text-align: center;
     }
     
     .nav-item.sub-item:last-of-type {
