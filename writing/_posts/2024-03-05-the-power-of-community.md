@@ -2,6 +2,8 @@
 title: "The Power of Community in Open Source"
 date: 2024-03-05
 author: "Elem Oghenekaro"
+tags: ["Open Source", "Community", "Collaboration", "Development"]
+excerpt: "Open source software has revolutionized how we build and share technology. At Preterag, we're deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration."
 ---
 
 # The Power of Community in Open Source

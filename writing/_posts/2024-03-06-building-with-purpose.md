@@ -2,6 +2,8 @@
 title: "Building with Purpose: Our Development Philosophy"
 date: 2024-03-06
 author: "Elem Oghenekaro"
+tags: ["Development", "Philosophy", "Software Engineering"]
+excerpt: "At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference."
 ---
 
 # Building with Purpose: Our Development Philosophy
