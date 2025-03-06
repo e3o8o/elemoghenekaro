@@ -6,36 +6,71 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     async function loadPosts() {
         try {
-            const response = await fetch('writing/posts.json');
+            // Debug base href resolution
+            const baseElement = document.querySelector('base');
+            console.log('Base element:', baseElement);
+            const baseHref = baseElement?.getAttribute('href') || '/';
+            console.log('Base href:', baseHref);
+            
+            const isGitHubPages = window.location.hostname === 'preterag.github.io';
+            console.log('Is GitHub Pages:', isGitHubPages);
+            
+            // Construct paths based on environment
+            let postsJsonPath;
+            if (isGitHubPages) {
+                // For GitHub Pages, use the base href
+                postsJsonPath = `${baseHref}writing/posts.json`;
+            } else {
+                // For local development, use relative path
+                postsJsonPath = './posts.json';
+            }
+            console.log('Posts JSON path:', postsJsonPath);
+            
+            const response = await fetch(postsJsonPath);
+            console.log('Response:', response);
             
             if (!response.ok) {
                 throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
             }
             
             const posts = await response.json();
+            console.log('Loaded posts:', posts);
             
             if (!posts || posts.length === 0) {
                 showNoPostsMessage();
                 return;
             }
             
-            const postsHTML = posts.map(post => `
-                <div class="list-item">
-                    <h3>${post.title}</h3>
-                    <p>${post.excerpt || ''}</p>
-                    <div class="list-item-meta">
-                        <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
-                        <span><i class="far fa-user"></i> ${formatAuthors(post.authors)}</span>
+            const postsHTML = posts.map(post => {
+                let fullUrl;
+                if (isGitHubPages) {
+                    // For GitHub Pages, combine base href with post URL directly in writing directory
+                    fullUrl = `${baseHref}writing/${post.url}`;
+                } else {
+                    // For local development, use relative path
+                    fullUrl = `./${post.url}`;
+                }
+                console.log('Post URL:', fullUrl);
+                
+                return `
+                    <div class="list-item">
+                        <h3>${post.title}</h3>
+                        <p>${post.excerpt || ''}</p>
+                        <div class="list-item-meta">
+                            <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+                            <span><i class="far fa-user"></i> ${formatAuthors(post.authors)}</span>
+                        </div>
+                        <a href="${fullUrl}" class="list-item-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="${post.url}" class="list-item-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             
             postsContainer.innerHTML = postsHTML;
         } catch (error) {
             console.error('Error loading posts:', error);
+            console.error('Full error details:', error.stack);
             showNoPostsMessage();
         }
     }

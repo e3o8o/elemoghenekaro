@@ -4,36 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        console.log('Setting base href...');
         // Dynamically set base href based on domain
         if (window.location.hostname === 'preterag.github.io') {
             document.write('<base href="/preterag_website/">');
         } else {
             document.write('<base href="/">');
         }
+        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
     <meta name="description" content="Preterag - Articles and Research">
     
     <title>Writing - Preterag</title>
     
-    <link rel="icon" type="image/png" href="assets/images/preterag_fav_icon.png">
+    <link rel="icon" type="image/png" href="../assets/images/preterag_fav_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="assets/css/palette.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="writing.css">
+    <link rel="stylesheet" href="../assets/css/palette.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="./writing.css">
 </head>
 <body>
     <header class="site-header">
-        <a href="." class="logo">
-            <img src="assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+        <a href=".." class="logo">
+            <img src="../assets/images/preterag_fav_icon.png" alt="Preterag Logo">
         </a>
         <nav class="header-nav">
-            <a href="building/" class="nav-link">Building</a>
-            <a href="contributing/" class="nav-link">Contributing</a>
-            <a href="writing/" class="nav-link active">Writing</a>
-            <a href="about/" class="nav-link">About</a>
+            <a href="../building/" class="nav-link">Building</a>
+            <a href="../contributing/" class="nav-link">Contributing</a>
+            <a href="../writing/" class="nav-link active">Writing</a>
+            <a href="../about/" class="nav-link">About</a>
         </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
@@ -85,8 +87,15 @@
         <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
     </footer>
     
+    <script>
+        // Debug script loading
+        console.log('Scripts starting to load...');
+    </script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script src="writing/writing.js"></script>
+    <script src="writing.js"></script>
+    <script>
+        console.log('All scripts loaded');
+    </script>
 </body>
 </html> 
