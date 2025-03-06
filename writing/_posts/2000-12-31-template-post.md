@@ -6,10 +6,16 @@ authors: ["Author Name"]  # Can be single author or multiple: ["Author 1", "Auth
 
 # Optional fields
 # Banner options (choose one):
-# Option 1: No banner (remove the banner field completely)
-# Option 2: Simple banner (just path)
+# Option 1: Default banner - leave the banner field out completely
+#          This will use assets/images/banner-no-logo.png
+#
+# Option 2: No banner - explicitly set banner to false
+banner: false
+#
+# Option 3: Custom banner (simple path)
 # banner: assets/images/your-banner.jpg
-# Option 3: Banner with custom alt text
+#
+# Option 4: Custom banner with alt text
 # banner:
 #   path: assets/images/your-banner.jpg
 #   alt: Your custom alt text
