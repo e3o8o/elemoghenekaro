@@ -103,4 +103,55 @@ html {
     .project-links {
         flex-direction: column;
     }
+}
+
+.github-stat {
+    display: inline-block;
+    min-width: 1.5em;
+    text-align: center;
+}
+
+.loading-placeholder {
+    display: inline-block;
+    color: var(--text-muted);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.cached-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.cached-indicator i {
+    font-size: 0.9em;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Ensure meta items have consistent spacing */
+.list-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+}
+
+.list-item-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.list-item-meta i {
+    opacity: 0.8;
+    width: 1em;
+    text-align: center;
 } 
