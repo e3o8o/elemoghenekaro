@@ -65,8 +65,11 @@ function generatePostsJson() {
         // Replace all instances of {{title}}
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
         
-        // Set banner image
-        postHtml = postHtml.replace('{{banner}}', 'assets/images/banner-no-logo.png');
+        // Set banner image based on post title
+        const bannerImage = post.title === "Welcome to Preterag" 
+            ? "assets/images/preterag_banner.jpeg"
+            : "assets/images/banner-no-logo.png";
+        postHtml = postHtml.replace('{{banner}}', bannerImage);
         
         postHtml = postHtml
             .replace('{{date}}', new Date(post.date).toLocaleDateString('en-US', {
@@ -76,7 +79,7 @@ function generatePostsJson() {
             }))
             .replace('{{#authors}}', '')
             .replace('{{/authors}}', '')
-            .replace('{{.}}', post.authors.join('</a><a href="about/#team">'))
+            .replace('{{.}}', post.authors.join('</a><a href="about/index.html#team">'))
             .replace('{{content}}', post.content);
         
         const postPath = path.join(__dirname, post.url);
