@@ -1,241 +1,157 @@
 # Development Guide
 
-## Setup
+## Quick Setup
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/preterag/preterag-site.git
-cd preterag-site
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-cd writing && npm install
+
+# Start development server
+npm start
+
+# Build all content
+npm run build:all
 ```
 
-3. Start local server:
-```bash
-python3 -m http.server 4000
-```
+## Content Management
 
-## Directory Structure
+### Blog Posts
 
-- `assets/` - Core assets (CSS, JS, images)
-  - `css/` - Modular stylesheet system
-  - `js/` - JavaScript utilities
-  - `images/` - Site assets
-- `about/` - About section pages
-- `building/` - Building section content
-- `contributing/` - Contributing guidelines
-- `writing/` - Writing and blog content
-- `docs/` - Project documentation
+1. **Regular Posts**
+   ```bash
+   # Create new post in writing/_posts/
+   touch writing/_posts/YYYY-MM-DD-post-title.md
+   
+   # Add frontmatter
+   ---
+   title: "Your Title"
+   date: YYYY-MM-DD
+   authors: ["Author Name"]
+   tags: ["Tag1", "Tag2"]
+   excerpt: "Brief description"
+   banner:
+     path: assets/images/your-banner.jpg
+     alt: Banner description
+   ---
+   ```
 
-## Styling System
+2. **External Posts**
+   ```bash
+   # Add external post
+   ./post-utils.sh add '{
+     "title": "Post Title",
+     "date": "YYYY-MM-DD",
+     "excerpt": "Brief description",
+     "externalUrl": "https://example.com",
+     "source": "Source Name"
+   }'
+   
+   # Delete post
+   ./post-utils.sh delete "post-url-or-external-url"
+   ```
 
-### CSS Organization
-- `palette.css` - Color variables and themes
-- `base.css` - Base styles and resets
-- `components.css` - Reusable components
-- `layout.css` - Layout and structure
+3. **Build Posts**
+   ```bash
+   cd writing && node build.js
+   ```
 
-### Navigation System
-The site uses a consistent header navigation across all pages:
-```html
-<header class="site-header">
-    <a href="/" class="logo">
-        <img src="/assets/images/preterag_fav_icon.png" alt="Preterag Logo">
-    </a>
-    <nav class="header-nav">
-        <a href="/building" class="nav-link">Building</a>
-        <a href="/contributing" class="nav-link">Contributing</a>
-        <a href="/writing" class="nav-link">Writing</a>
-        <a href="/about" class="nav-link">About</a>
-    </nav>
-    <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-    </button>
-</header>
-```
+### Banner Options
 
-### Responsive Design
-- Mobile-first approach
-- Breakpoints:
-  - Mobile: ≤ 480px
-  - Tablet: ≤ 768px
-  - Desktop: > 768px
-- Adaptive navigation:
-  - Full navigation on desktop
-  - Simplified navigation on mobile
-  - Consistent header height across breakpoints
+1. **Default Banner**
+   ```yaml
+   # Remove banner field from frontmatter
+   ---
+   title: "Your Title"
+   date: YYYY-MM-DD
+   authors: ["Your Name"]
+   ---
+   ```
 
-### Theme System
-- Light/Dark mode support
-- Theme persistence using localStorage
-- System preference detection
-- Smooth theme transitions
+2. **No Banner**
+   ```yaml
+   banner: false
+   ```
 
-## Blog System
-
-The blog system uses Markdown files with front matter for content management.
-
-### Writing Posts
-
-1. Create a new file in `writing/_posts/` following the format:
-```
-YYYY-MM-DD-post-title.md
-```
-
-2. Add front matter at the top of your post:
-```md
----
-title: Your Post Title
-description: A brief description of your post
-authors: ["Author Name", "Second Author"]  # Multiple authors supported
-banner: /path/to/banner-image.jpg         # Optional banner image
----
-```
-
-3. Write your post content in Markdown below the front matter.
-
-### Building Posts
-
-1. Navigate to the writing directory:
-```bash
-cd writing
-```
-
-2. Run the build script:
-```bash
-npm run build
-```
-
-This will:
-- Parse all Markdown files in `_posts/`
-- Generate HTML files in `posts/`
-- Update `posts.json` for the post listing
-
-### Post Guidelines
-
-- Use descriptive titles and URLs
-- Include a meaningful description
-- Add all authors who contributed
-- Keep banner images under 2MB
-- Use relative paths for internal links
+3. **Custom Banner**
+   ```yaml
+   banner:
+     path: assets/images/your-banner.jpg
+     alt: Your alt text
+   ```
 
 ## Theme System
 
-The site uses a Caribbean-inspired color palette with dark/light modes:
+### Features
+- Light/Dark mode toggle
+- System preference detection
+- Theme persistence in localStorage
+- Smooth transitions
+- Caribbean-inspired palette
 
-- Dark mode: Teal to Midnight Green gradient
-- Light mode: Beige to Honeydew gradient
+### Colors
+```css
+/* Dark Mode */
+--caribbean-current: #003838
+--teal: #004B4B
+--midnight-green: #001A1A
+--spring-green: #00F5A3
 
-Colors are defined in `assets/css/palette.css`.
-
-## Development Workflow
-
-1. Create feature branch from development:
-```bash
-git checkout -b feature/your-feature development
+/* Light Mode */
+--beige: #F5F5DC
+--honeydew: #F0FFF0
 ```
 
-2. Make changes and test locally
+## Development Tools
 
-3. Commit changes:
-```bash
-git add .
-git commit -m "Description of changes"
-```
+### Post Management
+- `post-utils.js` - Core post management functions
+- `post-utils.sh` - CLI wrapper for post operations
+- `build.js` - Post builder and HTML generator
 
-4. Push to GitHub:
-```bash
-git push origin feature/your-feature
-```
-
-5. Create pull request to development branch
-
-## Code Style
-
-- Use semantic HTML5 elements
-- Follow BEM methodology for CSS
-- Keep JavaScript modular and minimal
-- Comment complex logic
-- Test across browsers
-
-## Testing
-
-Test all changes in multiple browsers and devices:
-- Desktop: Chrome, Firefox, Safari
-- Mobile: iOS Safari, Android Chrome
-- Different screen sizes and orientations
+### Helper Tools
+- `tools/post-helper.html` - External post helper UI
+- Theme toggle with system preference detection
+- Automated post sorting and JSON generation
 
 ## Deployment
 
-See [Deployment Guide](DEPLOYMENT.md) for details on deploying changes.
+1. **Prepare Changes**
+   ```bash
+   git add .
+   git commit -m "your commit message"
+   ```
+
+2. **Deploy**
+   ```bash
+   git push origin main
+   ```
+
+3. **Domain Setup**
+   - A Records:
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
+   - CNAME: `www` → `e3o8o.github.io`
 
 ## Best Practices
 
-1. **Accessibility**
-   - Use semantic HTML
-   - Include proper ARIA labels
-   - Maintain good color contrast
-   - Ensure keyboard navigation
+### Code Style
+- Semantic HTML5 elements
+- BEM methodology for CSS
+- ES6+ JavaScript
+- Mobile-first responsive design
 
-2. **Performance**
-   - Optimize images
-   - Minimize external dependencies
-   - Use system fonts when possible
-   - Implement smooth transitions
+### Performance
+- Optimized images
+- Minimal dependencies
+- System fonts
+- Efficient CSS organization
 
-3. **Maintenance**
-   - Keep CSS organized by component
-   - Follow existing naming conventions
-   - Document any complex functionality
-   - Use consistent spacing and indentation
-
-4. **Mobile Optimization**
-   - Test on various devices
-   - Ensure touch targets are adequate
-   - Optimize for different screen sizes
-   - Consider network performance
-
-### Content Updates
-- About section updated to use "with my team at Preterag" for a more personal tone
-- Keep content consistent with personal branding
-- Maintain professional yet approachable language
-- Update documentation when making content changes
-
-## Coding Standards
-
-### HTML
-- Use HTML5 doctype
-- Use semantic HTML elements
-- Validate HTML using [W3C Validator](https://validator.w3.org/)
-- Maintain consistent indentation
-
-### CSS
-- Follow BEM (Block, Element, Modifier) naming conventions
-- Organize CSS by component
-- Use variables for colors and spacing
-- Implement mobile-first media queries
-
-### JavaScript
-- Use ES6+ features
-- Keep functions small and focused
-- Comment complex logic
-- Implement error handling
-
-## Git Workflow
-
-1. Create a branch for each feature or bugfix
-2. Make small, focused commits with clear messages
-3. Push your branch and create a pull request
-4. Request code reviews
-5. Merge to main branch after approval
-
-## Documentation
-
-- Update documentation when making significant changes
-- Document complex components
-- Keep the README up to date
-- Include code examples where helpful 
+### Content
+- Clear, concise writing
+- Professional yet personal tone
+- Consistent branding
+- Regular documentation updates 

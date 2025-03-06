@@ -1,104 +1,60 @@
-# Elem Oghenekaro Website
+# Elem Oghenekaro's Personal Site
 
-The official website for Elem Oghenekaro, built with modern web technologies and hosted on GitHub Pages.
+A minimalist personal site and blog built with vanilla JavaScript and a custom static site generator.
 
-## 🌐 Live Site
+## Features
 
-Visit us at [e3o8o.github.io/elemoghenekaro](https://e3o8o.github.io/elemoghenekaro)
+### Content Management
+- Markdown-based blog posts with YAML frontmatter
+- External post integration (Medium, etc.)
+- Automated post building and sorting
+- Custom banner support for posts
 
-## 🏗️ Project Structure
+### Post Management Tools
+- `post-utils.sh` for post operations:
+  ```bash
+  # Add a new post
+  ./post-utils.sh add '{"title":"Post Title","date":"YYYY-MM-DD","excerpt":"Brief description","externalUrl":"https://example.com","source":"Source Name"}'
+  
+  # Delete a post
+  ./post-utils.sh delete "post-url-or-external-url"
+  ```
 
-```
-elemoghenekaro/
-├── about/           # About section
-├── assets/         # Static assets (CSS, JS, images)
-├── building/       # Building section
-├── contributing/   # Contributing section
-├── docs/          # Documentation
-└── writing/        # Blog posts and articles
-    ├── _posts/     # Markdown source files for posts
-    ├── posts.json  # Post metadata
-    └── *.html      # Generated post pages
-```
+### Design
+- Dark/Light theme with system preference detection
+- Responsive layout optimized for all devices
+- Caribbean-inspired color palette
+- Smooth theme transitions
 
-## 🚀 Development
+### Development
+- Zero-dependency core
+- Built-in development server
+- Automated build process
+- GitHub Pages deployment
 
-### Prerequisites
+## Quick Start
 
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-
-### Setup
-
-1. Clone the repository:
+1. Clone and install:
    ```bash
    git clone https://github.com/e3o8o/elemoghenekaro.git
    cd elemoghenekaro
-   ```
-
-2. Install dependencies:
-   ```bash
    npm install
    ```
 
-3. Start the development server:
+2. Start development server:
    ```bash
-   python -m http.server
+   npm start
    ```
 
-4. Visit `http://localhost:8000` in your browser
-
-### Branch Structure
-
-- `main` - Production branch, deployed to GitHub Pages
-- `development` - Development branch for ongoing work
-
-### Development Workflow
-
-1. Create a feature branch from `development`:
+3. Build posts:
    ```bash
-   git checkout development
-   git checkout -b feature/your-feature-name
+   npm run build:all
    ```
 
-2. Make your changes and commit them:
-   ```bash
-   git add .
-   git commit -m "feat: Add your feature"
-   ```
+## Documentation
 
-3. Push to GitHub and create a PR to `development`:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-4. After review and testing, merge to `development`
-5. When ready for production, merge `development` into `main`
-
-## 📝 Content Management
-
-### Blog Posts
-
-1. Add Markdown files to `writing/_posts/`
-2. Update `writing/posts.json` with metadata
-3. Run the build script:
-   ```bash
-   node writing/build.js
-   ```
-
-### Path Handling
-
-- All paths use dynamic base href for GitHub Pages compatibility
-- Assets are referenced relative to the base href
-- Navigation uses relative paths with trailing slashes
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch from `development`
-3. Follow the development workflow above
-4. Submit a Pull Request
-
-## 📄 License
-
-© 2025 Elem Oghenekaro. All rights reserved. 
+See the `docs/` directory for detailed documentation:
+- [Development Guide](docs/DEVELOPMENT.md)
+- [Project Structure](docs/PROJECT_STRUCTURE.md)
+- [Design System](docs/DESIGN_SYSTEM.md)
+- [Deployment Guide](docs/DEPLOYMENT.md) 
