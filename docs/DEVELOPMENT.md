@@ -199,6 +199,12 @@ See [Deployment Guide](DEPLOYMENT.md) for details on deploying changes.
    - Optimize for different screen sizes
    - Consider network performance
 
+### Content Updates
+- About section updated to use "with my team at Preterag" for a more personal tone
+- Keep content consistent with personal branding
+- Maintain professional yet approachable language
+- Update documentation when making content changes
+
 ## Coding Standards
 
 ### HTML
