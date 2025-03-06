@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Construct paths based on environment
             const postsJsonPath = isGitHubPages 
                 ? `${baseHref}writing/posts.json`
-                : 'posts.json';
+                : 'writing/posts.json';
             console.log('Posts JSON path:', postsJsonPath);
             
             const response = await fetch(postsJsonPath);
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // For GitHub Pages, combine base href with post URL
                 const fullUrl = isGitHubPages
                     ? `${baseHref}writing/${post.url}`
-                    : post.url;
+                    : `writing/${post.url}`;
                 console.log('Post URL:', fullUrl);
                 
                 return `
