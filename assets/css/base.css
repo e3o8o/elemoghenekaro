@@ -123,4 +123,18 @@ a {
 
 a:hover {
     opacity: 0.8;
+}
+
+/* About Content */
+.about-content {
+    color: var(--text-color-muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        font-size: 14px;
+    }
 } 

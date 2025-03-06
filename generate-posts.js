@@ -8,7 +8,17 @@ const OUTPUT_FILE = path.join(__dirname, 'writing/posts.json');
 
 // Read all markdown files from the posts directory
 const posts = fs.readdirSync(POSTS_DIR)
-    .filter(filename => filename.endsWith('.md') && !filename.startsWith('README'))
+    .filter(filename => {
+        // Only include .md files
+        if (!filename.endsWith('.md')) return false;
+        
+        // Exclude specific files
+        const excludeFiles = [
+            'README.md',
+            '2000-12-31-template-post.md'
+        ];
+        return !excludeFiles.includes(filename);
+    })
     .map(filename => {
         const filePath = path.join(POSTS_DIR, filename);
         const content = fs.readFileSync(filePath, 'utf8');

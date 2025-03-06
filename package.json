@@ -4,7 +4,8 @@
   "description": "Preterag website",
   "scripts": {
     "start": "npx http-server . -p 4001 -c-1",
-    "generate": "node generate-posts.js"
+    "generate": "node generate-posts.js",
+    "build:writing": "node writing/build.js"
   },
   "devDependencies": {
     "http-server": "^14.1.1"

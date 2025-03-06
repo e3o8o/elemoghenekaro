@@ -17,22 +17,6 @@
     }
   },
   {
-    "id": "2024-03-06-test-post",
-    "title": "Testing the Blog System",
-    "date": "2024-03-06T00:00:00.000Z",
-    "tags": [
-      "Test",
-      "Blog"
-    ],
-    "excerpt": "This is a test post to verify that our blog system is working correctly.",
-    "url": "2024-03-06-test-post.html",
-    "content": "<h1>Testing the Blog System</h1>\n<p>This is a test post to verify that our blog system is working correctly. Let&#39;s test various markdown features:</p>\n<h2>Headers and Text</h2>\n<p>Here&#39;s some regular text with <strong>bold</strong> and <em>italic</em> formatting.</p>\n<h2>Lists</h2>\n<p>Here are some lists:</p>\n<ol>\n<li>First ordered item</li>\n<li>Second ordered item</li>\n<li>Third ordered item</li>\n</ol>\n<p>And some unordered items:</p>\n<ul>\n<li>Bullet point one</li>\n<li>Bullet point two</li>\n<li>Bullet point three</li>\n</ul>\n<h2>Code Block</h2>\n<p>Here&#39;s a code block:</p>\n<pre><code class=\"language-javascript\">function testFunction() {\n    console.log(&quot;Hello, World!&quot;);\n}\n</code></pre>\n<h2>Links</h2>\n<p>Here&#39;s a <a href=\"/\">link to the homepage</a>. </p>\n",
-    "banner": {
-      "path": "assets/images/banner_dark.png",
-      "alt": "Test Post Banner"
-    }
-  },
-  {
     "id": "2024-03-06-welcome-to-preterag",
     "title": "Welcome to Preterag",
     "date": "2024-03-06T00:00:00.000Z",
@@ -62,19 +46,6 @@
     "excerpt": "Open source software has revolutionized how we build and share technology. At Preterag, we're deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration.",
     "url": "2024-03-05-the-power-of-community.html",
     "content": "<h1>The Power of Community in Open Source</h1>\n<p>Open source software has revolutionized how we build and share technology. At Preterag, we&#39;re deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration.</p>\n<h2>Why Community Matters</h2>\n<p>The strength of open source lies not just in the code, but in the connections and relationships that form around it. Here&#39;s why community is at the heart of everything we do:</p>\n<h3>Knowledge Sharing</h3>\n<p>When developers come together, amazing things happen:</p>\n<ul>\n<li>Cross-pollination of ideas</li>\n<li>Shared learning experiences</li>\n<li>Mentorship opportunities</li>\n<li>Collective problem-solving</li>\n</ul>\n<h3>Innovation Through Diversity</h3>\n<p>Different perspectives lead to better solutions:</p>\n<ul>\n<li>Cultural diversity</li>\n<li>Technical backgrounds</li>\n<li>Industry experiences</li>\n<li>Unique approaches to problems</li>\n</ul>\n<h3>Sustainable Growth</h3>\n<p>A strong community ensures:</p>\n<ul>\n<li>Long-term project viability</li>\n<li>Continuous improvement</li>\n<li>Shared maintenance</li>\n<li>Resilient ecosystems</li>\n</ul>\n<h2>Building Together</h2>\n<p>We believe that the best solutions emerge when we:</p>\n<ol>\n<li>Listen to each other</li>\n<li>Share our knowledge freely</li>\n<li>Support new contributors</li>\n<li>Celebrate our successes together</li>\n</ol>\n<h2>Join Our Community</h2>\n<p>Whether you&#39;re a seasoned developer or just starting your journey, there&#39;s a place for you in our community. Here&#39;s how you can get involved:</p>\n<ul>\n<li>Contribute to our projects</li>\n<li>Join our discussions</li>\n<li>Share your experiences</li>\n<li>Help others learn and grow</li>\n</ul>\n<p>Remember: Every great open source project started with a single contribution. Your involvement, no matter how small, makes a difference.</p>\n<p>Let&#39;s build something amazing together! 🚀 </p>\n",
-    "banner": {
-      "path": "assets/images/banner_dark.png",
-      "alt": "Default Banner"
-    }
-  },
-  {
-    "id": "2000-12-31-template-post",
-    "title": "Template Post",
-    "date": "2000-12-31T00:00:00.000Z",
-    "tags": [],
-    "excerpt": "\n# Template Post",
-    "url": "2000-12-31-template-post.html",
-    "content": "<h1>Template Post</h1>\n<p>Your introduction paragraph goes here. This will be used as the excerpt on the posts listing page.\nKeep it concise and engaging - it will be truncated to 200 characters in the preview.</p>\n<h2>Section Heading</h2>\n<p>Your content goes here. You can use standard markdown formatting:</p>\n<ul>\n<li>Bullet points</li>\n<li>Like this</li>\n</ul>\n<ol>\n<li>Numbered lists</li>\n<li>Work too</li>\n</ol>\n<h2>Formatting Examples</h2>\n<h3>Text Styling</h3>\n<p>You can use <strong>bold</strong>, <em>italic</em>, or <em><strong>both</strong></em>.</p>\n<h3>Code Blocks</h3>\n<pre><code class=\"language-python\">def example():\n    return &quot;This is a code block&quot;\n</code></pre>\n<h3>Links</h3>\n<p><a href=\"https://example.com\">Link text</a></p>\n<h3>Images</h3>\n<p><img src=\"assets/images/example.jpg\" alt=\"Image description\"></p>\n<h3>Blockquotes</h3>\n<blockquote>\n<p>This is a blockquote\nIt can span multiple lines</p>\n</blockquote>\n<h2>Tips</h2>\n<ul>\n<li>Keep your content focused and well-structured</li>\n<li>Use headings to organize your thoughts</li>\n<li>Include relevant images or code examples when helpful</li>\n<li>End with a clear conclusion or call to action</li>\n</ul>\n<h2>Next Steps</h2>\n<p>Summarize your main points or provide next steps for readers.</p>\n<hr>\n<p>Note: Delete these instructions and examples when creating your post.\nRemember to:</p>\n<ol>\n<li>Save the file as YYYY-MM-DD-post-title.md</li>\n<li>Place any custom banner images in assets/images/</li>\n<li>Run the build script after creating your post</li>\n</ol>\n",
     "banner": {
       "path": "assets/images/banner_dark.png",
       "alt": "Default Banner"
