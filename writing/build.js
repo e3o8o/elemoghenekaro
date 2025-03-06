@@ -8,6 +8,15 @@ const OUTPUT_FILE = path.join(__dirname, 'posts.json');
 // Define the template post to exclude
 const TEMPLATE_POST = '2000-12-31-template-post.md';
 const TEMPLATE_HTML = '2000-12-31-template-post.html';
+// Define default banner settings
+const DEFAULT_BANNER = {
+    path: "assets/images/banner_dark.png",
+    alt: "Elem Oghenekaro Banner"
+};
+const BANNER_LIGHT = {
+    path: "assets/images/banner_light.png",
+    alt: "Elem Oghenekaro Light Banner"
+};
 
 // Create posts directory if it doesn't exist
 if (!fs.existsSync(POSTS_DIR)) {
@@ -42,10 +51,14 @@ function getBannerSettings(post) {
                 alt: 'Post Banner'
             };
         }
+        // Special case for banner_light
+        if (post.banner === 'light' || post.banner.type === 'light') {
+            return BANNER_LIGHT;
+        }
     }
 
-    // If no banner is specified, return null
-    return null;
+    // If no banner is specified, return default dark banner
+    return DEFAULT_BANNER;
 }
 
 function generatePostsJson() {
@@ -129,10 +142,13 @@ function generatePostsJson() {
         } else {
             // Remove the banner section first
             postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
-            // Then handle the no-banner section
+            // Then handle the no-banner section but use default banner
             postHtml = postHtml
                 .replace('{{^banner}}', '')
-                .replace('{{/banner}}', '');
+                .replace('{{/banner}}', '')
+                // Set default banner path and alt text
+                .replace('../assets/images/banner_dark.png', `../${DEFAULT_BANNER.path}`)
+                .replace('Elem Oghenekaro Banner', DEFAULT_BANNER.alt);
         }
         
         // Format date

@@ -5,7 +5,7 @@ authors: ["Elem Oghenekaro", "John Smith", "Jane Doe"]
 tags: ["Introduction", "Updates", "Platform"]
 excerpt: "Welcome to Preterag! This is our first blog post that demonstrates the structure and formatting of our writing platform. Here, we'll share insights, updates, and thoughts about our journey in building and growing Preterag."
 banner:
-  path: assets/images/preterag_banner.jpeg
+  path: assets/images/banner_light.png
   alt: Preterag Welcome Banner
 ---
 
