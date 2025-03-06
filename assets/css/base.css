@@ -127,10 +127,10 @@ a:hover {
 
 /* About Content */
 .about-content {
-    color: var(--text-color-muted);
+    color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 
 @media (max-width: 768px) {
