@@ -128,13 +128,17 @@ a:hover {
 /* About Content */
 .about-content {
     color: var(--text-color);
-    font-size: 12px;
-    line-height: 1.4;
     margin-bottom: 24px;
 }
 
+.about-content p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+}
+
 @media (max-width: 768px) {
-    .about-content {
-        font-size: 10px;
+    .about-content p {
+        font-size: 10px !important;
     }
 } 
