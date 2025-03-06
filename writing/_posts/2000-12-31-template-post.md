@@ -1,8 +1,12 @@
 ---
 # Required fields
-title: "Template Post"  # Will be used as page title
-date: 2000-12-31  # Format: YYYY-MM-DD (update this when creating a new post)
-authors: ["Author Name"]  # Can be single author or multiple: ["Author 1", "Author 2"]
+title: "Post Title Here"
+date: YYYY-MM-DD
+tags: ["Tag1", "Tag2", "Tag3"]
+excerpt: "A brief excerpt of your post (optional). If not provided, the first paragraph will be used."
+banner:
+  path: "assets/images/your-banner.png"
+  alt: "Banner Alt Text"
 
 # Optional fields
 # Banner options (choose one and uncomment):
@@ -22,41 +26,31 @@ authors: ["Author Name"]  # Can be single author or multiple: ["Author 1", "Auth
 #   alt: Your custom alt text
 ---
 
-# Template Post
+# Post Title Here
 
-Your introduction paragraph goes here. This will be used as the excerpt on the posts listing page.
-Keep it concise and engaging - it will be truncated to 200 characters in the preview.
+Your introduction paragraph goes here. This will be used as the excerpt on the posts listing page if no excerpt is specified in the frontmatter. Keep it concise and engaging.
 
 ## Section Heading
 
-Your content goes here. You can use standard markdown formatting:
-
+Your content goes here. You can use:
 - Bullet points
-- Like this
+- **Bold text**
+- *Italic text*
+- [Links](https://example.com)
+- And other Markdown formatting
 
-1. Numbered lists
-2. Work too
+## Writing Guidelines
 
-## Formatting Examples
+1. Use clear, descriptive titles
+2. Add relevant tags (2-4 recommended)
+3. Include a compelling introduction
+4. Break content into logical sections
+5. Use proper Markdown formatting
 
-### Text Styling
-You can use **bold**, *italic*, or ***both***.
+## File Naming
 
-### Code Blocks
-```python
-def example():
-    return "This is a code block"
-```
-
-### Links
-[Link text](https://example.com)
-
-### Images
-![Image description](assets/images/example.jpg)
-
-### Blockquotes
-> This is a blockquote
-> It can span multiple lines
+Name your file as: `YYYY-MM-DD-post-title.md`
+Example: `2024-03-06-building-with-purpose.md`
 
 ## Tips
 - Keep your content focused and well-structured

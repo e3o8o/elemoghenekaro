@@ -5,10 +5,24 @@ const marked = require('marked');
 
 const POSTS_DIR = path.join(__dirname, '_posts');
 const OUTPUT_FILE = path.join(__dirname, 'posts.json');
+// Define the template post to exclude
+const TEMPLATE_POST = '2000-12-31-template-post.md';
+const TEMPLATE_HTML = '2000-12-31-template-post.html';
 
 // Create posts directory if it doesn't exist
 if (!fs.existsSync(POSTS_DIR)) {
     fs.mkdirSync(POSTS_DIR, { recursive: true });
+}
+
+// Check if template HTML file exists from previous builds and remove it
+const templateHtmlPath = path.join(__dirname, TEMPLATE_HTML);
+if (fs.existsSync(templateHtmlPath)) {
+    try {
+        fs.unlinkSync(templateHtmlPath);
+        console.log(`Removed template post HTML file: ${TEMPLATE_HTML}`);
+    } catch (error) {
+        console.error(`Error removing template post HTML file: ${error.message}`);
+    }
 }
 
 function getBannerSettings(post) {
@@ -38,7 +52,7 @@ function generatePostsJson() {
     const posts = [];
     
     // Read all markdown files
-    const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md'));
+    const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md') && file !== TEMPLATE_POST);
     
     files.forEach(file => {
         const filePath = path.join(POSTS_DIR, file);
@@ -84,10 +98,21 @@ function generatePostsJson() {
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(posts, null, 2));
     
     // Generate individual HTML files for each post
-    const postTemplate = fs.readFileSync(path.join(__dirname, 'post-template.html'), 'utf-8');
-    
-    posts.forEach(post => {
-        let postHtml = postTemplate;
+    const templatePath = path.join(__dirname, 'post-template.html');
+    const template = fs.readFileSync(templatePath, 'utf-8');
+
+    // Check the original template CSS path
+    const originalCssPathMatch = template.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
+    console.log('Original template CSS path:', originalCssPathMatch ? originalCssPathMatch[0] : 'Not found');
+
+    // Process each markdown file
+    const postsHtml = posts.map(post => {
+        // Create a fresh copy of the template for each post
+        let postHtml = template;
+        
+        // Check initial post HTML CSS path
+        const initialPostCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
+        console.log('Initial post HTML CSS path:', initialPostCssPathMatch ? initialPostCssPathMatch[0] : 'Not found');
         
         // Replace all instances of {{title}}
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
@@ -120,13 +145,36 @@ function generatePostsJson() {
         // Handle tags
         const tagsHtml = post.tags ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : '';
         
+        // Replace content and metadata
         postHtml = postHtml
             .replace('{{date}}', formattedDate)
             .replace(/\{\{#tags\}\}.*?\{\{\/tags\}\}/gs, tagsHtml)
             .replace('{{content}}', post.content);
+
+        // Check CSS path before fix
+        const beforeFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
+        console.log('CSS path before fix:', beforeFixCssPathMatch ? beforeFixCssPathMatch[0] : 'Not found');
+
+        // Fix writing.css path
+        postHtml = postHtml.replace(
+            '<link rel="stylesheet" href="writing.css">',
+            '<link rel="stylesheet" href="../writing/writing.css">'
+        );
         
+        // Check CSS path after fix
+        const afterFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
+        console.log('CSS path after fix:', afterFixCssPathMatch ? afterFixCssPathMatch[0] : 'Not found');
+        
+        // Write the file
         const postPath = path.join(__dirname, post.url);
         fs.writeFileSync(postPath, postHtml);
+        
+        // Check final file CSS path
+        const finalHtml = fs.readFileSync(postPath, 'utf-8');
+        const finalCssPathMatch = finalHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
+        console.log('Final post HTML CSS path:', finalCssPathMatch ? finalCssPathMatch[0] : 'Not found');
+        
+        return post;
     });
     
     console.log(`Generated posts.json with ${posts.length} posts`);

@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load posts
     await loadPosts();
     
+    // Validate post data
+    function isValidPost(post) {
+        return post &&
+            typeof post.title === 'string' && post.title.trim() !== '' &&
+            post.date && !isNaN(new Date(post.date)) &&
+            typeof post.excerpt === 'string' &&
+            typeof post.url === 'string' &&
+            (!post.tags || Array.isArray(post.tags));
+    }
+    
     async function loadPosts() {
         try {
             // Debug base href resolution
@@ -18,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Construct paths based on environment
             const postsJsonPath = isGitHubPages 
                 ? `${baseHref}writing/posts.json`
-                : 'posts.json';
+                : 'writing/posts.json';
             console.log('Posts JSON path:', postsJsonPath);
             
             const response = await fetch(postsJsonPath);
@@ -35,34 +45,46 @@ document.addEventListener('DOMContentLoaded', async () => {
                 throw new Error('Posts data is not an array');
             }
             
-            if (posts.length === 0) {
+            // Filter out any invalid posts
+            const validPosts = posts.filter(post => isValidPost(post));
+            
+            if (validPosts.length === 0) {
                 showNoPostsMessage();
                 return;
             }
             
-            const postsHTML = posts.map(post => {
-                // For GitHub Pages, combine base href with post URL
-                const fullUrl = isGitHubPages
-                    ? `${baseHref}writing/${post.url}`
-                    : post.url;
-                console.log('Post URL:', fullUrl);
-                
-                return `
-                    <div class="list-item">
-                        <h3>${post.title}</h3>
-                        <p>${post.excerpt || ''}</p>
-                        <div class="list-item-meta">
-                            <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
-                            ${post.tags ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
+            const postsHTML = validPosts.map(post => {
+                try {
+                    // For GitHub Pages, combine base href with post URL
+                    const fullUrl = isGitHubPages
+                        ? `${baseHref}writing/${post.url}`
+                        : `writing/${post.url}`;
+                    console.log('Post URL:', fullUrl);
+                    
+                    return `
+                        <div class="list-item">
+                            <h3>${post.title}</h3>
+                            <p>${post.excerpt || ''}</p>
+                            <div class="list-item-meta">
+                                <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+                                ${post.tags && post.tags.length > 0 ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
+                            </div>
+                            <a href="${fullUrl}" class="list-item-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
-                        <a href="${fullUrl}" class="list-item-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                `;
-            }).join('');
+                    `;
+                } catch (error) {
+                    console.error('Error rendering post:', error);
+                    return '';
+                }
+            }).filter(html => html !== '').join('');
             
-            postsContainer.innerHTML = postsHTML;
+            if (postsHTML) {
+                postsContainer.innerHTML = postsHTML;
+            } else {
+                showNoPostsMessage();
+            }
         } catch (error) {
             console.error('Error loading posts:', error);
             console.error('Full error details:', error.stack);
@@ -80,11 +102,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     function formatDate(dateString) {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        try {
+            return new Date(dateString).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        } catch (error) {
+            console.error('Error formatting date:', error);
+            return 'Invalid Date';
+        }
     }
 
     function formatAuthors(authors) {

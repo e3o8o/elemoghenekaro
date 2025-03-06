@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx http-server . -p 4001 -c-1",
     "generate": "node generate-posts.js",
-    "build:writing": "node writing/build.js"
+    "build:writing": "node writing/build.js",
+    "build:all": "npm run generate && npm run build:writing"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
