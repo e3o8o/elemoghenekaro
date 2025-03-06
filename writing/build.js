@@ -155,11 +155,17 @@ function generatePostsJson() {
         const beforeFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
         console.log('CSS path before fix:', beforeFixCssPathMatch ? beforeFixCssPathMatch[0] : 'Not found');
 
-        // Fix writing.css path
-        postHtml = postHtml.replace(
-            '<link rel="stylesheet" href="writing.css">',
-            '<link rel="stylesheet" href="../writing/writing.css">'
-        );
+        // Ensure CSS paths are correct for GitHub Pages
+        if (postHtml.includes('href="../writing/writing.css"')) {
+            // Already correct, do nothing
+            console.log('CSS path is already correct');
+        } else {
+            // Fix any incorrect references to writing.css
+            postHtml = postHtml.replace(
+                /<link[^>]*href="[^"]*writing\.css"[^>]*>/,
+                '<link rel="stylesheet" href="../writing/writing.css">'
+            );
+        }
         
         // Check CSS path after fix
         const afterFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
