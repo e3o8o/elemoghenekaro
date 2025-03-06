@@ -25,6 +25,7 @@ The banner system has been updated to handle different types of banners:
 - **Default (Dark)**: If no banner is specified, the system automatically uses `assets/images/banner_dark.png`
 - **Light Banner**: For posts that need a lighter banner, specify `assets/images/banner_light.png` in the frontmatter
 - **Custom Banner**: You can specify a path to your own custom banner image
+- **No Banner**: Set `banner: false` to display no banner at all
 
 Example frontmatter for using the light banner:
 
@@ -32,6 +33,12 @@ Example frontmatter for using the light banner:
 banner:
   path: assets/images/banner_light.png
   alt: "Light Banner Alt Text"
+```
+
+Example frontmatter for no banner:
+
+```yaml
+banner: false
 ```
 
 ## Build Process

@@ -71,19 +71,29 @@ try {
                 }
                 
                 // Create post object with strict type checking
-                return {
+                const postData = {
                     id: filename.replace('.md', ''),
                     title: String(data.title).trim(),
                     date: data.date,
                     tags: Array.isArray(data.tags) ? data.tags.map(tag => String(tag).trim()) : [],
                     excerpt: String(excerpt).trim(),
                     url: filename.replace('.md', '.html'),
-                    content: htmlContent,
-                    banner: data.banner || {
+                    content: htmlContent
+                };
+
+                // Handle banner specifically
+                if (data.banner === false) {
+                    postData.banner = false;
+                } else if (data.banner) {
+                    postData.banner = data.banner;
+                } else {
+                    postData.banner = {
                         path: "assets/images/banner_dark.png",
                         alt: "Default Banner"
-                    }
-                };
+                    };
+                }
+
+                return postData;
             } catch (error) {
                 console.error(`Error processing file ${filename}:`, error);
                 return null;

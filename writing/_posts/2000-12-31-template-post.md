@@ -23,6 +23,9 @@ excerpt: "A brief excerpt of your post (optional). If not provided, the first pa
 # banner:
 #   path: assets/images/your-custom-banner.jpg
 #   alt: Your custom alt text
+#
+# Option 5: No banner
+# banner: false
 ---
 
 # Post Title Here
@@ -57,6 +60,7 @@ The website uses a banner system with these options:
 - **Default (Dark):** If no banner is specified, the system uses `banner_dark.png` 
 - **Light Banner:** Specify `banner_light.png` for lighter content
 - **Custom Banner:** Provide a path to your own banner image
+- **No Banner:** Set `banner: false` to display no banner at all
 
 ## Tips
 - Keep your content focused and well-structured

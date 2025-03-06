@@ -41,13 +41,24 @@ if (fs.existsSync(templateHtmlPath)) {
  * 1. Default (dark) banner: Used when no banner is specified
  * 2. Light banner: Used when banner.path is set to assets/images/banner_light.png
  * 3. Custom banner: Used when a custom path is provided
+ * 4. No banner: Used when banner is explicitly set to false
  * 
  * @param {Object} post - The post object containing banner information
- * @returns {Object} Banner settings with path and alt text
+ * @returns {Object|false} Banner settings with path and alt text, or false for no banner
  */
 function getBannerSettings(post) {
+    // Special case for no banner
+    if (post.banner === false) {
+        return false; // Explicitly indicate no banner
+    }
+    
     // If post has custom banner settings
     if (post.banner) {
+        // If banner is an object with display: false
+        if (typeof post.banner === 'object' && post.banner.display === false) {
+            return false; // Explicitly indicate no banner
+        }
+        
         // If banner is an object with path
         if (typeof post.banner === 'object' && post.banner.path) {
             return {
@@ -152,7 +163,19 @@ function generatePostsJson() {
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
         
         // Handle banner
-        if (post.banner) {
+        console.log(`Post ${post.title} - Banner setting:`, post.banner);
+        
+        if (post.banner === false) {
+            console.log(`Removing banner for post: ${post.title}`);
+            // No banner - remove all banner related elements
+            
+            // Remove the conditionals and banner img
+            postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
+            postHtml = postHtml.replace(/\{\{(\^banner\}\})([\s\S]*?)(\{\{\/banner\}\})/gm, '');
+            
+            // Also remove any img tag with class="post-banner" that might still be there
+            postHtml = postHtml.replace(/<img[^>]*class="post-banner"[^>]*>/g, '');
+        } else if (post.banner) {
             // Remove the no-banner section first
             postHtml = postHtml.replace(/\{\{(\^banner\}\})([\s\S]*?)(\{\{\/banner\}\})/gm, '');
             // Then handle the banner section
