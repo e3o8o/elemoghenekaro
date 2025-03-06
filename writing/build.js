@@ -34,8 +34,8 @@ function generatePostsJson() {
             .trim()
             .slice(0, 200) + '...';
         
-        // Generate URL from filename
-        const url = `/writing/posts/${file.replace('.md', '.html')}`;
+        // Generate URL from filename (now relative to writing directory)
+        const url = file.replace('.md', '.html');
         
         // Handle both single author and multiple authors
         const authors = data.authors || [data.author];
@@ -60,20 +60,13 @@ function generatePostsJson() {
     const postTemplate = fs.readFileSync(path.join(__dirname, 'post-template.html'), 'utf-8');
     
     posts.forEach(post => {
-        const postDir = path.join(__dirname, 'posts');
-        if (!fs.existsSync(postDir)) {
-            fs.mkdirSync(postDir, { recursive: true });
-        }
-        
         let postHtml = postTemplate;
+        
         // Replace all instances of {{title}}
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
         
-        // Set banner image based on post title
-        const bannerImage = post.title === "Building with Purpose: Our Development Philosophy" 
-            ? "../../assets/images/banner-no-logo.png"
-            : "../../assets/images/preterag_banner.jpeg";
-        postHtml = postHtml.replace('../../assets/images/preterag_banner.jpeg', bannerImage);
+        // Set banner image
+        postHtml = postHtml.replace('{{banner}}', 'assets/images/banner-no-logo.png');
         
         postHtml = postHtml
             .replace('{{date}}', new Date(post.date).toLocaleDateString('en-US', {
@@ -83,10 +76,10 @@ function generatePostsJson() {
             }))
             .replace('{{#authors}}', '')
             .replace('{{/authors}}', '')
-            .replace('{{.}}', post.authors.join('</a><a href="/about#team">'))
+            .replace('{{.}}', post.authors.join('</a><a href="about/#team">'))
             .replace('{{content}}', post.content);
         
-        const postPath = path.join(postDir, path.basename(post.url));
+        const postPath = path.join(__dirname, post.url);
         fs.writeFileSync(postPath, postHtml);
     });
     
