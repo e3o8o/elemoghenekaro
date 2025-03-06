@@ -1,6 +1,8 @@
 /* Import design system files */
 @import 'design-system/tokens.css';
 @import 'themes/base.css';
+@import 'themes/light.css';
+@import 'design-system/components.css';
 
 /* Reset and base styles */
 *, *::before, *::after {
@@ -12,6 +14,13 @@
 html {
     font-size: 16px;
     height: 100%;
+}
+
+html, body {
+    /* Add smooth transition for theme changes */
+    transition: background var(--theme-transition),
+                color var(--theme-transition),
+                border-color var(--theme-transition);
 }
 
 body {
