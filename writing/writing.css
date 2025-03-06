@@ -274,13 +274,7 @@
 
 /* List Items */
 .list-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
     margin-bottom: var(--spacing-2xl);
-    padding: 0;
-    background: transparent;
 }
 
 .list-item h3 {
@@ -303,7 +297,6 @@
     color: var(--text-color-muted);
     font-size: 0.75rem;
     margin-bottom: var(--spacing-sm);
-    justify-content: flex-start;
 }
 
 .list-item-meta span {
@@ -318,25 +311,16 @@
     gap: var(--spacing-xs);
     color: var(--spring-green);
     text-decoration: none;
-    font-size: 0.75rem;
-    transition: all 0.2s ease;
+    font-size: 0.875rem;
 }
 
 .list-item-link:hover {
-    color: var(--text-color);
+    opacity: 0.9;
 }
 
 /* No Posts Message */
 .no-posts-message {
-    text-align: left;
     padding: 2rem 0;
-}
-
-.no-posts-message i {
-    font-size: 2rem;
-    color: var(--spring-green);
-    margin-bottom: 1rem;
-    display: block;
 }
 
 .no-posts-message h3 {
@@ -377,8 +361,7 @@
 
 .list-section h2 {
     color: var(--spring-green);
-    text-align: left;
     margin-bottom: var(--spacing-xl);
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 400;
 } 
