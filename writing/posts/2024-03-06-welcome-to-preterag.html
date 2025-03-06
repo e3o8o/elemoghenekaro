@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Preterag - Preterag">
+    
+    <title>Welcome to Preterag - Preterag</title>
+    
+    <link rel="icon" type="image/png" href="../../assets/images/preterag_fav_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="../../assets/css/palette.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../writing.css">
+    <style>
+        .post-header {
+            margin-bottom: 48px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+        .post-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .post-meta .authors {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .post-meta .authors a:not(:last-child):after {
+            content: ",";
+            margin-left: 2px;
+        }
+        .post-meta a {
+            color: var(--text-color-muted);
+            text-decoration: none;
+        }
+        .post-meta a:hover {
+            opacity: 0.8;
+        }
+        .post-banner {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto 48px;
+            border-radius: 8px;
+            display: block;
+        }
+        .post-content {
+            max-width: 800px;
+            line-height: 1.6;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        /* Hide the first h1 from the content since we show it in the header */
+        .post-content h1:first-child {
+            display: none;
+        }
+        .post-content h2, .post-content h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-color-muted);
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .post-content p {
+            margin-bottom: 16px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        .post-content ul, .post-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        .post-content li {
+            margin-bottom: 4px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--spring-green);
+            text-decoration: none;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        @media (max-width: 768px) {
+            .post-header {
+                margin-bottom: 36px;
+            }
+            .post-meta {
+                gap: 8px;
+            }
+            .post-title {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .post-banner {
+                margin-bottom: 36px;
+                border-radius: 4px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .post-content h2, .post-content h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="logo">
+            <img src="../../assets/images/preterag_fav_icon.png" alt="Preterag Logo">
+        </a>
+        <nav class="header-nav">
+            <a href="/building" class="nav-link">Building</a>
+            <a href="/contributing" class="nav-link">Contributing</a>
+            <a href="/writing" class="nav-link active">Writing</a>
+            <a href="/about" class="nav-link">About</a>
+        </nav>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
+    
+    <main class="content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">Welcome to Preterag</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 6, 2024</span>
+                        <span class="authors">
+                            <i class="far fa-user"></i>
+                            
+                            <a href="/about#team">Elem Oghenekaro</a><a href="/about#team">John Smith</a><a href="/about#team">Jane Doe</a>
+                            
+                        </span>
+                    </div>
+                </header>
+                <img src="../../assets/images/preterag_banner.jpeg" alt="Preterag Banner" class="post-banner">
+                <div class="post-content">
+                    <h1>Welcome to Preterag</h1>
+<p>Welcome to Preterag! This is our first blog post that demonstrates the structure and formatting of our writing platform. Here, we&#39;ll share insights, updates, and thoughts about our journey in building and growing Preterag.</p>
+<h2>What is Preterag?</h2>
+<p>Preterag is more than just a platform - it&#39;s a vision for creating meaningful connections and impactful solutions. Our mission is to build tools and services that make a difference in how people work and collaborate.</p>
+<h2>What&#39;s Next?</h2>
+<p>Stay tuned for more updates as we continue to develop and expand our platform. We&#39;ll be sharing:</p>
+<ul>
+<li>Technical insights</li>
+<li>Development updates</li>
+<li>Community stories</li>
+<li>Product announcements</li>
+</ul>
+<p>We&#39;re excited to have you join us on this journey!</p>
+
+                </div>
+                <footer class="post-footer">
+                    <a href="/writing" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Back to Posts
+                    </a>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/preterag/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/preterag" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://mirror.xyz/preterag.eth" target="_blank" aria-label="Mirror.xyz">
+                <svg class="mirror-logo" viewBox="0 0 100 100" width="100%" height="100%">
+                    <path fill="currentColor" d="M20 80 L80 80 L80 30 A30 30 0 0 0 20 30 L20 80 Z"/>
+                </svg>
+            </a>
+            <a href="https://x.com/preterag" target="_blank" aria-label="X (formerly Twitter)">
+                <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+            </a>
+            <a href="https://instagram.com/preterag" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:hello@preterag.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">© 2025 Preterag OÜ. All rights reserved.</div>
+    </footer>
+    
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+</body>
+</html> 

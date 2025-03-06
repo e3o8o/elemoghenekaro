@@ -11,7 +11,7 @@ const globalSettings = {
             this.settings = JSON.parse(savedSettings);
         }
 
-        // Apply initial theme without animation
+        // Apply initial theme
         document.documentElement.setAttribute('data-theme', this.settings.theme);
 
         // Check system preference
@@ -34,12 +34,7 @@ const globalSettings = {
     toggleTheme() {
         const newTheme = this.settings.theme === 'light' ? 'dark' : 'light';
         this.setSetting('theme', newTheme);
-        // Add animation class only when toggling
-        document.documentElement.classList.add('theme-changing');
         document.documentElement.setAttribute('data-theme', newTheme);
-        setTimeout(() => {
-            document.documentElement.classList.remove('theme-changing');
-        }, 100); // Reduced from 250ms to 100ms
     }
 };
 

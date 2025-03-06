@@ -29,23 +29,6 @@
     --radius-full: 9999px;
 }
 
-@keyframes flashOverlay {
-    0% { opacity: 0.4; }
-    100% { opacity: 0; }
-}
-
-@keyframes quickFade {
-    0% { background-color: var(--midnight-green); }
-    100% { background-color: var(--html-bg); }
-}
-
-@keyframes surrealineMessage {
-    0% { opacity: 0; transform: translateX(-50%) translateY(100%); }
-    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    90% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-}
-
 /* Ensure the entire viewport uses theme colors */
 html, body {
     margin: 0;
@@ -56,19 +39,14 @@ html, body {
 }
 
 html {
-    background: var(--html-bg); /* Always spring-green regardless of theme */
+    background: var(--html-bg);
     min-height: 100vh;
-    animation: quickFade 0.1s ease-out;
 }
-
-/* Remove the incorrect body[data-theme] selectors since they won't match anything */
-/* Apply the gradient background only to the body */
-/* The theme colors will be inherited from :root and [data-theme="light"] in palette.css */
 
 /* Hidden Surrealine message */
 .surrealine-message {
     position: fixed;
-    bottom: -100px; /* Initially hidden below the viewport */
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.8);
@@ -82,36 +60,11 @@ html {
     text-shadow: 0 0 8px rgba(0, 245, 163, 0.7);
     box-shadow: 0 0 15px rgba(0, 245, 163, 0.3);
     border: 1px solid var(--spring-green);
-    transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 .surrealine-message.visible {
     bottom: 30px;
     opacity: 1;
-}
-
-/* Remove the theme change animation trigger */
-html.theme-changing .surrealine-message {
-    animation: none;
-}
-
-/* Flash overlay for theme changes */
-html::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0;
-    background-color: #05FE9E;  /* Brighter spring green */
-    transition: opacity 0.1s ease-out;
-}
-
-html.theme-changing::before {
-    animation: flashOverlay 0.1s ease-out forwards;
 }
 
 /* Base Styles */
@@ -121,12 +74,12 @@ body {
     overflow-x: hidden;
     background: var(--bg-color);
     background-attachment: fixed;
-    min-height: 100vh; /* Ensure the body fills the viewport */
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    position: relative; /* Establish stacking context */
-    z-index: 1; /* Ensure body content is above the HTML background */
+    position: relative;
+    z-index: 1;
 }
 
 /* Ensure body background changes with theme */
@@ -166,7 +119,6 @@ p {
 a {
     color: var(--accent-color);
     text-decoration: none;
-    transition: opacity 0.3s ease;
 }
 
 a:hover {

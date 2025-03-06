@@ -13,28 +13,27 @@
     --teal: #004B4B;
     --midnight-green: #001A1A;
     --spring-green: #00F5A3;
+    --beige: #F5F5DC;
+    --honeydew: #F0FFF0;
 
     /* Functional Colors */
     --bg-color: radial-gradient(circle at top right, var(--teal), var(--midnight-green)),
                 radial-gradient(circle at bottom left, var(--teal), var(--midnight-green));
-    --base-bg: rgba(0, 245, 163, 1); /* Spring Green with full opacity */
-    --html-bg: rgba(0, 245, 163, 1); /* Always spring-green for non-viewport area */
+    --base-bg: var(--midnight-green);
+    --html-bg: var(--midnight-green);
     --text-color: #ffffff;
     --text-color-muted: rgba(255, 255, 255, 0.7);
     --accent-color: var(--spring-green);
     --accent-hover: #00E090;
     --card-bg: rgba(0, 26, 26, 0.4);
-    
-    /* Transitions */
-    --theme-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Light Mode Colors - Make selector more specific */
-html[data-theme="light"] {
-    --bg-color: radial-gradient(circle at top right, #FFFFFF, #FFFAF0),
-                radial-gradient(circle at bottom left, #FFFFFF, #FAF7F2);
-    --base-bg: #FAF7F2;   /* Slightly darker cream for base */
-    /* --html-bg is intentionally not redefined here to keep the spring-green non-viewport area */
+/* Light Mode Colors */
+[data-theme="light"] {
+    --bg-color: radial-gradient(circle at top right, var(--beige), var(--honeydew)),
+                radial-gradient(circle at bottom left, var(--beige), var(--honeydew));
+    --base-bg: var(--honeydew);
+    --html-bg: var(--honeydew);
     --text-color: var(--caribbean-current);
     --text-color-muted: rgba(0, 56, 56, 0.7);
     --accent-color: var(--caribbean-current);
@@ -42,12 +41,12 @@ html[data-theme="light"] {
     --card-bg: rgba(0, 245, 163, 0.1);
 }
 
-/* Apply transitions to elements */
+/* Remove all transitions to prevent flashes */
 body,
 button,
 a,
 .nav-item,
 .card,
 .theme-toggle {
-    transition: var(--theme-transition);
+    transition: none;
 } 
