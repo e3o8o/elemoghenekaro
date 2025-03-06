@@ -10,8 +10,8 @@
     --mint-green: #B8C229;
     
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--slate-gray), var(--dark-charcoal)),
-                radial-gradient(circle at bottom left, var(--slate-gray), var(--dark-charcoal));
+    --bg-color: radial-gradient(circle at top right, #2D2E32, #1A1B1E),
+                radial-gradient(circle at bottom left, #252629, #1A1B1E);
     --base-bg: var(--dark-charcoal);
     --html-bg: var(--dark-charcoal);
     --text-color: #E8E9EA;

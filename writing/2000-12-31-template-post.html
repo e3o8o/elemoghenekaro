@@ -13,10 +13,10 @@
         }
         console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="{{title}} - Elem Oghenekaro">
+    <meta name="description" content="Template Post - Elem Oghenekaro">
     <meta name="robots" content="index, follow">
     
-    <title>{{title}} - Elem Oghenekaro</title>
+    <title>Template Post - Elem Oghenekaro</title>
     
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -160,21 +160,65 @@
         <div class="container">
             <article class="post">
                 <header class="post-header">
-                    <h1 class="post-title">{{title}}</h1>
+                    <h1 class="post-title">Template Post</h1>
                     <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> {{date}}</span>
-                        {{#tags}}<span><i class="fas fa-tags"></i> {{tags}}</span>{{/tags}}
+                        <span><i class="far fa-calendar"></i> December 31, 2000</span>
+                        
                     </div>
                 </header>
-                {{#banner}}
-                <img src="../{{banner}}" alt="{{banner_alt}}" class="post-banner">
-                {{/banner}}
-                {{^banner}}
+                
+                
                 <!-- Default banner - remove this section if no banner is desired -->
                 <img src="../assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
-                {{/banner}}
+                
                 <div class="post-content">
-                    {{content}}
+                    <h1>Template Post</h1>
+<p>Your introduction paragraph goes here. This will be used as the excerpt on the posts listing page.
+Keep it concise and engaging - it will be truncated to 200 characters in the preview.</p>
+<h2>Section Heading</h2>
+<p>Your content goes here. You can use standard markdown formatting:</p>
+<ul>
+<li>Bullet points</li>
+<li>Like this</li>
+</ul>
+<ol>
+<li>Numbered lists</li>
+<li>Work too</li>
+</ol>
+<h2>Formatting Examples</h2>
+<h3>Text Styling</h3>
+<p>You can use <strong>bold</strong>, <em>italic</em>, or <em><strong>both</strong></em>.</p>
+<h3>Code Blocks</h3>
+<pre><code class="language-python">def example():
+    return &quot;This is a code block&quot;
+</code></pre>
+<h3>Links</h3>
+<p><a href="https://example.com">Link text</a></p>
+<h3>Images</h3>
+<p><img src="assets/images/example.jpg" alt="Image description"></p>
+<h3>Blockquotes</h3>
+<blockquote>
+<p>This is a blockquote
+It can span multiple lines</p>
+</blockquote>
+<h2>Tips</h2>
+<ul>
+<li>Keep your content focused and well-structured</li>
+<li>Use headings to organize your thoughts</li>
+<li>Include relevant images or code examples when helpful</li>
+<li>End with a clear conclusion or call to action</li>
+</ul>
+<h2>Next Steps</h2>
+<p>Summarize your main points or provide next steps for readers.</p>
+<hr>
+<p>Note: Delete these instructions and examples when creating your post.
+Remember to:</p>
+<ol>
+<li>Save the file as YYYY-MM-DD-post-title.md</li>
+<li>Place any custom banner images in assets/images/</li>
+<li>Run the build script after creating your post</li>
+</ol>
+
                 </div>
                 <footer class="post-footer">
                     <a href=".." class="back-link">

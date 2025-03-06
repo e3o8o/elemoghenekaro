@@ -110,15 +110,19 @@ function generatePostsJson() {
                 .replace('{{/banner}}', '');
         }
         
+        // Format date
+        const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Handle tags
+        const tagsHtml = post.tags ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : '';
+        
         postHtml = postHtml
-            .replace('{{date}}', new Date(post.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }))
-            .replace('{{#authors}}', '')
-            .replace('{{/authors}}', '')
-            .replace('{{.}}', post.authors.join('</a><a href="about/index.html#team">'))
+            .replace('{{date}}', formattedDate)
+            .replace(/\{\{#tags\}\}.*?\{\{\/tags\}\}/gs, tagsHtml)
             .replace('{{content}}', post.content);
         
         const postPath = path.join(__dirname, post.url);

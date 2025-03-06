@@ -13,18 +13,19 @@
         }
         console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="Building with Purpose: My Development Philosophy - Elem Oghenekaro">
+    <meta name="description" content="Building with Purpose: Our Development Philosophy - Elem Oghenekaro">
+    <meta name="robots" content="index, follow">
     
-    <title>Building with Purpose: My Development Philosophy - Elem Oghenekaro</title>
+    <title>Building with Purpose: Our Development Philosophy - Elem Oghenekaro</title>
     
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="assets/css/palette.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="writing/writing.css">
+    <link rel="stylesheet" href="../assets/css/palette.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="writing.css">
     <style>
         .post-header {
             margin-bottom: 48px;
@@ -145,12 +146,9 @@
 </head>
 <body>
     <header class="site-header">
-        <a href="." class="logo">
-            <img src="assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
+        <a href=".." class="logo">
+            <img src="../assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
         </a>
-        <nav class="header-nav">
-            <a href="." class="nav-link">Writing</a>
-        </nav>
         <div class="theme-toggle">
             <button id="themeToggle" aria-label="Toggle theme">
                 <i class="fas fa-adjust"></i>
@@ -162,19 +160,21 @@
         <div class="container">
             <article class="post">
                 <header class="post-header">
-                    <h1 class="post-title">Building with Purpose: My Development Philosophy</h1>
+                    <h1 class="post-title">Building with Purpose: Our Development Philosophy</h1>
                     <div class="post-meta">
                         <span><i class="far fa-calendar"></i> March 6, 2024</span>
-                        <span><i class="fas fa-tags"></i> Development, Philosophy, Software Engineering</span>
+                        
                     </div>
                 </header>
                 
-                <img src="assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
+                
+                <!-- Default banner - remove this section if no banner is desired -->
+                <img src="../assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
                 
                 <div class="post-content">
-                    <h1>Building with Purpose: My Development Philosophy</h1>
-<p>As a software engineer, I believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by my commitment to creating meaningful solutions that make a difference.</p>
-<h2>Core Development Principles</h2>
+                    <h1>Building with Purpose: Our Development Philosophy</h1>
+<p>At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference.</p>
+<h2>Our Core Development Principles</h2>
 <h3>1. User-Centric Design</h3>
 <p>Everything we build starts with the user in mind. We focus on:</p>
 <ul>
@@ -202,9 +202,10 @@
 <h2>Looking Forward</h2>
 <p>As we continue to build and grow, these principles will guide our journey. We&#39;re committed to creating tools and platforms that not only solve problems but do so in a way that respects and empowers our users.</p>
 <p>Join us in building something meaningful! </p>
+
                 </div>
                 <footer class="post-footer">
-                    <a href="." class="back-link">
+                    <a href=".." class="back-link">
                         <i class="fas fa-arrow-left"></i> Back to Posts
                     </a>
                 </footer>
@@ -213,17 +214,16 @@
     </main>
 
     <footer class="site-footer">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/e3o8o/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/e3o8o" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://x.com/e3o8o" target="_blank" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://instagram.com/e3o8o" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:elemoghenekaro@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <div class="social-links" style="color: var(--accent-color)">
+            <a href="https://www.linkedin.com/in/e3o8o/" target="_blank" aria-label="LinkedIn" style="color: var(--accent-color)"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/e3o8o" target="_blank" aria-label="GitHub" style="color: var(--accent-color)"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/e3o8o" target="_blank" aria-label="X (formerly Twitter)" style="color: var(--accent-color)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/e3o8o" target="_blank" aria-label="Instagram" style="color: var(--accent-color)"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:elemoghenekaro@gmail.com" aria-label="Email" style="color: var(--accent-color)"><i class="fas fa-envelope"></i></a>
         </div>
-        <div class="copyright">© 2025 Elem Oghenekaro. All rights reserved.</div>
     </footer>
     
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/theme.js"></script>
 </body>
 </html> 

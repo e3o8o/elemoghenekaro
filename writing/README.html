@@ -13,10 +13,10 @@
         }
         console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
     </script>
-    <meta name="description" content="{{title}} - Elem Oghenekaro">
+    <meta name="description" content="undefined - Elem Oghenekaro">
     <meta name="robots" content="index, follow">
     
-    <title>{{title}} - Elem Oghenekaro</title>
+    <title>undefined - Elem Oghenekaro</title>
     
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -160,21 +160,89 @@
         <div class="container">
             <article class="post">
                 <header class="post-header">
-                    <h1 class="post-title">{{title}}</h1>
+                    <h1 class="post-title">undefined</h1>
                     <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> {{date}}</span>
-                        {{#tags}}<span><i class="fas fa-tags"></i> {{tags}}</span>{{/tags}}
+                        <span><i class="far fa-calendar"></i> Invalid Date</span>
+                        
                     </div>
                 </header>
-                {{#banner}}
-                <img src="../{{banner}}" alt="{{banner_alt}}" class="post-banner">
-                {{/banner}}
-                {{^banner}}
+                
+                
                 <!-- Default banner - remove this section if no banner is desired -->
                 <img src="../assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
-                {{/banner}}
+                
                 <div class="post-content">
-                    {{content}}
+                    <h1>Blog Posts</h1>
+<p>This directory contains all blog posts for the Preterag website. Each post is written in Markdown format with YAML frontmatter.</p>
+<h2>Creating a New Post</h2>
+<ol>
+<li><p>Copy the template file:</p>
+<pre><code class="language-bash">cp 2000-12-31-template-post.md YYYY-MM-DD-your-post-title.md
+</code></pre>
+<p>Replace <code>YYYY-MM-DD</code> with today&#39;s date and <code>your-post-title</code> with a URL-friendly version of your title.</p>
+</li>
+<li><p>Edit the frontmatter:</p>
+<ul>
+<li>Update <code>title</code>, <code>date</code>, and <code>authors</code></li>
+<li>Choose your banner option (see Banner Options below)</li>
+<li>Remove the template comments and examples</li>
+</ul>
+</li>
+<li><p>Write your content in Markdown format</p>
+</li>
+<li><p>Build the site:</p>
+<pre><code class="language-bash">cd writing &amp;&amp; node build.js
+</code></pre>
+</li>
+</ol>
+<h2>Banner Options</h2>
+<ol>
+<li><p><strong>Default Banner</strong> (banner-no-logo.png)</p>
+<ul>
+<li>Simply remove the banner field from frontmatter</li>
+</ul>
+<pre><code class="language-yaml">---
+title: &quot;Your Title&quot;
+date: 2024-03-07
+authors: [&quot;Your Name&quot;]
+---
+</code></pre>
+</li>
+<li><p><strong>No Banner</strong></p>
+<ul>
+<li>Set banner to false</li>
+</ul>
+<pre><code class="language-yaml">---
+title: &quot;Your Title&quot;
+date: 2024-03-07
+authors: [&quot;Your Name&quot;]
+banner: false
+---
+</code></pre>
+</li>
+<li><p><strong>Custom Banner</strong></p>
+<ul>
+<li>Simple path:</li>
+</ul>
+<pre><code class="language-yaml">banner: assets/images/your-banner.jpg
+</code></pre>
+<ul>
+<li>With alt text:</li>
+</ul>
+<pre><code class="language-yaml">banner:
+  path: assets/images/your-banner.jpg
+  alt: Your alt text
+</code></pre>
+</li>
+</ol>
+<h2>File Structure</h2>
+<ul>
+<li><code>2000-12-31-template-post.md</code> - Template for new posts</li>
+<li><code>README.md</code> - This documentation</li>
+<li><code>*.md</code> - Individual post files</li>
+<li><code>posts.json</code> - Generated post data (do not edit directly)</li>
+</ul>
+
                 </div>
                 <footer class="post-footer">
                     <a href=".." class="back-link">
