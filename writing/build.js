@@ -94,14 +94,20 @@ function generatePostsJson() {
         
         // Handle banner
         if (post.banner) {
+            // Remove the no-banner section first
+            postHtml = postHtml.replace(/\{\{(\^banner\}\})([\s\S]*?)(\{\{\/banner\}\})/gm, '');
+            // Then handle the banner section
             postHtml = postHtml
-                .replace('{{#banner}}', '')
-                .replace('{{/banner}}', '')
+                .replace(/\{\{#banner\}\}([\s\S]*?)\{\{\/banner\}\}/gm, '$1')
                 .replace('{{banner}}', post.banner.path)
                 .replace('{{banner_alt}}', post.banner.alt);
         } else {
-            // Remove banner section if no banner
-            postHtml = postHtml.replace(/{{#banner}}[\s\S]*?{{\/banner}}/m, '');
+            // Remove the banner section first
+            postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
+            // Then handle the no-banner section
+            postHtml = postHtml
+                .replace('{{^banner}}', '')
+                .replace('{{/banner}}', '');
         }
         
         postHtml = postHtml
