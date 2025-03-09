@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        console.log('Setting base href...');
+        // Dynamically set base href based on domain
+        if (window.location.hostname === 'e3o8o.github.io') {
+            document.write('<base href="/elemoghenekaro/">');
+        } else {
+            document.write('<base href="/">');
+        }
+        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
+    </script>
+    <meta name="description" content="Building with Purpose: Our Development Philosophy - Elem Oghenekaro">
+    <meta name="robots" content="index, follow">
+    
+    <title>Building with Purpose: Our Development Philosophy - Elem Oghenekaro</title>
+    
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="../assets/css/palette.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../writing/writing.css">
+    <style>
+        .post-header {
+            margin-bottom: 48px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+        .post-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .post-meta .authors {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .post-meta .authors a:not(:last-child):after {
+            content: ",";
+            margin-left: 2px;
+        }
+        .post-meta a {
+            color: var(--text-color-muted);
+            text-decoration: none;
+        }
+        .post-meta a:hover {
+            opacity: 0.8;
+        }
+        .post-banner {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto 48px;
+            border-radius: 8px;
+            display: block;
+        }
+        .post-content {
+            max-width: 800px;
+            line-height: 1.6;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        /* Hide the first h1 from the content since we show it in the header */
+        .post-content h1:first-child {
+            display: none;
+        }
+        .post-content h2, .post-content h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-color-muted);
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .post-content p {
+            margin-bottom: 16px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        .post-content ul, .post-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+        .post-content li {
+            margin-bottom: 4px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        @media (max-width: 768px) {
+            .post-header {
+                margin-bottom: 36px;
+            }
+            .post-meta {
+                gap: 8px;
+            }
+            .post-title {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .post-banner {
+                margin-bottom: 36px;
+                border-radius: 4px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .post-content h2, .post-content h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href=".." class="logo">
+            <img src="../assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
+        </a>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
+    
+    <main class="content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">Building with Purpose: Our Development Philosophy</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 6, 2024</span>
+                        
+                    </div>
+                </header>
+                
+                <img src="../assets/images/banner_dark.png" alt="Elem Oghenekaro Banner" class="post-banner">
+                
+                
+                <div class="post-content">
+                    <h1>Building with Purpose: Our Development Philosophy</h1>
+<p>At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference.</p>
+<h2>Our Core Development Principles</h2>
+<h3>1. User-Centric Design</h3>
+<p>Everything we build starts with the user in mind. We focus on:</p>
+<ul>
+<li>Intuitive interfaces</li>
+<li>Seamless experiences</li>
+<li>Meaningful interactions</li>
+<li>Accessible solutions</li>
+</ul>
+<h3>2. Sustainable Architecture</h3>
+<p>We build for the long term, ensuring our codebase is:</p>
+<ul>
+<li>Maintainable</li>
+<li>Scalable</li>
+<li>Well-documented</li>
+<li>Performance-optimized</li>
+</ul>
+<h3>3. Community-Driven Development</h3>
+<p>Our development process is enriched by:</p>
+<ul>
+<li>Open source collaboration</li>
+<li>Community feedback</li>
+<li>Shared knowledge</li>
+<li>Collective growth</li>
+</ul>
+<h2>Looking Forward</h2>
+<p>As we continue to build and grow, these principles will guide our journey. We&#39;re committed to creating tools and platforms that not only solve problems but do so in a way that respects and empowers our users.</p>
+<p>Join us in building something meaningful! </p>
+
+                </div>
+                <footer class="post-footer">
+                    <a href=".." class="back-link">
+                        <i class="fas fa-arrow-left"></i> Back to Posts
+                    </a>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-links" style="color: var(--accent-color)">
+            <a href="https://www.linkedin.com/in/e3o8o/" target="_blank" aria-label="LinkedIn" style="color: var(--accent-color)"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/e3o8o" target="_blank" aria-label="GitHub" style="color: var(--accent-color)"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/e3o8o" target="_blank" aria-label="X (formerly Twitter)" style="color: var(--accent-color)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/e3o8o" target="_blank" aria-label="Instagram" style="color: var(--accent-color)"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:elemoghenekaro@gmail.com" aria-label="Email" style="color: var(--accent-color)"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+    
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+</html> 
