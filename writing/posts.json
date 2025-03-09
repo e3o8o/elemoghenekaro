@@ -1,5 +1,19 @@
 [
   {
+    "title": "Pipe PoP Nodes are for Everyone",
+    "date": "2024-03-09T00:00:00.000Z",
+    "authors": [
+      "Elem Oghenekaro"
+    ],
+    "excerpt": "Pipe PoP Nodes are for Everyone\n\n\n\n\n\nI&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery ...",
+    "url": "2024-03-09-x-post-reflection.html",
+    "content": "<h1>Pipe PoP Nodes are for Everyone</h1>\n<blockquote class=\"twitter-tweet\">\n<a href=\"https://x.com/elemoghenekaro/status/1898770308556804174\"></a>\n</blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<p>I&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you&#39;re rewarded for owning a piece of the network.</p>\n<p>This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. By simplifying the process of running a PoP node, we can expand the network&#39;s reach and improve internet performance globally while enabling more people to participate in the decentralized web. </p>\n",
+    "banner": {
+      "path": "assets/images/banner_dark.png",
+      "alt": "Elem Oghenekaro Banner"
+    }
+  },
+  {
     "title": "Building with Purpose: Our Development Philosophy",
     "date": "2024-03-06T00:00:00.000Z",
     "authors": [

@@ -1,0 +1,18 @@
+---
+title: "Pipe PoP Nodes are for Everyone"
+date: 2024-03-09
+author: "Elem Oghenekaro"
+tags: ["Web3", "Infrastructure", "CDN", "Pipe Network"]
+excerpt: "I've been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN)."
+---
+
+# Pipe PoP Nodes are for Everyone
+
+<blockquote class="twitter-tweet">
+<a href="https://x.com/elemoghenekaro/status/1898770308556804174"></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+I've been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you're rewarded for owning a piece of the network.
+
+This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. By simplifying the process of running a PoP node, we can expand the network's reach and improve internet performance globally while enabling more people to participate in the decentralized web. 
