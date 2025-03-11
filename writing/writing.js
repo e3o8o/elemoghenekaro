@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             typeof post.title === 'string' && post.title.trim() !== '' &&
             post.date && !isNaN(new Date(post.date)) &&
             typeof post.excerpt === 'string' &&
-            typeof post.url === 'string' &&
-            (!post.tags || Array.isArray(post.tags));
+            (typeof post.url === 'string' || typeof post.external_url === 'string');
             
         if (!isValid) {
             console.log('Invalid post:', post);
@@ -21,52 +20,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     async function loadPosts() {
         try {
-            // Debug base href resolution
             const baseElement = document.querySelector('base');
             const baseHref = baseElement?.getAttribute('href') || '/';
-            
             const isGitHubPages = window.location.hostname === 'e3o8o.github.io';
-            console.log('Environment:', { isGitHubPages, baseHref });
             
-            // Load posts from posts.json
-            const postsJsonPath = isGitHubPages ? `${baseHref}writing/posts.json` : 'writing/posts.json';
-            console.log('Loading posts from:', postsJsonPath);
-            
+            const postsJsonPath = isGitHubPages 
+                ? `${baseHref}writing/posts.json`
+                : 'writing/posts.json';
+                
             const response = await fetch(postsJsonPath);
             if (!response.ok) {
                 throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
             }
             
             const posts = await response.json();
-            console.log('Posts loaded:', posts.length);
             
             if (posts.length === 0) {
-                console.log('No posts found');
                 showNoPostsMessage();
                 return;
             }
             
             const postsHTML = posts.map(post => {
                 try {
-                    // For external posts, use the URL directly
-                    // For internal posts, prepend the correct path
-                    const postUrl = post.external ? post.url : 
-                        (isGitHubPages ? `${baseHref}writing/${post.url}` : `writing/${post.url}`);
-                    
-                    const externalIcon = post.external ? '<i class="fas fa-external-link-alt" style="margin-left: 4px;"></i>' : '';
-                    const xIcon = post.external ? '<span class="post-source"><i class="fab fa-x-twitter"></i> Posted on X</span>' : '';
+                    const isExternal = post.external;
+                    const postUrl = isExternal ? post.url : (isGitHubPages ? `${baseHref}writing/${post.url}` : `writing/${post.url}`);
                     
                     return `
                         <div class="list-item">
-                            <h3>${post.title}${externalIcon}</h3>
+                            <h3>${post.title} ${isExternal ? '<span class="external-indicator">on X</span>' : ''}</h3>
                             <p>${post.excerpt || ''}</p>
                             <div class="list-item-meta">
                                 <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
                                 ${post.tags && post.tags.length > 0 ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
-                                ${xIcon}
                             </div>
-                            <a href="${postUrl}" class="list-item-link" ${post.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                                ${post.external ? 'View on X' : 'Read More'} <i class="fas fa-arrow-right"></i>
+                            <a href="${postUrl}" class="list-item-link" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                                ${isExternal ? 'View on X' : 'Read More'} <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     `;
@@ -78,12 +66,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (postsHTML) {
                 postsContainer.innerHTML = postsHTML;
+                
+                // Add styles for external indicator without modifying existing CSS files
+                const style = document.createElement('style');
+                style.textContent = `
+                    .external-indicator {
+                        font-size: 0.8em;
+                        padding: 2px 6px;
+                        border-radius: 3px;
+                        background-color: var(--accent-color);
+                        color: var(--bg-color);
+                        margin-left: 8px;
+                        vertical-align: middle;
+                    }
+                `;
+                document.head.appendChild(style);
             } else {
                 showNoPostsMessage();
             }
         } catch (error) {
             console.error('Error loading posts:', error);
-            console.error('Full error details:', error.stack);
             showNoPostsMessage();
         }
     }
