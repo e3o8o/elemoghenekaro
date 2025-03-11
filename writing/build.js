@@ -23,6 +23,30 @@ if (!fs.existsSync(POSTS_DIR)) {
     fs.mkdirSync(POSTS_DIR, { recursive: true });
 }
 
+/**
+ * Clean up old HTML files that don't have corresponding markdown files
+ */
+function cleanupOldHtmlFiles() {
+    const markdownFiles = fs.readdirSync(POSTS_DIR)
+        .filter(file => file.endsWith('.md') && file !== TEMPLATE_POST)
+        .map(file => file.replace('.md', '.html'));
+
+    const htmlFiles = fs.readdirSync(__dirname)
+        .filter(file => file.endsWith('.html') && file !== 'post-template.html');
+
+    htmlFiles.forEach(htmlFile => {
+        if (!markdownFiles.includes(htmlFile) && htmlFile !== TEMPLATE_HTML) {
+            const htmlPath = path.join(__dirname, htmlFile);
+            try {
+                fs.unlinkSync(htmlPath);
+                console.log(`Removed old HTML file: ${htmlFile}`);
+            } catch (error) {
+                console.error(`Error removing HTML file ${htmlFile}: ${error.message}`);
+            }
+        }
+    });
+}
+
 // Check if template HTML file exists from previous builds and remove it
 const templateHtmlPath = path.join(__dirname, TEMPLATE_HTML);
 if (fs.existsSync(templateHtmlPath)) {
@@ -200,4 +224,6 @@ function generatePostsJson() {
     console.log(`Generated posts.json with ${posts.length} posts`);
 }
 
+// Clean up old HTML files before generating new ones
+cleanupOldHtmlFiles();
 generatePostsJson(); 
