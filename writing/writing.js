@@ -53,13 +53,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const postUrl = post.external ? post.url : 
                         (isGitHubPages ? `${baseHref}writing/${post.url}` : `writing/${post.url}`);
                     
+                    const externalIcon = post.external ? '<i class="fas fa-external-link-alt" style="margin-left: 4px;"></i>' : '';
+                    const xIcon = post.external ? '<span class="post-source"><i class="fab fa-x-twitter"></i> Posted on X</span>' : '';
+                    
                     return `
                         <div class="list-item">
-                            <h3>${post.title}</h3>
+                            <h3>${post.title}${externalIcon}</h3>
                             <p>${post.excerpt || ''}</p>
                             <div class="list-item-meta">
                                 <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
                                 ${post.tags && post.tags.length > 0 ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
+                                ${xIcon}
                             </div>
                             <a href="${postUrl}" class="list-item-link" ${post.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
                                 ${post.external ? 'View on X' : 'Read More'} <i class="fas fa-arrow-right"></i>
