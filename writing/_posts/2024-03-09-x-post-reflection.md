@@ -17,4 +17,4 @@ source: "X"
 
 I've been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you're rewarded for owning a piece of the network.
 
-This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. By simplifying the process of running a PoP node, we can expand the network's reach and improve internet performance globally while enabling more people to participate in the decentralized web. 
+This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. I believe if we simplify the process of running a PoP node, we can expand the network's reach and improve internet performance globally while enabling more people to participate in the decentralized web. 
