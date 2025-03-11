@@ -4,21 +4,21 @@
 
 :root {
     /* Primary Colors */
-    --navy-blue: #000080;
-    --obsidian: #283041;
+    --dark-base: #121212;
+    --dark-surface: #202016;
     --spring-green: #A6AF1B;
     --mint-green: #B8C229;
     
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--obsidian), var(--navy-blue)),
-                radial-gradient(circle at bottom left, var(--obsidian), var(--navy-blue));
-    --base-bg: var(--navy-blue);
-    --html-bg: var(--navy-blue);
+    --bg-color: radial-gradient(circle at top right, var(--dark-surface), var(--dark-base)),
+                radial-gradient(circle at bottom left, var(--dark-surface), var(--dark-base));
+    --base-bg: var(--dark-base);
+    --html-bg: var(--dark-base);
     --text-color: #E8E9EA;
     --text-color-muted: rgba(232, 233, 234, 0.7);
     --accent-color: var(--spring-green);
     --accent-hover: var(--mint-green);
-    --card-bg: rgba(40, 48, 65, 0.4);
+    --card-bg: rgba(32, 32, 22, 0.4);
 }
 
 /* Light Mode Colors */
@@ -27,8 +27,8 @@
                 radial-gradient(circle at bottom left, #F0FFF0, #FFFACD);
     --base-bg: #F0FFF0;
     --html-bg: #F0FFF0;
-    --text-color: var(--obsidian);
-    --text-color-muted: rgba(40, 48, 65, 0.8);
+    --text-color: var(--dark-surface);
+    --text-color-muted: rgba(32, 32, 22, 0.8);
     --accent-color: var(--spring-green);
     --accent-hover: var(--mint-green);
     --card-bg: rgba(166, 175, 27, 0.1);
