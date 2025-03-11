@@ -133,7 +133,8 @@ function generatePostsJson() {
             url: url,
             content: html,
             banner: banner,
-            external: !!data.external_url
+            external: !!data.external_url,
+            source: data.source
         });
     });
     

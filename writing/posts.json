@@ -12,7 +12,8 @@
       "path": "assets/images/banner_dark.png",
       "alt": "Elem Oghenekaro Banner"
     },
-    "external": true
+    "external": true,
+    "source": "X"
   },
   {
     "title": "Building with Purpose: Our Development Philosophy",
