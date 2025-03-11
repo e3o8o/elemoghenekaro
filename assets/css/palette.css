@@ -4,16 +4,16 @@
 
 :root {
     /* Primary Colors */
-    --oil-black: #0B0B0B;
+    --deep-ocean: #1B2B34;
     --obsidian: #283041;
     --spring-green: #A6AF1B;
     --mint-green: #B8C229;
     
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, var(--obsidian), var(--oil-black)),
-                radial-gradient(circle at bottom left, var(--obsidian), var(--oil-black));
-    --base-bg: var(--oil-black);
-    --html-bg: var(--oil-black);
+    --bg-color: radial-gradient(circle at top right, var(--obsidian), var(--deep-ocean)),
+                radial-gradient(circle at bottom left, var(--obsidian), var(--deep-ocean));
+    --base-bg: var(--deep-ocean);
+    --html-bg: var(--deep-ocean);
     --text-color: #E8E9EA;
     --text-color-muted: rgba(232, 233, 234, 0.7);
     --accent-color: var(--spring-green);
