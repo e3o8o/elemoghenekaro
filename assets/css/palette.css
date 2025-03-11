@@ -10,9 +10,8 @@
     --mint-green: #B8C229;
     
     /* Functional Colors */
-    --bg-color: 
-        radial-gradient(circle at 0% 0%, var(--obsidian) 0%, var(--oxford-blue) 70%),
-        radial-gradient(circle at 100% 100%, var(--obsidian) 0%, var(--oxford-blue) 70%);
+    --bg-color: radial-gradient(circle at top right, var(--obsidian), var(--oxford-blue)),
+                radial-gradient(circle at bottom left, var(--obsidian), var(--oxford-blue));
     --base-bg: var(--oxford-blue);
     --html-bg: var(--oxford-blue);
     --text-color: #E8E9EA;
@@ -24,9 +23,8 @@
 
 /* Light Mode Colors */
 [data-theme="light"] {
-    --bg-color: 
-        radial-gradient(circle at 0% 0%, #F0FFF0 0%, #FFFACD 70%),
-        radial-gradient(circle at 100% 100%, #F0FFF0 0%, #FFFACD 70%);
+    --bg-color: radial-gradient(circle at top right, #F0FFF0, #FFFACD),
+                radial-gradient(circle at bottom left, #F0FFF0, #FFFACD);
     --base-bg: #F0FFF0;
     --html-bg: #F0FFF0;
     --text-color: var(--oxford-blue);
