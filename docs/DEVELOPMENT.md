@@ -1,17 +1,72 @@
 # Development Guide
 
-## Quick Setup
+## Prerequisites
+
+- Node.js (v18+)
+- npm or yarn
+- Basic knowledge of JavaScript and Markdown
+
+## Development Server
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
 npm start
+```
 
-# Build all content
+This starts a local server at `http://localhost:3000` with live reload.
+
+## File Structure
+
+```
+.
+├── assets/          # Static assets (CSS, images)
+├── writing/         # Blog posts and build scripts
+├── tools/          # Development utilities
+└── docs/           # Documentation
+```
+
+## Writing Posts
+
+### Local Posts
+
+1. Create a new post:
+```bash
+./post-utils.sh add '{"title":"My Post","date":"YYYY-MM-DD","excerpt":"Brief description"}'
+```
+
+2. Edit the generated Markdown file in `writing/_posts/`.
+
+### External Posts
+
+1. Add an external post:
+```bash
+./post-utils.sh add '{"title":"External Post","date":"YYYY-MM-DD","excerpt":"Brief description","externalUrl":"https://example.com","source":"Source Name"}'
+```
+
+## Building
+
+```bash
+# Build posts only
+npm run build:posts
+
+# Build everything
 npm run build:all
 ```
+
+## SEO & Indexing
+
+1. Update `sitemap.xml` with new posts
+2. Submit sitemap to search consoles:
+   - Google Search Console
+   - Bing Webmaster Tools
+   - Yandex.Webmaster
+
+## Best Practices
+
+1. Keep posts focused and well-structured
+2. Use descriptive titles and excerpts
+3. Optimize images before adding
+4. Test on multiple devices
+5. Keep dependencies minimal
 
 ## Content Management
 
