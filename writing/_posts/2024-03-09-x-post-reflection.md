@@ -4,6 +4,7 @@ date: 2024-03-09
 author: "Elem Oghenekaro"
 tags: ["Web3", "Infrastructure", "CDN", "Pipe Network"]
 excerpt: "Introducing a comprehensive toolkit for managing Pipe PoP nodes - making decentralized CDN infrastructure accessible to everyone through simplified node management and deployment."
+external_url: "https://x.com/elemoghenekaro/status/1898770308556804174"
 ---
 
 # Pipe PoP Nodes are for Everyone

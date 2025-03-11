@@ -109,15 +109,15 @@ function generatePostsJson() {
         // Convert markdown to HTML
         const html = marked.parse(markdown);
         
-        // Create excerpt (first paragraph, stripped of HTML)
-        const excerpt = html
+        // Use frontmatter excerpt if available, otherwise generate from content
+        const excerpt = data.excerpt || html
             .split('</p>')[0]
             .replace(/<[^>]+>/g, '')
             .trim()
             .slice(0, 200) + '...';
         
-        // Generate URL from filename (now relative to writing directory)
-        const url = file.replace('.md', '.html');
+        // Generate URL - use external_url if available
+        const url = data.external_url || file.replace('.md', '.html');
         
         // Handle both single author and multiple authors
         const authors = data.authors || [data.author];
@@ -132,7 +132,8 @@ function generatePostsJson() {
             excerpt: excerpt,
             url: url,
             content: html,
-            banner: banner
+            banner: banner,
+            external: !!data.external_url
         });
     });
     
@@ -142,57 +143,28 @@ function generatePostsJson() {
     // Write posts.json
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(posts, null, 2));
     
-    // Generate individual HTML files for each post
-    const templatePath = path.join(__dirname, 'post-template.html');
-    const template = fs.readFileSync(templatePath, 'utf-8');
-
-    // Check the original template CSS path
-    const originalCssPathMatch = template.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
-    console.log('Original template CSS path:', originalCssPathMatch ? originalCssPathMatch[0] : 'Not found');
-
-    // Process each markdown file
-    const postsHtml = posts.map(post => {
-        // Create a fresh copy of the template for each post
+    // Only generate HTML files for non-external posts
+    posts.filter(post => !post.external).forEach(post => {
+        const templatePath = path.join(__dirname, 'post-template.html');
+        const template = fs.readFileSync(templatePath, 'utf-8');
+        
+        // Process template
         let postHtml = template;
         
-        // Check initial post HTML CSS path
-        const initialPostCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
-        console.log('Initial post HTML CSS path:', initialPostCssPathMatch ? initialPostCssPathMatch[0] : 'Not found');
-        
-        // Replace all instances of {{title}}
+        // Replace title and other metadata
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
         
         // Handle banner
-        console.log(`Post ${post.title} - Banner setting:`, post.banner);
-        
         if (post.banner === false) {
-            console.log(`Removing banner for post: ${post.title}`);
-            // No banner - remove all banner related elements
-            
-            // Remove the conditionals and banner img
             postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
             postHtml = postHtml.replace(/\{\{(\^banner\}\})([\s\S]*?)(\{\{\/banner\}\})/gm, '');
-            
-            // Also remove any img tag with class="post-banner" that might still be there
             postHtml = postHtml.replace(/<img[^>]*class="post-banner"[^>]*>/g, '');
         } else if (post.banner) {
-            // Remove the no-banner section first
             postHtml = postHtml.replace(/\{\{(\^banner\}\})([\s\S]*?)(\{\{\/banner\}\})/gm, '');
-            // Then handle the banner section
             postHtml = postHtml
                 .replace(/\{\{#banner\}\}([\s\S]*?)\{\{\/banner\}\}/gm, '$1')
                 .replace('{{banner}}', post.banner.path)
                 .replace('{{banner_alt}}', post.banner.alt);
-        } else {
-            // Remove the banner section first
-            postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
-            // Then handle the no-banner section but use default banner
-            postHtml = postHtml
-                .replace('{{^banner}}', '')
-                .replace('{{/banner}}', '')
-                // Set default banner path and alt text
-                .replace('../assets/images/banner_dark.png', `../${DEFAULT_BANNER.path}`)
-                .replace('Elem Oghenekaro Banner', DEFAULT_BANNER.alt);
         }
         
         // Format date
@@ -211,36 +183,17 @@ function generatePostsJson() {
             .replace(/\{\{#tags\}\}.*?\{\{\/tags\}\}/gs, tagsHtml)
             .replace('{{content}}', post.content);
 
-        // Check CSS path before fix
-        const beforeFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
-        console.log('CSS path before fix:', beforeFixCssPathMatch ? beforeFixCssPathMatch[0] : 'Not found');
-
-        // Ensure CSS paths are correct for GitHub Pages
-        if (postHtml.includes('href="../writing/writing.css"')) {
-            // Already correct, do nothing
-            console.log('CSS path is already correct');
-        } else {
-            // Fix any incorrect references to writing.css
+        // Ensure CSS paths are correct
+        if (!postHtml.includes('href="../writing/writing.css"')) {
             postHtml = postHtml.replace(
                 /<link[^>]*href="[^"]*writing\.css"[^>]*>/,
                 '<link rel="stylesheet" href="../writing/writing.css">'
             );
         }
         
-        // Check CSS path after fix
-        const afterFixCssPathMatch = postHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
-        console.log('CSS path after fix:', afterFixCssPathMatch ? afterFixCssPathMatch[0] : 'Not found');
-        
         // Write the file
         const postPath = path.join(__dirname, post.url);
         fs.writeFileSync(postPath, postHtml);
-        
-        // Check final file CSS path
-        const finalHtml = fs.readFileSync(postPath, 'utf-8');
-        const finalCssPathMatch = finalHtml.match(/<link[^>]*href="[^"]*writing\.css"[^>]*>/);
-        console.log('Final post HTML CSS path:', finalCssPathMatch ? finalCssPathMatch[0] : 'Not found');
-        
-        return post;
     });
     
     console.log(`Generated posts.json with ${posts.length} posts`);
