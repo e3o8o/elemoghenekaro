@@ -11,10 +11,8 @@
     
     /* Functional Colors */
     --bg-color: 
-        radial-gradient(circle at 0% 0%, var(--obsidian) 0%, var(--oxford-blue) 50%),
-        radial-gradient(circle at 100% 100%, var(--obsidian) 0%, var(--oxford-blue) 50%),
-        radial-gradient(circle at 100% 0%, var(--oxford-blue) 0%, var(--obsidian) 100%),
-        radial-gradient(circle at 0% 100%, var(--oxford-blue) 0%, var(--obsidian) 100%);
+        radial-gradient(circle at 0% 0%, var(--obsidian) 0%, var(--oxford-blue) 70%),
+        radial-gradient(circle at 100% 100%, var(--obsidian) 0%, var(--oxford-blue) 70%);
     --base-bg: var(--oxford-blue);
     --html-bg: var(--oxford-blue);
     --text-color: #E8E9EA;
