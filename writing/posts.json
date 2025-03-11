@@ -1,28 +1,29 @@
 [
   {
     "title": "What is Preterag?",
-    "date": "2024-03-11T00:00:00.000Z",
+    "date": "2025-03-11T00:00:00.000Z",
     "authors": [
       "Elem Oghenekaro"
     ],
-    "excerpt": "A brief introduction to Preterag and what's coming soon...",
-    "url": "2024-03-11-what-is-preterag.html",
-    "content": "<h1>What is Preterag?</h1>\n<p>I will share more soon...</p>\n<p>In the meantime, you can check out:</p>\n<ul>\n<li><a href=\"https://www.preterag.com\">Preterag</a></li>\n<li><a href=\"https://www.surrealine.com\">Surrealine</a></li>\n</ul>\n",
+    "excerpt": "A brief introduction to Preterag and our vision for the future of technology.",
+    "url": "https://www.preterag.com",
+    "content": "<h1>What is Preterag?</h1>\n<p>A brief introduction to Preterag and our vision for the future of technology.</p>\n<p>In the meantime, you can check out:</p>\n<ul>\n<li><a href=\"https://www.preterag.com\">Preterag</a></li>\n<li><a href=\"https://www.surrealine.com\">Surrealine</a></li>\n</ul>\n",
     "banner": {
       "path": "assets/images/banner_dark.png",
       "alt": "Elem Oghenekaro Banner"
     },
-    "external": false
+    "external": true,
+    "source": "Preterag"
   },
   {
-    "title": "Pipe PoP Nodes are for Everyone",
-    "date": "2024-03-09T00:00:00.000Z",
+    "title": "Pipe Pop: A Reflection on X",
+    "date": "2025-03-09T00:00:00.000Z",
     "authors": [
       "Elem Oghenekaro"
     ],
-    "excerpt": "Introducing a comprehensive toolkit for managing Pipe PoP nodes - making decentralized CDN infrastructure accessible to everyone through simplified node management and deployment.",
-    "url": "https://x.com/elemoghenekaro/status/1898770308556804174",
-    "content": "<h1>Pipe PoP Nodes are for Everyone</h1>\n<blockquote class=\"twitter-tweet\">\n<a href=\"https://x.com/elemoghenekaro/status/1898770308556804174\"></a>\n</blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<p>I&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you&#39;re rewarded for owning a piece of the network.</p>\n<p>This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. I believe if we simplify the process of running a PoP node, we can expand the network&#39;s reach and improve internet performance globally while enabling more people to participate in the decentralized web. </p>\n",
+    "excerpt": "A reflection on the state of X (formerly Twitter) and its impact on online discourse.",
+    "url": "https://x.com/elemoghenekaro/status/1766445297447641481",
+    "content": "<h1>Pipe PoP Nodes are for Everyone</h1>\n<blockquote class=\"twitter-tweet\">\n<a href=\"https://x.com/elemoghenekaro/status/1898770308556804174\"></a>\n</blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<p>I&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you&#39;re rewarded for owning a piece of the network.</p>\n<p>This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. I believe if we simplify the process of running a PoP node, we can expand the network&#39;s reach and improve internet performance globally while enabling more people to participate in the decentralized web. </p>\n<p>A reflection on the state of X (formerly Twitter) and its impact on online discourse. </p>\n",
     "banner": {
       "path": "assets/images/banner_dark.png",
       "alt": "Elem Oghenekaro Banner"

@@ -1,6 +1,6 @@
 ---
 title: "What is Preterag?"
-date: 2024-03-11
+date: 2025-03-11
 author: "Elem Oghenekaro"
 tags: ["Preterag", "Surrealine"]
 excerpt: "A brief introduction to Preterag and what's coming soon..."
