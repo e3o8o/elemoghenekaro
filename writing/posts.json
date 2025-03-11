@@ -1,5 +1,20 @@
 [
   {
+    "title": "What is Preterag?",
+    "date": "2024-03-11T00:00:00.000Z",
+    "authors": [
+      "Elem Oghenekaro"
+    ],
+    "excerpt": "A brief introduction to Preterag and what's coming soon...",
+    "url": "2024-03-11-what-is-preterag.html",
+    "content": "<h1>What is Preterag?</h1>\n<p>I will share more soon...</p>\n<p>In the meantime, you can check out:</p>\n<ul>\n<li><a href=\"https://www.preterag.com\">Preterag</a></li>\n<li><a href=\"https://www.surrealine.com\">Surrealine</a></li>\n</ul>\n",
+    "banner": {
+      "path": "assets/images/banner_dark.png",
+      "alt": "Elem Oghenekaro Banner"
+    },
+    "external": false
+  },
+  {
     "title": "Pipe PoP Nodes are for Everyone",
     "date": "2024-03-09T00:00:00.000Z",
     "authors": [
@@ -7,59 +22,12 @@
     ],
     "excerpt": "Introducing a comprehensive toolkit for managing Pipe PoP nodes - making decentralized CDN infrastructure accessible to everyone through simplified node management and deployment.",
     "url": "https://x.com/elemoghenekaro/status/1898770308556804174",
-    "content": "<h1>Pipe PoP Nodes are for Everyone</h1>\n<blockquote class=\"twitter-tweet\">\n<a href=\"https://x.com/elemoghenekaro/status/1898770308556804174\"></a>\n</blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<p>I&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you&#39;re rewarded for owning a piece of the network.</p>\n<p>This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. By simplifying the process of running a PoP node, we can expand the network&#39;s reach and improve internet performance globally while enabling more people to participate in the decentralized web. </p>\n",
+    "content": "<h1>Pipe PoP Nodes are for Everyone</h1>\n<blockquote class=\"twitter-tweet\">\n<a href=\"https://x.com/elemoghenekaro/status/1898770308556804174\"></a>\n</blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<p>I&#39;ve been tinkering with a side project: a comprehensive toolkit to run a Pipe PoP (Points of Presence) node on Pipe Network, a decentralized Content Delivery Network (CDN). While traditional CDNs speed up the internet by caching data on servers near you, Pipe Network lets you run a node to propagate data. More nodes mean lower latency ⚡️ and you&#39;re rewarded for owning a piece of the network.</p>\n<p>This project represents my ongoing work in making decentralized infrastructure more accessible to everyone. I believe if we simplify the process of running a PoP node, we can expand the network&#39;s reach and improve internet performance globally while enabling more people to participate in the decentralized web. </p>\n",
     "banner": {
       "path": "assets/images/banner_dark.png",
       "alt": "Elem Oghenekaro Banner"
     },
     "external": true,
     "source": "X"
-  },
-  {
-    "title": "Building with Purpose: Our Development Philosophy",
-    "date": "2024-03-06T00:00:00.000Z",
-    "authors": [
-      "Elem Oghenekaro"
-    ],
-    "excerpt": "At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference.",
-    "url": "2024-03-06-building-with-purpose.html",
-    "content": "<h1>Building with Purpose: Our Development Philosophy</h1>\n<p>At Preterag, we believe that great software is built with intention and purpose. Every line of code, every feature, and every decision is guided by our commitment to creating meaningful solutions that make a real difference.</p>\n<h2>Our Core Development Principles</h2>\n<h3>1. User-Centric Design</h3>\n<p>Everything we build starts with the user in mind. We focus on:</p>\n<ul>\n<li>Intuitive interfaces</li>\n<li>Seamless experiences</li>\n<li>Meaningful interactions</li>\n<li>Accessible solutions</li>\n</ul>\n<h3>2. Sustainable Architecture</h3>\n<p>We build for the long term, ensuring our codebase is:</p>\n<ul>\n<li>Maintainable</li>\n<li>Scalable</li>\n<li>Well-documented</li>\n<li>Performance-optimized</li>\n</ul>\n<h3>3. Community-Driven Development</h3>\n<p>Our development process is enriched by:</p>\n<ul>\n<li>Open source collaboration</li>\n<li>Community feedback</li>\n<li>Shared knowledge</li>\n<li>Collective growth</li>\n</ul>\n<h2>Looking Forward</h2>\n<p>As we continue to build and grow, these principles will guide our journey. We&#39;re committed to creating tools and platforms that not only solve problems but do so in a way that respects and empowers our users.</p>\n<p>Join us in building something meaningful! </p>\n",
-    "banner": {
-      "path": "assets/images/banner_dark.png",
-      "alt": "Elem Oghenekaro Banner"
-    },
-    "external": false
-  },
-  {
-    "title": "Welcome to Preterag",
-    "date": "2024-03-06T00:00:00.000Z",
-    "authors": [
-      "Elem Oghenekaro",
-      "John Smith",
-      "Jane Doe"
-    ],
-    "excerpt": "Welcome to Preterag! This is our first blog post that demonstrates the structure and formatting of our writing platform. Here, we'll share insights, updates, and thoughts about our journey in building and growing Preterag.",
-    "url": "2024-03-06-welcome-to-preterag.html",
-    "content": "<h1>Welcome to Preterag</h1>\n<p>Welcome to Preterag! This is our first blog post that demonstrates the structure and formatting of our writing platform. Here, we&#39;ll share insights, updates, and thoughts about our journey in building and growing Preterag.</p>\n<h2>What is Preterag?</h2>\n<p>Preterag is more than just a platform - it&#39;s a vision for creating meaningful connections and impactful solutions. Our mission is to build tools and services that make a difference in how people work and collaborate.</p>\n<h2>What&#39;s Next?</h2>\n<p>Stay tuned for more updates as we continue to develop and expand our platform. We&#39;ll be sharing:</p>\n<ul>\n<li>Technical insights</li>\n<li>Development updates</li>\n<li>Community stories</li>\n<li>Product announcements</li>\n</ul>\n<p>We&#39;re excited to have you join us on this journey!</p>\n",
-    "banner": {
-      "path": "assets/images/banner_light.png",
-      "alt": "Preterag Welcome Banner"
-    },
-    "external": false
-  },
-  {
-    "title": "The Power of Community in Open Source",
-    "date": "2024-03-05T00:00:00.000Z",
-    "authors": [
-      "Elem Oghenekaro"
-    ],
-    "excerpt": "Open source software has revolutionized how we build and share technology. At Preterag, we're deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration.",
-    "url": "2024-03-05-the-power-of-community.html",
-    "content": "<h1>The Power of Community in Open Source</h1>\n<p>Open source software has revolutionized how we build and share technology. At Preterag, we&#39;re deeply committed to fostering a vibrant, inclusive community that drives innovation through collaboration.</p>\n<h2>Why Community Matters</h2>\n<p>The strength of open source lies not just in the code, but in the connections and relationships that form around it. Here&#39;s why community is at the heart of everything we do:</p>\n<h3>Knowledge Sharing</h3>\n<p>When developers come together, amazing things happen:</p>\n<ul>\n<li>Cross-pollination of ideas</li>\n<li>Shared learning experiences</li>\n<li>Mentorship opportunities</li>\n<li>Collective problem-solving</li>\n</ul>\n<h3>Innovation Through Diversity</h3>\n<p>Different perspectives lead to better solutions:</p>\n<ul>\n<li>Cultural diversity</li>\n<li>Technical backgrounds</li>\n<li>Industry experiences</li>\n<li>Unique approaches to problems</li>\n</ul>\n<h3>Sustainable Growth</h3>\n<p>A strong community ensures:</p>\n<ul>\n<li>Long-term project viability</li>\n<li>Continuous improvement</li>\n<li>Shared maintenance</li>\n<li>Resilient ecosystems</li>\n</ul>\n<h2>Building Together</h2>\n<p>We believe that the best solutions emerge when we:</p>\n<ol>\n<li>Listen to each other</li>\n<li>Share our knowledge freely</li>\n<li>Support new contributors</li>\n<li>Celebrate our successes together</li>\n</ol>\n<h2>Join Our Community</h2>\n<p>Whether you&#39;re a seasoned developer or just starting your journey, there&#39;s a place for you in our community. Here&#39;s how you can get involved:</p>\n<ul>\n<li>Contribute to our projects</li>\n<li>Join our discussions</li>\n<li>Share your experiences</li>\n<li>Help others learn and grow</li>\n</ul>\n<p>Remember: Every great open source project started with a single contribution. Your involvement, no matter how small, makes a difference.</p>\n<p>Let&#39;s build something amazing together! 🚀 </p>\n",
-    "banner": {
-      "path": "assets/images/banner_dark.png",
-      "alt": "Elem Oghenekaro Banner"
-    },
-    "external": false
   }
 ]
