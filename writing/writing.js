@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             typeof post.title === 'string' && post.title.trim() !== '' &&
             post.date && !isNaN(new Date(post.date)) &&
             typeof post.excerpt === 'string' &&
-            (typeof post.url === 'string' || typeof post.external_url === 'string');
+            // Allow either url or externalUrl
+            (typeof post.url === 'string' || typeof post.externalUrl === 'string') &&
+            (!post.tags || Array.isArray(post.tags));
             
         if (!isValid) {
             console.log('Invalid post:', post);
@@ -20,41 +22,55 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     async function loadPosts() {
         try {
+            // Debug base href resolution
             const baseElement = document.querySelector('base');
             const baseHref = baseElement?.getAttribute('href') || '/';
+            
             const isGitHubPages = window.location.hostname === 'e3o8o.github.io';
+            console.log('Environment:', { isGitHubPages, baseHref });
             
-            const postsJsonPath = isGitHubPages 
-                ? `${baseHref}writing/posts.json`
-                : 'writing/posts.json';
-                
-            const response = await fetch(postsJsonPath);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
-            }
+            // Load both regular and external posts
+            console.log('Loading posts...');
+            const regularPosts = await loadRegularPosts(baseHref, isGitHubPages);
+            const externalPosts = await loadExternalPosts(baseHref, isGitHubPages);
             
-            const posts = await response.json();
+            console.log('Loaded posts:', {
+                regularPosts: regularPosts.length,
+                externalPosts: externalPosts.length
+            });
             
-            if (posts.length === 0) {
+            // Combine and sort all posts by date
+            const allPosts = [...regularPosts, ...externalPosts].sort((a, b) => 
+                new Date(b.date) - new Date(a.date)
+            );
+            
+            console.log('Total posts:', allPosts.length);
+            
+            if (allPosts.length === 0) {
+                console.log('No posts found');
                 showNoPostsMessage();
                 return;
             }
             
-            const postsHTML = posts.map(post => {
+            const postsHTML = allPosts.map(post => {
                 try {
-                    const isExternal = post.external;
-                    const postUrl = isExternal ? post.url : (isGitHubPages ? `${baseHref}writing/${post.url}` : `writing/${post.url}`);
+                    // Handle both regular and external posts
+                    const isExternal = !!post.externalUrl;
+                    const postUrl = isExternal 
+                        ? post.externalUrl 
+                        : (isGitHubPages ? `${baseHref}writing/${post.url}` : `writing/${post.url}`);
                     
                     return `
                         <div class="list-item">
-                            <h3>${post.title} ${isExternal ? '<span class="external-indicator">on X</span>' : ''}</h3>
+                            <h3>${post.title}</h3>
                             <p>${post.excerpt || ''}</p>
                             <div class="list-item-meta">
                                 <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
                                 ${post.tags && post.tags.length > 0 ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : ''}
+                                ${post.source ? `<span><i class="fas fa-external-link-alt"></i> ${post.source}</span>` : ''}
                             </div>
                             <a href="${postUrl}" class="list-item-link" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                                ${isExternal ? 'View on X' : 'Read More'} <i class="fas fa-arrow-right"></i>
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     `;
@@ -66,27 +82,56 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (postsHTML) {
                 postsContainer.innerHTML = postsHTML;
-                
-                // Add styles for external indicator without modifying existing CSS files
-                const style = document.createElement('style');
-                style.textContent = `
-                    .external-indicator {
-                        font-size: 0.8em;
-                        padding: 2px 6px;
-                        border-radius: 3px;
-                        background-color: var(--accent-color);
-                        color: var(--bg-color);
-                        margin-left: 8px;
-                        vertical-align: middle;
-                    }
-                `;
-                document.head.appendChild(style);
             } else {
                 showNoPostsMessage();
             }
         } catch (error) {
             console.error('Error loading posts:', error);
+            console.error('Full error details:', error.stack);
             showNoPostsMessage();
+        }
+    }
+    
+    async function loadRegularPosts(baseHref, isGitHubPages) {
+        const postsJsonPath = isGitHubPages 
+            ? `${baseHref}writing/posts.json`
+            : 'writing/posts.json';
+            
+        console.log('Loading regular posts from:', postsJsonPath);
+            
+        try {
+            const response = await fetch(postsJsonPath);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
+            }
+            const posts = await response.json();
+            console.log('Regular posts loaded:', posts.length);
+            return Array.isArray(posts) ? posts.filter(post => isValidPost(post)) : [];
+        } catch (error) {
+            console.error('Error loading regular posts:', error);
+            return [];
+        }
+    }
+    
+    async function loadExternalPosts(baseHref, isGitHubPages) {
+        const externalPostsPath = isGitHubPages 
+            ? `${baseHref}data/external-posts.json`
+            : 'data/external-posts.json';
+            
+        console.log('Loading external posts from:', externalPostsPath);
+            
+        try {
+            const response = await fetch(externalPostsPath);
+            if (!response.ok) {
+                console.warn('No external posts found:', response.status, response.statusText);
+                return [];
+            }
+            const posts = await response.json();
+            console.log('External posts loaded:', posts.length);
+            return Array.isArray(posts) ? posts.filter(post => isValidPost(post)) : [];
+        } catch (error) {
+            console.warn('Error loading external posts:', error);
+            return [];
         }
     }
     
