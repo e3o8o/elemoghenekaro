@@ -4,21 +4,21 @@
 
 :root {
     /* Primary Colors */
-    --dark-charcoal: #1A1B1E;
-    --slate-gray: #2D2E32;
+    --oxford-blue: #14213D;
+    --obsidian: #283041;
     --spring-green: #A6AF1B;
     --mint-green: #B8C229;
     
     /* Functional Colors */
-    --bg-color: radial-gradient(circle at top right, #2D2E32, #1A1B1E),
-                radial-gradient(circle at bottom left, #252629, #1A1B1E);
-    --base-bg: var(--dark-charcoal);
-    --html-bg: var(--dark-charcoal);
+    --bg-color: radial-gradient(circle at top right, var(--obsidian), var(--oxford-blue)),
+                radial-gradient(circle at bottom left, var(--obsidian), var(--oxford-blue));
+    --base-bg: var(--oxford-blue);
+    --html-bg: var(--oxford-blue);
     --text-color: #E8E9EA;
     --text-color-muted: rgba(232, 233, 234, 0.7);
     --accent-color: var(--spring-green);
     --accent-hover: var(--mint-green);
-    --card-bg: rgba(45, 46, 50, 0.4);
+    --card-bg: rgba(40, 48, 65, 0.4);
 }
 
 /* Light Mode Colors */
@@ -27,8 +27,8 @@
                 radial-gradient(circle at bottom left, #F0FFF0, #FFFACD);
     --base-bg: #F0FFF0;
     --html-bg: #F0FFF0;
-    --text-color: var(--dark-charcoal);
-    --text-color-muted: rgba(26, 27, 30, 0.8);
+    --text-color: var(--oxford-blue);
+    --text-color-muted: rgba(20, 33, 61, 0.8);
     --accent-color: var(--spring-green);
     --accent-hover: var(--mint-green);
     --card-bg: rgba(166, 175, 27, 0.1);
