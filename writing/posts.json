@@ -1,5 +1,20 @@
 [
   {
+    "title": "What is Preterag?",
+    "date": "2025-03-11T00:00:00.000Z",
+    "authors": [
+      "Elem Oghenekaro"
+    ],
+    "excerpt": "A brief introduction to Preterag and what's coming soon...",
+    "url": "2025-03-11-what-is-preterag.html",
+    "content": "<h1>What is Preterag?</h1>\n<p>I will share more soon...</p>\n<p>In the meantime, you can check out:</p>\n<ul>\n<li><a href=\"https://www.preterag.com\">Preterag</a></li>\n<li><a href=\"https://www.surrealine.com\">Surrealine</a></li>\n</ul>\n",
+    "banner": {
+      "path": "assets/images/banner_dark.png",
+      "alt": "Elem Oghenekaro Banner"
+    },
+    "external": false
+  },
+  {
     "title": "Pipe PoP Nodes are for Everyone",
     "date": "2025-03-09T00:00:00.000Z",
     "authors": [
