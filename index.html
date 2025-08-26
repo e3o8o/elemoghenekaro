@@ -1,132 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/karo_logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/karo_logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/karo_logo.png">
-    <link rel="apple-touch-icon" href="assets/images/karo_logo.png">
-    <link rel="shortcut icon" href="assets/images/karo_logo.png">
-    <!-- Search Engine Icon -->
-    <meta itemprop="image" content="https://elemoghenekaro.com/assets/images/karo_logo.png">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXNE3TZ692"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DXNE3TZ692');
-    </script>
-    
-    <script>
-        console.log('Setting base href...');
-        // Dynamically set base href based on domain
-        if (window.location.hostname === 'e3o8o.github.io') {
-            document.write('<base href="/elemoghenekaro/">');
-        } else {
-            document.write('<base href="/">');
-        }
-        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
-    </script>
-    
-    <!-- Primary Meta Tags -->
-    <title>Elem Oghenekaro - Blockchain Researcher & Web3 Builder</title>
-    <meta name="title" content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder">
-    <meta name="description" content="Weaving together insights from philosophy, cinema, and blockchain technology.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elemoghenekaro.com/">
-    <meta property="og:title" content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder">
-    <meta property="og:description" content="Weaving together insights from philosophy, cinema, and blockchain technology.">
-    <meta property="og:image" content="https://elemoghenekaro.com/assets/images/karo_logo.png">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://elemoghenekaro.com/">
-    <meta property="twitter:title" content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder">
-    <meta property="twitter:description" content="Weaving together insights from philosophy, cinema, and blockchain technology.">
-    <meta property="twitter:image" content="https://elemoghenekaro.com/assets/images/karo_logo.png">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/karo_logo.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="assets/images/karo_logo.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="assets/images/karo_logo.png"
+        />
+        <link rel="apple-touch-icon" href="assets/images/karo_logo.png" />
+        <link rel="shortcut icon" href="assets/images/karo_logo.png" />
+        <!-- Search Engine Icon -->
+        <meta
+            itemprop="image"
+            content="https://elemoghenekaro.com/assets/images/karo_logo.png"
+        />
 
-    <!-- Additional SEO -->
-    <meta name="author" content="Elem Oghenekaro">
-    <meta name="keywords" content="Elem Oghenekaro, Philosophy, Cinema, Blockchain, Web3, Film Analysis, Cryptocurrency Research, Blockchain Technology">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://elemoghenekaro.com/">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="assets/css/palette.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="writing/writing.css">
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-DXNE3TZ692"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-DXNE3TZ692");
+        </script>
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Elem Oghenekaro",
-      "alternateName": "Karo",
-      "url": "https://elemoghenekaro.com",
-      "image": "https://elemoghenekaro.com/assets/images/karo_logo.png",
-      "sameAs": [],
-      "jobTitle": "Blockchain Researcher",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Preterag",
-        "url": "https://www.preterag.com"
-      },
-      "description": "Weaving together insights from philosophy, cinema, and blockchain technology."
-    }
-    </script>
-</head>
-<body>
-    <header class="site-header">
-        <a href="." class="logo">
-            <img src="assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
-        </a>
-        <nav class="header-nav">
-        </nav>
-        <div class="theme-toggle">
-            <button id="themeToggle" aria-label="Toggle theme">
-                <i class="fas fa-adjust"></i>
-            </button>
-        </div>
-    </header>
-    
-    <main class="content">
-        <div class="container">
-            <section class="list-section">
-                <h2 style="color: var(--accent-color)">About</h2>
-                <div class="about-content">
-                    <p>Hi, I'm Elem Oghenekaro, most people call me Karo.</p>
-                    <p>I share my thoughts on this blog and on <a href="https://www.x.com/elemoghenekaro" target="_blank" style="color: var(--accent-color)">X (Twitter)</a>. I've had the opportunity to work on some exciting projects in Web3 and blockchain - I led research initiatives on stablecoin payments at <a href="https://www.getorbital.com" target="_blank" style="color: var(--accent-color)">Orbital</a>, helped develop the first governance aggregator platform for Web3 at <a href="https://messari.io/research/elem-oghenekaro" target="_blank" style="color: var(--accent-color)">Messari</a>, and contributed to launching the <a href="https://www.aragon.org/" target="_blank" style="color: var(--accent-color)">Aragon Network DAO</a>. Oh, I used to build calculators at <a href="https://www.omnicalculator.com/authors/oghenekaro-elem" target="_blank" style="color: var(--accent-color)">Omnicalculator</a>.</p>
-                    <p>I enjoy building and contributing to innovative projects. If you're working on something interesting, feel free to reach out!</p>
-                </div>
-            </section>
-            <section class="list-section">
-                <h2 style="color: var(--accent-color)">Writing</h2>
-                <div id="posts-container">
-                    <!-- Posts will be populated dynamically -->
-                </div>
-            </section>
-        </div>
-    </main>
+        <script>
+            console.log("Setting base href...");
+            // Dynamically set base href based on domain
+            if (window.location.hostname === "e3o8o.github.io") {
+                document.write('<base href="/elemoghenekaro/">');
+            } else {
+                document.write('<base href="/">');
+            }
+            console.log(
+                "Base href set to:",
+                document.querySelector("base")?.getAttribute("href"),
+            );
+        </script>
 
-    <footer class="site-footer">
-        <!-- Social links will be injected by social.js -->
-    </footer>
-    
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/social.js"></script>
-    <script src="writing/writing.js"></script>
-</body>
+        <!-- Primary Meta Tags -->
+        <title>Elem Oghenekaro - Blockchain Researcher & Web3 Builder</title>
+        <meta
+            name="title"
+            content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder"
+        />
+        <meta
+            name="description"
+            content="Weaving together insights from philosophy, cinema, and blockchain technology."
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://elemoghenekaro.com/" />
+        <meta
+            property="og:title"
+            content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder"
+        />
+        <meta
+            property="og:description"
+            content="Weaving together insights from philosophy, cinema, and blockchain technology."
+        />
+        <meta
+            property="og:image"
+            content="https://elemoghenekaro.com/assets/images/karo_logo.png"
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://elemoghenekaro.com/" />
+        <meta
+            property="twitter:title"
+            content="Elem Oghenekaro - Blockchain Researcher & Web3 Builder"
+        />
+        <meta
+            property="twitter:description"
+            content="Weaving together insights from philosophy, cinema, and blockchain technology."
+        />
+        <meta
+            property="twitter:image"
+            content="https://elemoghenekaro.com/assets/images/karo_logo.png"
+        />
+
+        <!-- Additional SEO -->
+        <meta name="author" content="Elem Oghenekaro" />
+        <meta
+            name="keywords"
+            content="Elem Oghenekaro, Philosophy, Cinema, Blockchain, Web3, Film Analysis, Cryptocurrency Research, Blockchain Technology"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://elemoghenekaro.com/" />
+
+        <!-- Styles -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap"
+        />
+        <link rel="stylesheet" href="assets/css/palette.css" />
+        <link rel="stylesheet" href="assets/css/base.css" />
+        <link rel="stylesheet" href="assets/css/components.css" />
+        <link rel="stylesheet" href="assets/css/layout.css" />
+        <link rel="stylesheet" href="writing/writing.css" />
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Elem Oghenekaro",
+                "alternateName": "Karo",
+                "url": "https://elemoghenekaro.com",
+                "image": "https://elemoghenekaro.com/assets/images/karo_logo.png",
+                "sameAs": [],
+                "jobTitle": "Blockchain Researcher",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Preterag",
+                    "url": "https://www.preterag.com"
+                },
+                "description": "Weaving together insights from philosophy, cinema, and blockchain technology."
+            }
+        </script>
+    </head>
+    <body>
+        <header class="site-header">
+            <a href="." class="logo">
+                <img
+                    src="assets/images/karo_logo.png"
+                    alt="Elem Oghenekaro Logo"
+                />
+            </a>
+            <nav class="header-nav"></nav>
+            <div class="theme-toggle">
+                <button id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-adjust"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="container">
+                <section class="list-section">
+                    <h2 style="color: var(--accent-color)">About</h2>
+                    <div class="about-content">
+                        <p>
+                            Hi, I'm Elem Oghenekaro, most people call me Karo.
+                        </p>
+                        <p>
+                            I share my thoughts on this blog and on
+                            <a
+                                href="https://www.x.com/elemoghenekaro"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >X (Twitter)</a
+                            >. I've had the opportunity to work on some exciting
+                            projects in Web3 and blockchain - I led research
+                            initiatives on stablecoin payments at
+                            <a
+                                href="https://www.getorbital.com"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >Orbital</a
+                            >, helped develop the first governance aggregator
+                            platform for Web3 at
+                            <a
+                                href="https://messari.io/research/elem-oghenekaro"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >Messari</a
+                            >, and contributed to launching the
+                            <a
+                                href="https://www.aragon.org/"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >Aragon Network DAO</a
+                            >. Oh, I used to build calculators at
+                            <a
+                                href="https://www.omnicalculator.com/authors/oghenekaro-elem"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >Omnicalculator</a
+                            >.
+                        </p>
+                        <p>
+                            I enjoy building and contributing to innovative
+                            projects, I write often but rarely publish, so I
+                            started
+                            <a
+                                href="https://www.linkedin.com/newsletters/1000-words-on-crypto-7345322726745694209/"
+                                target="_blank"
+                                style="color: var(--accent-color)"
+                                >1000 Words on Crypto newsletter</a
+                            >
+                            to fix that while sharing my thoughts on crypto's
+                            social layer. If you're working on something
+                            interesting, feel free to reach out!
+                        </p>
+                    </div>
+                </section>
+                <section class="list-section">
+                    <h2 style="color: var(--accent-color)">Writing</h2>
+                    <div id="posts-container">
+                        <!-- Posts will be populated dynamically -->
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <!-- Social links will be injected by social.js -->
+        </footer>
+
+        <script src="assets/js/settings.js"></script>
+        <script src="assets/js/theme.js"></script>
+        <script src="assets/js/social.js"></script>
+        <script src="writing/writing.js"></script>
+    </body>
 </html>
