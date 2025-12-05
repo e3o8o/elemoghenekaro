@@ -75,14 +75,14 @@ function getBannerSettings(post) {
     if (post.banner === false) {
         return false; // Explicitly indicate no banner
     }
-    
+
     // If post has custom banner settings
     if (post.banner) {
         // If banner is an object with display: false
         if (typeof post.banner === 'object' && post.banner.display === false) {
             return false; // Explicitly indicate no banner
         }
-        
+
         // If banner is an object with path
         if (typeof post.banner === 'object' && post.banner.path) {
             return {
@@ -118,37 +118,37 @@ function getBannerSettings(post) {
  */
 function generatePostsJson() {
     const posts = [];
-    
+
     // Read all markdown files, exclude template post
     const files = fs.readdirSync(POSTS_DIR)
         .filter(file => file.endsWith('.md') && file !== TEMPLATE_POST);
-    
+
     files.forEach(file => {
         const filePath = path.join(POSTS_DIR, file);
         const content = fs.readFileSync(filePath, 'utf-8');
-        
+
         // Parse frontmatter and content
         const { data, content: markdown } = matter(content);
-        
+
         // Convert markdown to HTML
         const html = marked.parse(markdown);
-        
+
         // Use frontmatter excerpt if available, otherwise generate from content
         const excerpt = data.excerpt || html
             .split('</p>')[0]
             .replace(/<[^>]+>/g, '')
             .trim()
             .slice(0, 200) + '...';
-        
+
         // Generate URL - use external_url if available
         const url = data.external_url || file.replace('.md', '.html');
-        
+
         // Handle both single author and multiple authors
         const authors = data.authors || [data.author];
 
         // Get banner settings
         const banner = getBannerSettings(data);
-        
+
         posts.push({
             title: data.title,
             date: data.date,
@@ -161,24 +161,24 @@ function generatePostsJson() {
             source: data.source
         });
     });
-    
+
     // Sort posts by date (newest first)
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
     // Write posts.json
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(posts, null, 2));
-    
+
     // Only generate HTML files for non-external posts
     posts.filter(post => !post.external).forEach(post => {
         const templatePath = path.join(__dirname, 'post-template.html');
         const template = fs.readFileSync(templatePath, 'utf-8');
-        
+
         // Process template
         let postHtml = template;
-        
+
         // Replace title and other metadata
         postHtml = postHtml.replace(/\{\{title\}\}/g, post.title);
-        
+
         // Handle banner
         if (post.banner === false) {
             postHtml = postHtml.replace(/\{\{#banner\}\}[\s\S]*?\{\{\/banner\}\}/gm, '');
@@ -191,22 +191,34 @@ function generatePostsJson() {
                 .replace('{{banner}}', post.banner.path)
                 .replace('{{banner_alt}}', post.banner.alt);
         }
-        
+
         // Format date
         const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         });
-        
+
         // Handle tags
         const tagsHtml = post.tags ? `<span><i class="fas fa-tags"></i> ${post.tags.join(', ')}</span>` : '';
-        
+
         // Replace content and metadata
         postHtml = postHtml
             .replace('{{date}}', formattedDate)
             .replace(/\{\{#tags\}\}.*?\{\{\/tags\}\}/gs, tagsHtml)
             .replace('{{content}}', post.content);
+
+        // Social Meta Tags Replacements
+        const baseUrl = 'https://e3o8o.github.io/elemoghenekaro/';
+        const fullUrl = baseUrl + post.url;
+        // Get banner path - use post.banner.path if it exists, otherwise default
+        const bannerPath = (post.banner && post.banner.path) ? post.banner.path : 'assets/images/banner_dark.png';
+        const fullBannerUrl = baseUrl + bannerPath;
+
+        postHtml = postHtml
+            .replace(/\{\{excerpt\}\}/g, post.excerpt)
+            .replace(/\{\{url\}\}/g, fullUrl)
+            .replace(/\{\{banner_url\}\}/g, fullBannerUrl);
 
         // Ensure CSS paths are correct
         if (!postHtml.includes('href="../writing/writing.css"')) {
@@ -215,12 +227,12 @@ function generatePostsJson() {
                 '<link rel="stylesheet" href="../writing/writing.css">'
             );
         }
-        
+
         // Write the file
         const postPath = path.join(__dirname, post.url);
         fs.writeFileSync(postPath, postHtml);
     });
-    
+
     console.log(`Generated posts.json with ${posts.length} posts`);
 }
 

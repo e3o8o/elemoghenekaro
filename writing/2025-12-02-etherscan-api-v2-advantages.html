@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        console.log('Setting base href...');
+        // Dynamically set base href based on domain
+        if (window.location.hostname === 'e3o8o.github.io') {
+            document.write('<base href="/elemoghenekaro/">');
+        } else {
+            document.write('<base href="/">');
+        }
+        console.log('Base href set to:', document.querySelector('base')?.getAttribute('href'));
+    </script>
+    <meta name="description" content="Exploring Etherscan's API tier adjustments and the changing landscape of blockchain data tools.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://e3o8o.github.io/elemoghenekaro/2025-12-02-etherscan-api-v2-advantages.html">
+    <meta property="og:title" content="Etherscan's API V2: A Pragmatic Step for Sustainable Blockchain Infra">
+    <meta property="og:description" content="Exploring Etherscan's API tier adjustments and the changing landscape of blockchain data tools.">
+    <meta property="og:image" content="https://e3o8o.github.io/elemoghenekaro/assets/images/free_apis_banner.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://e3o8o.github.io/elemoghenekaro/2025-12-02-etherscan-api-v2-advantages.html">
+    <meta property="twitter:title" content="Etherscan's API V2: A Pragmatic Step for Sustainable Blockchain Infra">
+    <meta property="twitter:description" content="Exploring Etherscan's API tier adjustments and the changing landscape of blockchain data tools.">
+    <meta property="twitter:image" content="https://e3o8o.github.io/elemoghenekaro/assets/images/free_apis_banner.jpeg">
+
+    <title>Etherscan's API V2: A Pragmatic Step for Sustainable Blockchain Infra - Elem Oghenekaro</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="../assets/css/palette.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../writing/writing.css">
+    <style>
+        .post-header {
+            margin-bottom: 48px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .post-title {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .post-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .post-meta .authors {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .post-meta .authors a:not(:last-child):after {
+            content: ",";
+            margin-left: 2px;
+        }
+
+        .post-meta a {
+            color: var(--text-color-muted);
+            text-decoration: none;
+        }
+
+        .post-meta a:hover {
+            opacity: 0.8;
+        }
+
+        .post-banner {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto 48px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .post-content {
+            max-width: 800px;
+            line-height: 1.6;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+
+        /* Hide the first h1 from the content since we show it in the header */
+        .post-content h1:first-child {
+            display: none;
+        }
+
+        .post-content h2,
+        .post-content h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-color-muted);
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .post-content p {
+            margin-bottom: 16px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+
+        .post-content ul,
+        .post-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-color-muted);
+            font-size: 14px;
+        }
+
+        .post-content li {
+            margin-bottom: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        @media (max-width: 768px) {
+            .post-header {
+                margin-bottom: 36px;
+            }
+
+            .post-meta {
+                gap: 8px;
+            }
+
+            .post-title {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .post-banner {
+                margin-bottom: 36px;
+                border-radius: 4px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .post-content h2,
+            .post-content h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href=".." class="logo">
+            <img src="../assets/images/karo_logo.png" alt="Elem Oghenekaro Logo">
+        </a>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">Etherscan's API V2: A Pragmatic Step for Sustainable Blockchain Infra</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> December 5, 2025</span>
+                        
+                    </div>
+                </header>
+                
+                <img src="../assets/images/free_apis_banner.jpeg" alt="Etherscan API V2 Architecture Diagram" class="post-banner">
+                
+                
+                <div class="post-content">
+                    <h1>Etherscan&#39;s API V2: A Pragmatic Step for Sustainable Blockchain Infra</h1>
+<p>I was intrigued (and a bit saddened) to see the recent ripple effects from Etherscan&#39;s announcement on their free API tier. </p>
+<p>For those catching up: exactly two weeks ago, November 22, 2025, Etherscan reduced coverage for the free tier by <a href="https://info.etherscan.com/whats-changing-in-the-free-api-tier-coverage-and-why/">&quot;roughly 10%&quot;</a> to sustainably support demand for its API.</p>
+<blockquote>
+<p>tldr; the old free tier is now a Lite plan (at 25% of the prior entry-level price).</p>
+</blockquote>
+<p>Affected chains (i.e. the 10% reduction) like Base, Optimism, and BNB Smart Chain (BSC) now require the new Lite plan for full access. We&#39;ve seen this pattern before - the &quot;Lite plan&quot; often becomes the new &quot;Free tier&quot; to meet economic realities.</p>
+<p>Ironically, I had touched on this <a href="https://www.linkedin.com/feed/update/urn:li:activity:7402779843509215232/">topic</a> two months ago:</p>
+<p><img src="/assets/images/linkedin_post.png" alt="LinkedIn Post Discussion"></p>
+<p>So no, this isn&#39;t a &quot;rug pull,&quot; it&#39;s a business reality check in a multichain ecosystem that&#39;s exploding with TPS and volume. Etherscan has subsidized free access for over a decade, powering countless dApps, wallets, and analytics tools without which we&#39;d be scrambling. Kudos to the team for transparency in their blog post, explaining how surging demands (faster blocks, higher tx volumes) made full free coverage unsustainable. </p>
+<p>This isn&#39;t new. Five days prior, DappRadar shut down after seven years due to unsustainable costs. The era of infinite free subsidies is over. [sadly!].</p>
+<p><img src="/assets/images/dappradar_annoucement.png" alt="DappRadar Announcement"></p>
+<p>However, the conversation shouldn&#39;t stop at pricing...</p>
+<p>While business models are being adjusted, improvements are being made. Much attention has focused on the API pricing, but Etherscan&#39;s rollout of <strong>API V2</strong> represents a significant technical advancement that deserves equal attention. Having recently migrated my DeFi tools to V2, I&#39;ve discovered substantial benefits that go beyond the surface-level changes.</p>
+<blockquote>
+<p>Every Dev tool should have a unified multichain architecture</p>
+</blockquote>
+<p><strong>The Game-Changer:</strong> Single API key for 60+ blockchain networks.</p>
+<pre><code class="language-javascript">// V1 - Fragmented approach
+const v1Endpoints = {
+  ethereum: &#39;https://api.etherscan.io/api&#39;,
+  arbitrum: &#39;https://api.arbiscan.io/api&#39;,
+  base: &#39;https://api.basescan.org/api&#39;,
+  // ...separate for each chain
+}
+
+// V2 - Unified approach
+const v2BaseUrl = &#39;https://api.etherscan.io/v2/api&#39;
+const getTransaction = (txHash, chainId) =&gt; 
+  `${v2BaseUrl}?chainid=${chainId}&amp;action=tx&amp;txhash=${txHash}`
+</code></pre>
+<p>This is something I&#39;ve been waiting for, single authentication point across all networks, it&#39;s a game-changer for multi-chain applications. And its future-proof for new chain integrations, the kind of architecture that will be needed as the multichain space matures.</p>
+<p>While researching the Balancer V2 and Yearn exploit last week, I simulated them using the V2 API and it was a breeze.</p>
+<pre><code class="language-python"># Before V2 - Complex multi-chain management
+class MultiChainAnalyzerV1:
+    def __init__(self):
+        self.chains = {
+            &#39;ethereum&#39;: {&#39;url&#39;: &#39;...&#39;, &#39;api_key&#39;: &#39;key1&#39;},
+            &#39;arbitrum&#39;: {&#39;url&#39;: &#39;...&#39;, &#39;api_key&#39;: &#39;key2&#39;},
+            &#39;base&#39;: {&#39;url&#39;: &#39;...&#39;, &#39;api_key&#39;: &#39;key3&#39;},
+            # ...and so on
+        }
+    
+    def analyze_exploit(self, chain, tx_hash):
+        config = self.chains[chain]
+        # Different implementation for each chain
+
+# After V2 - Streamlined approach
+class MultiChainAnalyzerV2:
+    def __init__(self):
+        self.base_url = &#39;https://api.etherscan.io/v2/api&#39;
+        self.api_key = &#39;single_key_for_all_chains&#39;
+    
+    def analyze_exploit(self, chain_id, tx_hash):
+        # Same implementation for all chains
+        return self._make_request(chain_id, &#39;tx&#39;, {&#39;txhash&#39;: tx_hash})
+</code></pre>
+<p>That said, the timing, right amid Devconnect chaos, stung. I think that can be better and with more notice.</p>
+<p>And yes, alternatives exist: Alchemy, Infura, Blockscout, Routescan. But Etherscan&#39;s has been the go-to for years, its UX and reliability set a high bar that&#39;s tough to match without their scale.</p>
+<p>From a professional lens, this is Web3 maturing. Explorers aren&#39;t pure public goods—though perhaps they should be?</p>
+<p>Finally, I must say, the adjustments spotlight innovation opportunities:</p>
+<ul>
+<li><strong>Open-source repos</strong> for verified contract code</li>
+<li><strong>Community-funded indexers</strong> and data providers</li>
+<li><strong>ICP-style on-protocol queries</strong> to reduce RPC reliance</li>
+<li><strong>Decentralized alternatives</strong> that need to gain traction.</li>
+</ul>
+<blockquote>
+<p>Shoutout to Etherscan for keeping verified contracts free across all tiers and chains. </p>
+</blockquote>
+<p>This adjustment foreshadows something else: the eventuality of protocol fee switches and the impact they will have on the ecosystem. As crypto matures and enters the institutional era, we also enter the revenue era. Hopefully, all of these growth will spur more innovation and competition. </p>
+<p>I&#39;m already excited about alternatives gaining traction. Recent favorite is <a href="https://orb.helius.dev/">Helius&#39; Orb</a> in addition to <a href="https://solscan.io/">Solscan</a> (acquired by Etherscan) and <a href="https://solana.fm/">Solanafm</a>, and <a href="https://routescan.io/">Routescan</a> for multichain EVM.</p>
+<p>The more options, the merrier, competition drives innovation.</p>
+<p>The Web3 ecosystem is growing up, and with maturity comes both challenges and opportunities. Etherscan&#39;s V2 API represents a pragmatic step forward and we will see more of this in the future. </p>
+
+                </div>
+                <footer class="post-footer">
+                    <a href=".." class="back-link">
+                        <i class="fas fa-arrow-left"></i> Back to Posts
+                    </a>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <!-- Social links will be injected by social.js -->
+    </footer>
+
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/social.js"></script>
+</body>
+
+</html>
