@@ -12,10 +12,10 @@ const socialConfig = {
     generateSocialLinks() {
         return `
             <div class="social-links" style="color: var(--accent-color)">
-                <a href="${this.links.linkedin}" target="_blank" aria-label="LinkedIn" style="color: var(--accent-color)"><i class="fab fa-linkedin"></i></a>
-                <a href="${this.links.github}" target="_blank" aria-label="GitHub" style="color: var(--accent-color)"><i class="fab fa-github"></i></a>
-                <a href="${this.links.twitter}" target="_blank" aria-label="X (formerly Twitter)" style="color: var(--accent-color)"><i class="fab fa-x-twitter"></i></a>
-                <a href="${this.links.instagram}" target="_blank" aria-label="Instagram" style="color: var(--accent-color)"><i class="fab fa-instagram"></i></a>
+                <a href="${this.links.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="color: var(--accent-color)"><i class="fab fa-linkedin"></i></a>
+                <a href="${this.links.github}" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="color: var(--accent-color)"><i class="fab fa-github"></i></a>
+                <a href="${this.links.twitter}" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" style="color: var(--accent-color)"><i class="fab fa-x-twitter"></i></a>
+                <a href="${this.links.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: var(--accent-color)"><i class="fab fa-instagram"></i></a>
                 <a href="${this.links.email}" aria-label="Email" style="color: var(--accent-color)"><i class="fas fa-envelope"></i></a>
             </div>
         `;
